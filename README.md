@@ -1,5 +1,7 @@
 # 帖磊·设计作品合集
 
+在线访问：[tie-lei-design-portfolio.pages.dev](https://tie-lei-design-portfolio.pages.dev/)
+
 双击 `index.html` 打开改进版。`原版.html` 是线上页面的本地原样副本，可用于对照。两者共用本文件夹内的作品素材；浏览本地作品无需联网或启动服务器，跳转外部品牌官网仍需联网。
 
 ## 文件结构
