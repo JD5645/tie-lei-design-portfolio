@@ -1,0 +1,1444 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>产品卖点与视觉文案生成-江东 · 在线预览</title>
+<style>
+:root{color-scheme:dark;font-family:Arial,"Microsoft YaHei",sans-serif;background:#111513;color:#f3f0e8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}a{color:inherit;text-decoration:none}button,a{-webkit-tap-highlight-color:transparent}
+.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px max(22px,4vw);background:#111513f2;border-bottom:1px solid #3b413d;backdrop-filter:blur(12px)}
+.top strong{font-size:17px;letter-spacing:.03em}.top nav{display:flex;gap:22px;align-items:center;font-size:12px}.top nav a:last-child{color:#f36a3e}.top nav a:hover,.sheet-nav a:hover{color:#f36a3e}
+.wrap{max-width:1600px;margin:auto;padding:0 max(22px,4vw)}.eyebrow{color:#f36a3e;font-size:11px;font-weight:700;letter-spacing:.12em}.intro{padding:62px 0 42px;border-bottom:1px solid #3b413d}.intro h1{font-size:clamp(30px,4.5vw,64px);line-height:1.15;overflow-wrap:anywhere;margin:20px 0 14px}.intro p{color:#aeb7b0;font-size:14px}
+.sheet-nav{display:flex;gap:8px;overflow:auto;padding:18px 0 34px;scrollbar-width:thin}.sheet-nav a{flex:none;display:flex;align-items:center;gap:9px;padding:11px 14px;border:1px solid #3b413d;font-size:12px;white-space:nowrap}.sheet-nav span{color:#f36a3e;font-size:10px;font-weight:700}
+.sheet{padding:45px 0 68px;border-top:1px solid #3b413d;scroll-margin-top:80px}.sheet-heading{display:flex;align-items:end;gap:24px;margin-bottom:22px}.sheet-heading>span{color:#f36a3e;font-size:11px;font-weight:700;letter-spacing:.1em}.sheet-heading h2{font-size:clamp(22px,2.3vw,34px);margin:0;overflow-wrap:anywhere}.sheet-heading small{margin-left:auto;color:#9eaaa1;white-space:nowrap}
+.table-scroll{overflow:auto;max-height:77vh;border:1px solid #3b413d;scrollbar-width:thin}table{border-collapse:separate;border-spacing:0;min-width:100%;font-size:13px;line-height:1.6}th,td{border-right:1px solid #343b36;border-bottom:1px solid #343b36;padding:10px 13px;vertical-align:top}thead th{position:sticky;top:0;z-index:2;background:#252b27;color:#b9c2ba;font-size:11px;text-align:left}tbody th{position:sticky;left:0;z-index:1;background:#1a201c;color:#91a094;font-size:11px;text-align:right;font-weight:400;min-width:42px}td{min-width:170px;max-width:440px;white-space:pre-wrap;overflow-wrap:anywhere}td:empty{min-width:70px}td.strong{font-weight:700;color:#fff}td a{color:#f36a3e;text-decoration:underline}tr:hover td{background:#1b211d}.empty{color:#9eaaa1}
+.bottom{padding:35px 0 55px;border-top:1px solid #3b413d;color:#9eaaa1;font-size:12px}@media(max-width:640px){.top{align-items:start;flex-direction:column}.sheet-heading{align-items:start;flex-wrap:wrap;gap:8px}.sheet-heading h2{width:100%}.sheet-heading small{margin:0}.intro{padding-top:36px}}
+</style></head><body>
+<header class="top"><strong>帖磊 <span style="color:#f36a3e">/</span> 作品集</strong><nav><a href="../../index.html#chapter-02">返回作品集 ↗</a><a href="../../02-AIGC/06-Prompt%E6%90%AD%E5%BB%BA/%E6%95%B0%E6%8D%AE%E7%B1%BB/%E4%BA%A7%E5%93%81%E5%8D%96%E7%82%B9%E4%B8%8E%E8%A7%86%E8%A7%89%E6%96%87%E6%A1%88%E7%94%9F%E6%88%90-%E6%B1%9F%E4%B8%9C.xlsx" download>下载原始 XLSX ↓</a></nav></header>
+<main class="wrap"><div class="intro"><span class="eyebrow">PROMPT ARCHIVE / 在线文档预览</span><h1>产品卖点与视觉文案生成-江东</h1><p>共 5 个工作表。点击下方名称可跳转，表格可横向滚动。原文件可在右上角下载。</p></div><nav class="sheet-nav" aria-label="工作表目录"><a href="#sheet-1"><span>01</span>01_说明与总览</a><a href="#sheet-2"><span>02</span>02_产品分析JSON</a><a href="#sheet-3"><span>03</span>03_XLSX导出JSON</a><a href="#sheet-4"><span>04</span>04_工作流与字段速查</a><a href="#sheet-5"><span>05</span>05_需求与约束汇总</a></nav><section class="sheet" id="sheet-1"><div class="sheet-heading"><span>WORKSHEET / 01</span><h2>01_说明与总览</h2><small>23 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th><th scope="col">H</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">产品卖点与视觉文案生成-江东</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">3</th><td class="strong">专业级提示词工程资料库｜多图产品识别 → 全量卖点/文案生成 → 专业XLSX完整导出</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">5</th><td class="strong">一、项目介绍</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">6</th><td class="strong">项目定位</td><td>用于通过多张产品图片自动识别产品类目、结构、材质外观、功能、工艺、场景和差异化价值，进一步生成全量卖点解析、基础卖点文案库、多风格文案库、8张主图策划文案及12–25屏详情页策划文案，并可在分析完成后继续导出为带产品图嵌入的专业级XLSX。</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">7</th><td class="strong">核心执行逻辑</td><td>第一阶段使用“多图产品自动识别与全量卖点视觉文案生成JSON”完成产品分析；第二阶段把第一阶段完整分析结果作为输入，使用“产品卖点分析报告完整导出XLSX-专业级JSON”生成最终Excel文档。</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">8</th><td class="strong">适用场景</td><td>电商视觉策划、详情页策划、主图规划、卖点提炼、产品文案库建设、品牌视觉文案、设计团队交付、运营团队选文案、跨部门产品资料归档。</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">9</th><td class="strong">适用类目</td><td>家具、家居、家纺、服装鞋包、数码电器、厨房卫浴、户外、宠物、母婴、办公、美妆个护、五金工具、汽车用品、运动用品及其他可通过图片识别的实体商品。</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">10</th><td class="strong">最终核心模块</td><td>卖点解析、卖点文案库、卖点风格文案库、8张主图策划文案、12–25屏详情页策划文案；XLSX导出阶段要求对应产品图直接嵌入各核心工作簿A列，并与右侧文案相邻。</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">12</th><td class="strong">二、文件内容导航</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">13</th><td class="strong">序号</td><td class="strong">工作簿</td><td class="strong">主要内容</td><td class="strong">如何使用</td><td class="strong">是否含完整JSON</td><td class="strong">JSON是否单单元格</td><td class="strong">核心用途</td><td class="strong">备注</td></tr><tr><th scope="row">14</th><td>01</td><td>01_说明与总览</td><td>项目介绍、使用说明、注意事项、工作流、文档导航</td><td>先阅读本页，确认两阶段使用顺序</td><td>否</td><td>—</td><td>快速理解整个项目</td><td>建议保留</td></tr><tr><th scope="row">15</th><td>02</td><td>02_产品分析JSON</td><td>第一阶段完整JSON + 右侧详细教程</td><td>复制B4完整单元格内容并配合多张产品图使用</td><td>是</td><td>是</td><td>生成完整产品分析报告</td><td>JSON不拆分</td></tr><tr><th scope="row">16</th><td>03</td><td>03_XLSX导出JSON</td><td>第二阶段完整JSON + 右侧详细教程</td><td>第一阶段结果生成后复制B4完整单元格执行</td><td>是</td><td>是</td><td>生成专业级XLSX</td><td>JSON不拆分</td></tr><tr><th scope="row">17</th><td>04</td><td>04_工作流与字段速查</td><td>两阶段流程、模块结构、字段映射、图片嵌入规则</td><td>作为执行和检查清单</td><td>否</td><td>—</td><td>团队协作与检查</td><td>辅助页</td></tr><tr><th scope="row">18</th><td>05</td><td>05_需求与约束汇总</td><td>本轮对话的核心需求、输出标准与强制约束</td><td>用于复核是否遗漏要求</td><td>否</td><td>—</td><td>项目需求归档</td><td>辅助页</td></tr><tr><th scope="row">20</th><td class="strong">三、推荐使用顺序</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">21</th><td class="strong">步骤1</td><td>准备产品图片</td><td>上传同一产品/同系列的多张图片，尽量包含整体图、结构图、材质特写、功能状态、尺寸信息等。</td><td>图片越完整，卖点证据越充分。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">22</th><td class="strong">步骤2</td><td>执行产品分析JSON</td><td>复制“02_产品分析JSON”工作簿B4单元格中的完整JSON，与产品图片一起执行。</td><td>得到五大模块的完整Markdown表格分析报告。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">23</th><td class="strong">步骤3</td><td>检查证据等级</td><td>重点区分“真实可使用”与“需要确认后使用”，需要确认项应结合参数、供应链资料或检测材料核实后商用。</td><td>不要把推断项直接当作已证实参数。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">24</th><td class="strong">步骤4</td><td>执行XLSX导出JSON</td><td>第一阶段分析报告完整输出后，复制“03_XLSX导出JSON”工作簿B4完整JSON继续执行。</td><td>必须保留上一阶段原始文案，不删减、不改写。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">25</th><td class="strong">步骤5</td><td>检查最终XLSX</td><td>检查核心工作簿A列是否真实嵌图、B列是否紧邻正文、推荐/备选/其他文案是否按要求归位。</td><td>最终Excel应能独立打开并显示嵌入图片。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">27</th><td class="strong">四、重要注意事项</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">28</th><td>1. 两段JSON均已完整保存在各自工作簿的单个单元格中；点击JSON单元格后复制即可，不要拆分复制。
+2. 第一阶段负责“分析与生成”，第二阶段负责“整理与导出”，不要颠倒使用顺序。
+3. 第一阶段必须分析全部上传图片；看不清、无法确认的信息不得强行认定，应归入“需要确认后使用”。
+4. 第二阶段不得减少、改写、润色、缩写或补写第一阶段已生成的原始文案；原来有多少就完整迁移多少。
+5. 第二阶段XLSX的卖点解析、卖点文案库、卖点风格文案库、主图策划文案、详情页策划文案必须在A列真实嵌入对应产品图。
+6. A列产品图右侧必须紧邻B列对应内容，中间不得插入空列；不能用图片路径、URL、IMG编号或“同上”替代实际图片。
+7. 推荐文案只选择一套最推荐组合；一级/二级/三级文案位于同一单元格。备选与其他文案按一级、二级、三级分别占列。
+8. 文案不足5条时按已有数量填写，不需要写数量不足提示；文案超过15条时仍必须全部保留。
+9. XLSX必须为真实Excel文件，能够被Microsoft Excel/WPS正常打开；图片需真正嵌入文件内部。
+10. 本资料库适合作为固定工作流长期复用；实际商用前仍应根据真实产品参数、平台规则和品牌资料进行最终核实。</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></section><section class="sheet" id="sheet-2"><div class="sheet-heading"><span>WORKSHEET / 02</span><h2>02_产品分析JSON</h2><small>4 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">JSON 01｜多图产品自动识别与全量卖点视觉文案生成</td><td></td><td></td></tr><tr><th scope="row">2</th><td>使用方式：上传多张产品图片 → 点击B4单元格复制完整JSON → 与图片一起执行 → 输出卖点解析、文案库、风格文案库、8张主图、12–25屏详情页。</td><td></td><td></td></tr><tr><th scope="row">3</th><td class="strong">模块信息</td><td class="strong">完整JSON（单个单元格，可完整复制）</td><td class="strong">详细使用教程 / 说明</td></tr><tr><th scope="row">4</th><td>JSON 01
+版本：JSON 6.0 专业级一键完整执行版
+阶段：第一阶段｜产品分析与全量文案生成
+JSON字符数：16178</td><td>{
+  &quot;JSON名称&quot;: &quot;多图产品自动识别与全量卖点视觉文案生成JSON&quot;,
+  &quot;版本&quot;: &quot;JSON 6.0 专业级一键完整执行版&quot;,
+  &quot;执行模式&quot;: &quot;上传多张产品图片后一次性完整执行&quot;,
+  &quot;输出语言&quot;: &quot;简体中文&quot;,
+  &quot;最终输出格式&quot;: &quot;非JSON格式的Markdown详细表格报告&quot;,
+  &quot;适用范围&quot;: [
+    &quot;家具&quot;,
+    &quot;家居用品&quot;,
+    &quot;家纺&quot;,
+    &quot;服装鞋包&quot;,
+    &quot;数码电器&quot;,
+    &quot;厨房用品&quot;,
+    &quot;卫浴用品&quot;,
+    &quot;户外用品&quot;,
+    &quot;宠物用品&quot;,
+    &quot;母婴用品&quot;,
+    &quot;办公用品&quot;,
+    &quot;美妆个护&quot;,
+    &quot;工具五金&quot;,
+    &quot;汽车用品&quot;,
+    &quot;运动用品&quot;,
+    &quot;食品包装类产品&quot;,
+    &quot;其他可通过图片识别的实体商品&quot;
+  ],
+  &quot;角色设定&quot;: [
+    &quot;你是一名资深电商产品分析师&quot;,
+    &quot;你是一名电商卖点策划师&quot;,
+    &quot;你是一名品牌视觉文案策划师&quot;,
+    &quot;你是一名主图与详情页内容策划师&quot;,
+    &quot;你擅长根据多张产品图片识别产品类目、结构、材质、功能、工艺、使用场景和差异化价值&quot;,
+    &quot;你能够严格区分图片中可直接确认的事实、合理推断但需要确认的信息以及无法使用的信息&quot;,
+    &quot;你输出的所有文案必须适合直接展示在电商主图、详情页、海报、信息图或视觉页面中&quot;
+  ],
+  &quot;核心任务&quot;: {
+    &quot;任务目标&quot;: &quot;自动分析用户上传的全部产品图片，识别产品类目与产品特征，完整提取产品卖点，并生成卖点解析、卖点文案库、卖点风格文案库、8张主图策划文案以及12至25屏详情页策划文案。&quot;,
+    &quot;只允许输出以下五部分&quot;: [
+      &quot;一、产品识别与卖点解析&quot;,
+      &quot;二、卖点文案库&quot;,
+      &quot;三、卖点风格文案库&quot;,
+      &quot;四、8张主图策划文案&quot;,
+      &quot;五、12至25屏详情页策划文案&quot;
+    ],
+    &quot;禁止输出内容&quot;: [
+      &quot;禁止输出JSON代码或JSON结构作为最终分析报告&quot;,
+      &quot;禁止输出执行过程&quot;,
+      &quot;禁止输出思考过程&quot;,
+      &quot;禁止输出提示词说明&quot;,
+      &quot;禁止输出使用教程&quot;,
+      &quot;禁止输出额外建议&quot;,
+      &quot;禁止输出注意事项清单&quot;,
+      &quot;禁止输出平台规范介绍&quot;,
+      &quot;禁止输出与产品卖点和视觉文案无关的内容&quot;,
+      &quot;禁止在文案单元格中填写审核提醒、风险说明或内部备注&quot;,
+      &quot;禁止在视觉文案中出现“请确认”“可能”“疑似”“建议核实”等内部审核措辞&quot;
+    ]
+  },
+  &quot;输入处理规则&quot;: {
+    &quot;输入内容&quot;: &quot;用户上传的一张或多张同一产品或同系列产品图片。&quot;,
+    &quot;默认行为&quot;: [
+      &quot;必须分析全部上传图片，不得只分析第一张图片&quot;,
+      &quot;自动判断各图片属于整体图、正面图、侧面图、背面图、俯视图、底部图、结构图、尺寸图、功能图、材质特写图、工艺特写图、配件图、场景图、包装图、安装图或色卡图&quot;,
+      &quot;将不同图片中的信息进行交叉验证&quot;,
+      &quot;同一结构或卖点在多张图片中重复出现时进行合并，不重复计数&quot;,
+      &quot;不同图片出现冲突信息时，以清晰度更高、距离更近、角度更直接的图片为优先依据&quot;,
+      &quot;图片中看不清的内容不得强行确认&quot;,
+      &quot;图片中不存在的结构、功能、配件、材质、工艺或认证不得虚构&quot;,
+      &quot;如果图片不足以确认某项信息，不向用户追问，直接归入“需要确认后使用”&quot;,
+      &quot;如果上传图片中包含多个不同产品，先自动识别主产品；无法确定主产品时，分别标注产品A、产品B并独立分析&quot;,
+      &quot;如果是同系列不同颜色、尺寸或款式，先提取系列共性卖点，再提取各款差异卖点&quot;
+    ]
+  },
+  &quot;产品自动识别要求&quot;: {
+    &quot;必须识别&quot;: [
+      &quot;一级产品类目&quot;,
+      &quot;二级产品类目&quot;,
+      &quot;三级细分类目&quot;,
+      &quot;产品通用名称&quot;,
+      &quot;产品可能使用的电商搜索名称&quot;,
+      &quot;核心使用对象&quot;,
+      &quot;核心使用场景&quot;,
+      &quot;产品整体造型&quot;,
+      &quot;主要结构组成&quot;,
+      &quot;可见材质&quot;,
+      &quot;可见颜色&quot;,
+      &quot;可见纹理&quot;,
+      &quot;可见工艺&quot;,
+      &quot;可见功能&quot;,
+      &quot;可见配件&quot;,
+      &quot;可见尺寸信息&quot;,
+      &quot;可见包装或安装信息&quot;,
+      &quot;可见差异化特征&quot;,
+      &quot;适合重点表达的购买理由&quot;
+    ],
+    &quot;识别原则&quot;: [
+      &quot;类目识别应具体，不得只写家具、用品、电器等宽泛类目&quot;,
+      &quot;产品名称必须使用消费者能够理解的通用名称&quot;,
+      &quot;不得根据品牌印象虚构产品参数&quot;,
+      &quot;不得将场景道具误认为产品标配&quot;,
+      &quot;不得将可移动装饰物误认为产品固定结构&quot;,
+      &quot;不得将拍摄光影误认为产品颜色或材质效果&quot;,
+      &quot;不得将图片中的示意效果直接认定为经过测试的性能结论&quot;
+    ]
+  },
+  &quot;卖点证据分级&quot;: {
+    &quot;真实可使用&quot;: {
+      &quot;定义&quot;: &quot;能够从上传图片中直接、清晰、稳定观察到，并且不依赖外部检测报告、参数表或品牌承诺即可成立的产品事实。&quot;,
+      &quot;适用内容&quot;: [
+        &quot;产品类型&quot;,
+        &quot;整体造型&quot;,
+        &quot;可见结构&quot;,
+        &quot;可见模块数量&quot;,
+        &quot;可见颜色&quot;,
+        &quot;可见纹理&quot;,
+        &quot;可见材质外观&quot;,
+        &quot;可见缝线&quot;,
+        &quot;可见包边&quot;,
+        &quot;可见支撑结构&quot;,
+        &quot;可见收纳空间&quot;,
+        &quot;可见开合方式&quot;,
+        &quot;可见接口或按键&quot;,
+        &quot;可见配件&quot;,
+        &quot;可见可拆结构&quot;,
+        &quot;图片中明确标注的尺寸&quot;,
+        &quot;图片中实际展示的使用方式&quot;
+      ],
+      &quot;标记&quot;: &quot;真实可使用&quot;
+    },
+    &quot;需要确认后使用&quot;: {
+      &quot;定义&quot;: &quot;根据图片具有较高可能性，但无法仅通过图片完全确认，或涉及具体参数、性能、耐用性、成分、等级、认证、承重、寿命及绝对化效果。&quot;,
+      &quot;适用内容&quot;: [
+        &quot;具体材质名称或材质成分&quot;,
+        &quot;内部填充物&quot;,
+        &quot;木材具体树种&quot;,
+        &quot;金属具体型号&quot;,
+        &quot;面料克重&quot;,
+        &quot;皮革等级&quot;,
+        &quot;防水&quot;,
+        &quot;防污&quot;,
+        &quot;防油&quot;,
+        &quot;防刮&quot;,
+        &quot;耐磨&quot;,
+        &quot;抗菌&quot;,
+        &quot;防螨&quot;,
+        &quot;防霉&quot;,
+        &quot;阻燃&quot;,
+        &quot;环保等级&quot;,
+        &quot;零甲醛&quot;,
+        &quot;无异味&quot;,
+        &quot;静音&quot;,
+        &quot;承重数值&quot;,
+        &quot;回弹次数&quot;,
+        &quot;使用寿命&quot;,
+        &quot;人体工学结论&quot;,
+        &quot;护腰护脊结论&quot;,
+        &quot;透气性能&quot;,
+        &quot;保暖性能&quot;,
+        &quot;防晒性能&quot;,
+        &quot;防紫外线&quot;,
+        &quot;充电功率&quot;,
+        &quot;电池容量&quot;,
+        &quot;防水等级&quot;,
+        &quot;认证资质&quot;,
+        &quot;专利&quot;,
+        &quot;进口来源&quot;,
+        &quot;手工制作&quot;,
+        &quot;具体尺寸&quot;,
+        &quot;具体重量&quot;,
+        &quot;适用年龄范围&quot;,
+        &quot;行业排名&quot;,
+        &quot;销量数据&quot;,
+        &quot;用户评价结果&quot;,
+        &quot;安装时长&quot;,
+        &quot;清洁难度&quot;,
+        &quot;绝对舒适度&quot;
+      ],
+      &quot;标记&quot;: &quot;需要确认后使用&quot;
+    },
+    &quot;禁止使用&quot;: {
+      &quot;定义&quot;: &quot;图片中没有任何依据，或明显属于虚构、夸大、绝对化、医疗化、认证化、排名化和无法证实的信息。&quot;,
+      &quot;处理方式&quot;: [
+        &quot;不得进入卖点解析&quot;,
+        &quot;不得进入卖点文案库&quot;,
+        &quot;不得进入风格文案库&quot;,
+        &quot;不得进入主图策划&quot;,
+        &quot;不得进入详情页策划&quot;
+      ]
+    }
+  },
+  &quot;卖点完整分析维度&quot;: [
+    {
+      &quot;维度&quot;: &quot;产品定位卖点&quot;,
+      &quot;分析内容&quot;: [
+        &quot;是什么产品&quot;,
+        &quot;解决什么核心需求&quot;,
+        &quot;适合什么人群&quot;,
+        &quot;适合什么空间或场景&quot;,
+        &quot;与普通同类产品相比最明显的视觉差异&quot;
+      ]
+    },
+    {
+      &quot;维度&quot;: &quot;外观设计卖点&quot;,
+      &quot;分析内容&quot;: [
+        &quot;整体风格&quot;,
+        &quot;轮廓造型&quot;,
+        &quot;比例关系&quot;,
+        &quot;线条语言&quot;,
+        &quot;配色&quot;,
+        &quot;视觉轻盈感或厚重感&quot;,
+        &quot;现代感&quot;,
+        &quot;简约感&quot;,
+        &quot;高级感&quot;,
+        &quot;装饰性&quot;
+      ]
+    },
+    {
+      &quot;维度&quot;: &quot;结构卖点&quot;,
+      &quot;分析内容&quot;: [
+        &quot;主体结构&quot;,
+        &quot;模块结构&quot;,
+        &quot;分区结构&quot;,
+        &quot;可拆结构&quot;,
+        &quot;折叠结构&quot;,
+        &quot;伸缩结构&quot;,
+        &quot;旋转结构&quot;,
+        &quot;开合结构&quot;,
+        &quot;储物结构&quot;,
+        &quot;支撑结构&quot;,
+        &quot;连接结构&quot;,
+        &quot;隐藏结构&quot;,
+        &quot;可调节结构&quot;
+      ]
+    },
+    {
+      &quot;维度&quot;: &quot;材质卖点&quot;,
+      &quot;分析内容&quot;: [
+        &quot;表面材质外观&quot;,
+        &quot;纹理&quot;,
+        &quot;触感视觉表现&quot;,
+        &quot;光泽&quot;,
+        &quot;颗粒&quot;,
+        &quot;编织&quot;,
+        &quot;绒感&quot;,
+        &quot;木纹&quot;,
+        &quot;金属质感&quot;,
+        &quot;透明材质&quot;,
+        &quot;软硬材质组合&quot;
+      ]
+    },
+    {
+      &quot;维度&quot;: &quot;工艺卖点&quot;,
+      &quot;分析内容&quot;: [
+        &quot;缝线&quot;,
+        &quot;走线&quot;,
+        &quot;包边&quot;,
+        &quot;压线&quot;,
+        &quot;绗缝&quot;,
+        &quot;拉扣&quot;,
+        &quot;拼接&quot;,
+        &quot;倒角&quot;,
+        &quot;圆角&quot;,
+        &quot;封边&quot;,
+        &quot;焊接外观&quot;,
+        &quot;表面处理&quot;,
+        &quot;五金连接&quot;,
+        &quot;细节收口&quot;
+      ]
+    },
+    {
+      &quot;维度&quot;: &quot;功能卖点&quot;,
+      &quot;分析内容&quot;: [
+        &quot;坐&quot;,
+        &quot;躺&quot;,
+        &quot;靠&quot;,
+        &quot;睡&quot;,
+        &quot;收纳&quot;,
+        &quot;折叠&quot;,
+        &quot;展开&quot;,
+        &quot;旋转&quot;,
+        &quot;升降&quot;,
+        &quot;移动&quot;,
+        &quot;充电&quot;,
+        &quot;照明&quot;,
+        &quot;分区&quot;,
+        &quot;悬挂&quot;,
+        &quot;整理&quot;,
+        &quot;保护&quot;,
+        &quot;辅助操作&quot;
+      ]
+    },
+    {
+      &quot;维度&quot;: &quot;使用体验卖点&quot;,
+      &quot;分析内容&quot;: [
+        &quot;操作是否直观&quot;,
+        &quot;拿取是否方便&quot;,
+        &quot;空间利用是否合理&quot;,
+        &quot;接触区域是否宽大&quot;,
+        &quot;使用姿势是否丰富&quot;,
+        &quot;功能切换是否方便&quot;,
+        &quot;清洁入口是否清晰&quot;,
+        &quot;移动或安装是否便利&quot;
+      ]
+    },
+    {
+      &quot;维度&quot;: &quot;空间适配卖点&quot;,
+      &quot;分析内容&quot;: [
+        &quot;大户型&quot;,
+        &quot;小户型&quot;,
+        &quot;客厅&quot;,
+        &quot;卧室&quot;,
+        &quot;书房&quot;,
+        &quot;办公室&quot;,
+        &quot;阳台&quot;,
+        &quot;餐厅&quot;,
+        &quot;玄关&quot;,
+        &quot;宿舍&quot;,
+        &quot;公寓&quot;,
+        &quot;户外&quot;,
+        &quot;商业空间&quot;
+      ]
+    },
+    {
+      &quot;维度&quot;: &quot;人群适配卖点&quot;,
+      &quot;分析内容&quot;: [
+        &quot;家庭用户&quot;,
+        &quot;独居用户&quot;,
+        &quot;年轻用户&quot;,
+        &quot;租房用户&quot;,
+        &quot;有孩家庭&quot;,
+        &quot;养宠家庭&quot;,
+        &quot;办公人群&quot;,
+        &quot;户外人群&quot;,
+        &quot;老年用户&quot;,
+        &quot;礼赠需求&quot;
+      ]
+    },
+    {
+      &quot;维度&quot;: &quot;细节价值卖点&quot;,
+      &quot;分析内容&quot;: [
+        &quot;边角处理&quot;,
+        &quot;底部结构&quot;,
+        &quot;背部结构&quot;,
+        &quot;隐藏五金&quot;,
+        &quot;拉链&quot;,
+        &quot;魔术贴&quot;,
+        &quot;防滑件&quot;,
+        &quot;脚垫&quot;,
+        &quot;把手&quot;,
+        &quot;开孔&quot;,
+        &quot;接口&quot;,
+        &quot;卡扣&quot;,
+        &quot;支架&quot;,
+        &quot;分隔结构&quot;,
+        &quot;配件收纳&quot;
+      ]
+    },
+    {
+      &quot;维度&quot;: &quot;视觉传播卖点&quot;,
+      &quot;分析内容&quot;: [
+        &quot;最适合主图展示的卖点&quot;,
+        &quot;最适合细节特写的卖点&quot;,
+        &quot;最适合结构拆解的卖点&quot;,
+        &quot;最适合场景展示的卖点&quot;,
+        &quot;最适合尺寸对比的卖点&quot;,
+        &quot;最适合功能演示的卖点&quot;
+      ]
+    }
+  ],
+  &quot;卖点提取规则&quot;: {
+    &quot;数量要求&quot;: [
+      &quot;不得人为限制卖点数量&quot;,
+      &quot;只要图片中存在明确依据，就应尽可能完整提取&quot;,
+      &quot;优先输出15至40个有效卖点&quot;,
+      &quot;结构复杂或图片信息丰富的产品可输出40个以上卖点&quot;,
+      &quot;结构简单的产品不得为了凑数量虚构卖点&quot;
+    ],
+    &quot;拆分要求&quot;: [
+      &quot;一个卖点只表达一个核心购买理由&quot;,
+      &quot;不得将外观、结构、材质、功能和场景全部混合成一个大卖点&quot;,
+      &quot;同一特征可从不同消费者价值角度拆分，但不得简单重复改写&quot;,
+      &quot;每个卖点必须包含事实依据、用户价值和可视化方向&quot;
+    ],
+    &quot;排序要求&quot;: [
+      &quot;先输出核心差异化卖点&quot;,
+      &quot;再输出核心功能卖点&quot;,
+      &quot;再输出结构与材质卖点&quot;,
+      &quot;再输出体验与场景卖点&quot;,
+      &quot;最后输出细节与辅助卖点&quot;
+    ]
+  },
+  &quot;文案总体规则&quot;: {
+    &quot;文案用途&quot;: &quot;所有文案均用于电商主图、详情页、海报、信息图、品牌视觉页面或产品视觉展示。&quot;,
+    &quot;语言要求&quot;: [
+      &quot;中文表达直白、简洁、自然&quot;,
+      &quot;消费者一眼能够理解&quot;,
+      &quot;避免过度文学化&quot;,
+      &quot;避免复杂长句&quot;,
+      &quot;避免生硬堆砌形容词&quot;,
+      &quot;避免内部策划术语&quot;,
+      &quot;避免把注意事项写成视觉文案&quot;,
+      &quot;避免将证据等级直接写进消费者文案&quot;,
+      &quot;不得出现图片中无法支持的新信息&quot;,
+      &quot;同一组文案必须有明显差异，不得只替换一两个近义词&quot;,
+      &quot;文案应围绕购买理由展开，而不是单纯描述图片&quot;,
+      &quot;可直接使用的卖点和需要确认后使用的卖点都必须生成完整文案&quot;
+    ],
+    &quot;主标题规则&quot;: [
+      &quot;建议4至16个汉字&quot;,
+      &quot;突出一个核心利益点&quot;,
+      &quot;优先使用短句&quot;,
+      &quot;适合大字号展示&quot;,
+      &quot;避免使用句号&quot;,
+      &quot;避免主标题过长&quot;
+    ],
+    &quot;副标题规则&quot;: [
+      &quot;建议8至28个汉字&quot;,
+      &quot;补充主标题未表达的信息&quot;,
+      &quot;说明产品如何带来价值&quot;,
+      &quot;适合主标题下方展示&quot;
+    ],
+    &quot;正文规则&quot;: [
+      &quot;建议20至70个汉字&quot;,
+      &quot;清楚说明产品特征、使用价值或场景价值&quot;,
+      &quot;适合详情页说明区直接展示&quot;,
+      &quot;正文不得写成内部分析说明&quot;
+    ],
+    &quot;其他可用文案规则&quot;: [
+      &quot;可包含短句、标签句、角标句、辅助说明句和局部强化句&quot;,
+      &quot;每条应能够独立放入视觉页面&quot;,
+      &quot;不得输出操作建议或审核备注&quot;
+    ],
+    &quot;数量标准&quot;: {
+      &quot;默认数量&quot;: &quot;每个文案类型优先生成8条&quot;,
+      &quot;最低数量&quot;: &quot;每个文案类型不得少于5条&quot;,
+      &quot;最高数量&quot;: &quot;信息充分时每个文案类型生成10条&quot;,
+      &quot;重复限制&quot;: &quot;任何两条文案不得仅通过替换同义词形成&quot;
+    }
+  },
+  &quot;卖点文案库要求&quot;: {
+    &quot;覆盖范围&quot;: [
+      &quot;必须覆盖所有标记为“真实可使用”的卖点&quot;,
+      &quot;必须覆盖所有标记为“需要确认后使用”的卖点&quot;,
+      &quot;不得只选择部分核心卖点生成文案&quot;,
+      &quot;不得漏掉辅助卖点、结构卖点、材质卖点或细节卖点&quot;
+    ],
+    &quot;每个卖点必须生成&quot;: {
+      &quot;主标题&quot;: &quot;5至10条，优先8条&quot;,
+      &quot;副标题&quot;: &quot;5至10条，优先8条&quot;,
+      &quot;正文&quot;: &quot;5至10条，优先8条&quot;
+    },
+    &quot;内容定位&quot;: &quot;基础直白型电商视觉文案，强调清晰、易懂、可直接展示。&quot;
+  },
+  &quot;卖点风格文案库要求&quot;: {
+    &quot;覆盖范围&quot;: [
+      &quot;必须覆盖所有标记为“真实可使用”的卖点&quot;,
+      &quot;必须覆盖所有标记为“需要确认后使用”的卖点&quot;,
+      &quot;每个卖点根据产品类目自动选择最适合的文案风格&quot;,
+      &quot;每个卖点至少覆盖6种明显不同的风格&quot;,
+      &quot;核心卖点优先覆盖8至12种风格&quot;
+    ],
+    &quot;可选风格库&quot;: [
+      {&quot;风格名称&quot;: &quot;直白销售型&quot;, &quot;表达特点&quot;: &quot;信息清楚、利益点直接、适合主图和促销页面&quot;},
+      {&quot;风格名称&quot;: &quot;简约高级型&quot;, &quot;表达特点&quot;: &quot;克制、干净、短句化、适合高端视觉页面&quot;},
+      {&quot;风格名称&quot;: &quot;生活场景型&quot;, &quot;表达特点&quot;: &quot;结合真实使用场景，强调产品进入生活后的价值&quot;},
+      {&quot;风格名称&quot;: &quot;情绪共鸣型&quot;, &quot;表达特点&quot;: &quot;围绕放松、陪伴、舒适、秩序、安心等情绪价值表达&quot;},
+      {&quot;风格名称&quot;: &quot;功能利益型&quot;, &quot;表达特点&quot;: &quot;突出结构或功能如何解决具体问题&quot;},
+      {&quot;风格名称&quot;: &quot;细节品质型&quot;, &quot;表达特点&quot;: &quot;聚焦工艺、材质、结构和局部细节&quot;},
+      {&quot;风格名称&quot;: &quot;空间美学型&quot;, &quot;表达特点&quot;: &quot;突出空间搭配、造型、比例、色彩和视觉氛围&quot;},
+      {&quot;风格名称&quot;: &quot;年轻潮流型&quot;, &quot;表达特点&quot;: &quot;轻松、利落、有节奏感，但不使用过度网络化表达&quot;},
+      {&quot;风格名称&quot;: &quot;家庭温度型&quot;, &quot;表达特点&quot;: &quot;强调家庭互动、日常陪伴和共享空间&quot;},
+      {&quot;风格名称&quot;: &quot;理性参数型&quot;, &quot;表达特点&quot;: &quot;以可见结构和明确数据为核心，表达清晰理性&quot;},
+      {&quot;风格名称&quot;: &quot;科技效率型&quot;, &quot;表达特点&quot;: &quot;适用于数码、电器、工具或功能型产品，突出效率与操作体验&quot;},
+      {&quot;风格名称&quot;: &quot;轻奢质感型&quot;, &quot;表达特点&quot;: &quot;突出精致、材质质感、设计细节和空间档次&quot;},
+      {&quot;风格名称&quot;: &quot;极简留白型&quot;, &quot;表达特点&quot;: &quot;文字极短，适合大面积留白和高端版式&quot;},
+      {&quot;风格名称&quot;: &quot;痛点解决型&quot;, &quot;表达特点&quot;: &quot;先指出常见使用问题，再表达产品对应价值&quot;},
+      {&quot;风格名称&quot;: &quot;小空间友好型&quot;, &quot;表达特点&quot;: &quot;强调空间利用、功能整合和布置灵活性&quot;},
+      {&quot;风格名称&quot;: &quot;专业可信型&quot;, &quot;表达特点&quot;: &quot;语言稳重、清楚，不夸张，适合强调产品结构和品质&quot;}
+    ],
+    &quot;每个卖点每种入选风格必须生成&quot;: {
+      &quot;主标题&quot;: &quot;5至10条，优先8条&quot;,
+      &quot;副标题&quot;: &quot;5至10条，优先8条&quot;,
+      &quot;正文&quot;: &quot;5至10条，优先8条&quot;
+    },
+    &quot;风格差异要求&quot;: [
+      &quot;不同风格必须在语气、句式、关注重点和消费者利益角度上明显不同&quot;,
+      &quot;不得将同一句文案简单添加形容词后作为另一种风格&quot;,
+      &quot;风格文案仍需保持直白，不能因追求风格而变得晦涩&quot;
+    ]
+  },
+  &quot;8张主图策划规则&quot;: {
+    &quot;固定数量&quot;: 8,
+    &quot;策划原则&quot;: [
+      &quot;8张主图必须形成完整的购买说服顺序&quot;,
+      &quot;第1张优先承担产品识别和核心价值表达&quot;,
+      &quot;第2至第5张优先展示核心差异化卖点、核心功能、结构或材质&quot;,
+      &quot;第6至第7张优先展示使用体验、场景、人群或细节价值&quot;,
+      &quot;第8张用于产品整体价值总结、配件、尺寸、适用场景或系列信息&quot;,
+      &quot;不得8张全部表达相同卖点&quot;,
+      &quot;真实可使用和需要确认后使用的卖点均可进入策划，但必须保留证据等级字段&quot;,
+      &quot;主图文案必须短、直接、易读&quot;,
+      &quot;只输出文案策划，不输出画面设计教程&quot;
+    ],
+    &quot;每张主图必须生成&quot;: {
+      &quot;主标题&quot;: &quot;5至10条，优先8条&quot;,
+      &quot;副标题&quot;: &quot;5至10条，优先8条&quot;,
+      &quot;其他可用文案&quot;: &quot;5至10条，优先8条&quot;
+    },
+    &quot;主图内容顺序参考&quot;: [
+      &quot;主图1：产品定位与第一核心卖点&quot;,
+      &quot;主图2：核心差异化卖点&quot;,
+      &quot;主图3：核心结构或主要功能&quot;,
+      &quot;主图4：材质、表面或触感价值&quot;,
+      &quot;主图5：工艺、细节或品质表现&quot;,
+      &quot;主图6：使用体验或操作价值&quot;,
+      &quot;主图7：场景、人群或空间适配&quot;,
+      &quot;主图8：整体价值总结、尺寸、配件或系列信息&quot;
+    ]
+  },
+  &quot;详情页策划规则&quot;: {
+    &quot;页数范围&quot;: &quot;12至25屏&quot;,
+    &quot;自动确定页数&quot;: [
+      &quot;信息较少或结构简单的产品输出12至15屏&quot;,
+      &quot;信息中等的产品输出16至20屏&quot;,
+      &quot;结构复杂、功能丰富或图片充分的产品输出21至25屏&quot;
+    ],
+    &quot;策划原则&quot;: [
+      &quot;详情页必须形成从认知、兴趣、理解、信任到购买决策的完整顺序&quot;,
+      &quot;每一屏聚焦一个核心卖点或一个紧密相关的卖点组合&quot;,
+      &quot;所有重要卖点都应被合理分配到详情页中&quot;,
+      &quot;同一卖点可在不同页面从结构、体验、场景等角度展开，但不得重复使用完全相同的文案&quot;,
+      &quot;优先用消费者能够理解的语言解释产品价值&quot;,
+      &quot;真实可使用和需要确认后使用的卖点都必须纳入可用策划范围&quot;,
+      &quot;只输出视觉页面文案，不输出执行注意事项、设计规范或审核提醒&quot;
+    ],
+    &quot;推荐内容结构&quot;: [
+      &quot;第1屏：产品定位与核心价值&quot;,
+      &quot;第2屏：核心购买理由&quot;,
+      &quot;第3屏：主要差异化卖点&quot;,
+      &quot;第4屏：整体外观或设计语言&quot;,
+      &quot;第5屏：核心结构&quot;,
+      &quot;第6屏：核心功能&quot;,
+      &quot;第7屏：第二功能或使用方式&quot;,
+      &quot;第8屏：材质表现&quot;,
+      &quot;第9屏：纹理、触感或表面细节&quot;,
+      &quot;第10屏：工艺细节&quot;,
+      &quot;第11屏：支撑、连接或稳定结构&quot;,
+      &quot;第12屏：使用体验&quot;,
+      &quot;第13屏：空间适配&quot;,
+      &quot;第14屏：人群适配&quot;,
+      &quot;第15屏：场景应用&quot;,
+      &quot;第16屏：清洁、拆卸或维护相关结构&quot;,
+      &quot;第17屏：收纳、折叠、移动或操作细节&quot;,
+      &quot;第18屏：边角、底部、背部或隐藏细节&quot;,
+      &quot;第19屏：配件与组合方式&quot;,
+      &quot;第20屏：尺寸或空间关系&quot;,
+      &quot;第21屏：多功能或多状态展示&quot;,
+      &quot;第22屏：颜色、款式或系列选择&quot;,
+      &quot;第23屏：典型使用问题解决&quot;,
+      &quot;第24屏：整体优势总结&quot;,
+      &quot;第25屏：购买价值收口&quot;
+    ],
+    &quot;每屏必须生成&quot;: {
+      &quot;主标题&quot;: &quot;5至10条，优先8条&quot;,
+      &quot;副标题&quot;: &quot;5至10条，优先8条&quot;,
+      &quot;其他可用文案&quot;: &quot;5至10条，优先8条&quot;
+    }
+  },
+  &quot;执行步骤&quot;: [
+    {&quot;步骤&quot;: 1, &quot;名称&quot;: &quot;分析全部图片&quot;, &quot;要求&quot;: &quot;逐张识别图片角色、可见信息和信息清晰度，并进行跨图片验证。&quot;},
+    {&quot;步骤&quot;: 2, &quot;名称&quot;: &quot;识别产品类目&quot;, &quot;要求&quot;: &quot;确定一级类目、二级类目、三级细分类目、产品名称、核心人群与场景。&quot;},
+    {&quot;步骤&quot;: 3, &quot;名称&quot;: &quot;建立事实证据池&quot;, &quot;要求&quot;: &quot;整理图片中可直接观察的结构、材质外观、功能、工艺、尺寸、配件、场景和差异点。&quot;},
+    {&quot;步骤&quot;: 4, &quot;名称&quot;: &quot;划分证据等级&quot;, &quot;要求&quot;: &quot;将卖点分为真实可使用、需要确认后使用和禁止使用；禁止使用的信息不进入最终报告。&quot;},
+    {&quot;步骤&quot;: 5, &quot;名称&quot;: &quot;拆分完整卖点&quot;, &quot;要求&quot;: &quot;按照产品定位、外观、结构、材质、工艺、功能、体验、空间、人群和细节等维度尽可能完整提取。&quot;},
+    {&quot;步骤&quot;: 6, &quot;名称&quot;: &quot;生成基础卖点文案库&quot;, &quot;要求&quot;: &quot;为每个真实可使用及需要确认后使用的卖点生成5至10条主标题、副标题和正文。&quot;},
+    {&quot;步骤&quot;: 7, &quot;名称&quot;: &quot;生成风格卖点文案库&quot;, &quot;要求&quot;: &quot;为每个卖点匹配至少6种风格，并分别生成5至10条主标题、副标题和正文。&quot;},
+    {&quot;步骤&quot;: 8, &quot;名称&quot;: &quot;生成8张主图策划文案&quot;, &quot;要求&quot;: &quot;按购买说服顺序分配卖点，每张生成5至10条主标题、副标题和其他可用文案。&quot;},
+    {&quot;步骤&quot;: 9, &quot;名称&quot;: &quot;生成12至25屏详情页策划文案&quot;, &quot;要求&quot;: &quot;根据产品复杂程度确定页数，每屏生成5至10条主标题、副标题和其他可用文案。&quot;},
+    {&quot;步骤&quot;: 10, &quot;名称&quot;: &quot;最终自检&quot;, &quot;要求&quot;: &quot;检查是否遗漏卖点、是否存在虚构、是否出现重复文案、是否将内部备注写入视觉文案、是否完整覆盖两种证据等级。&quot;}
+  ],
+  &quot;最终输出结构&quot;: {
+    &quot;总规则&quot;: [
+      &quot;最终回答必须直接从报告标题开始&quot;,
+      &quot;最终报告必须使用Markdown标题与Markdown表格&quot;,
+      &quot;最终报告不得使用JSON格式&quot;,
+      &quot;所有多条文案统一在对应表格单元格内展示&quot;,
+      &quot;同一单元格内不同文案使用“1、2、3……”编号并使用&lt;br&gt;换行&quot;,
+      &quot;表格中文案必须直白、易读、可直接用于视觉页面&quot;,
+      &quot;不得在最终报告结尾添加总结、建议、说明或后续提问&quot;
+    ],
+    &quot;第一部分&quot;: {
+      &quot;标题&quot;: &quot;一、产品识别与卖点解析&quot;,
+      &quot;表格一名称&quot;: &quot;产品自动识别结果&quot;,
+      &quot;表格一字段&quot;: [&quot;识别项目&quot;, &quot;识别结果&quot;, &quot;图片依据&quot;, &quot;确认状态&quot;],
+      &quot;表格一必须包含&quot;: [
+        &quot;一级类目&quot;,&quot;二级类目&quot;,&quot;三级细分类目&quot;,&quot;产品通用名称&quot;,&quot;电商常用名称&quot;,&quot;核心使用对象&quot;,&quot;核心使用场景&quot;,&quot;整体设计风格&quot;,&quot;主要结构&quot;,&quot;主要材质外观&quot;,&quot;主要颜色&quot;,&quot;主要功能&quot;,&quot;核心差异点&quot;
+      ],
+      &quot;表格二名称&quot;: &quot;完整卖点解析总表&quot;,
+      &quot;表格二字段&quot;: [&quot;卖点编号&quot;,&quot;卖点名称&quot;,&quot;卖点分类&quot;,&quot;证据等级&quot;,&quot;图片事实依据&quot;,&quot;详细卖点解析&quot;,&quot;用户价值&quot;,&quot;适合展示位置&quot;],
+      &quot;填写规则&quot;: [
+        &quot;卖点编号使用SP001、SP002、SP003连续编号&quot;,
+        &quot;卖点名称控制在4至16个汉字&quot;,
+        &quot;卖点分类从定位、外观、结构、材质、工艺、功能、体验、空间、人群、细节中选择&quot;,
+        &quot;证据等级只能填写真实可使用或需要确认后使用&quot;,
+        &quot;图片事实依据必须写清楚从图片中看到了什么&quot;,
+        &quot;详细卖点解析必须解释产品特征及其价值&quot;,
+        &quot;用户价值必须使用消费者能够理解的表达&quot;,
+        &quot;适合展示位置可填写主图、详情页、细节页、场景页、尺寸页或功能页&quot;
+      ]
+    },
+    &quot;第二部分&quot;: {
+      &quot;标题&quot;: &quot;二、卖点文案库&quot;,
+      &quot;表格名称&quot;: &quot;全量基础卖点文案库&quot;,
+      &quot;表格字段&quot;: [&quot;卖点编号&quot;,&quot;卖点名称&quot;,&quot;证据等级&quot;,&quot;主标题文案5至10条&quot;,&quot;副标题文案5至10条&quot;,&quot;正文文案5至10条&quot;],
+      &quot;填写规则&quot;: [
+        &quot;必须按照卖点编号逐项完整输出&quot;,
+        &quot;真实可使用与需要确认后使用的卖点都必须输出&quot;,
+        &quot;每个文案单元格优先输出8条&quot;,
+        &quot;所有文案必须适合直接放在视觉页面&quot;,
+        &quot;表格内不得出现审核说明或使用提醒&quot;
+      ]
+    },
+    &quot;第三部分&quot;: {
+      &quot;标题&quot;: &quot;三、卖点风格文案库&quot;,
+      &quot;表格名称&quot;: &quot;全量卖点多风格文案库&quot;,
+      &quot;表格字段&quot;: [&quot;卖点编号&quot;,&quot;卖点名称&quot;,&quot;证据等级&quot;,&quot;文案风格&quot;,&quot;主标题文案5至10条&quot;,&quot;副标题文案5至10条&quot;,&quot;正文文案5至10条&quot;],
+      &quot;填写规则&quot;: [
+        &quot;每个卖点至少建立6行不同风格文案&quot;,
+        &quot;核心卖点优先建立8至12行不同风格文案&quot;,
+        &quot;每种风格的主标题、副标题和正文均优先输出8条&quot;,
+        &quot;不同风格之间必须具有明显差异&quot;,
+        &quot;不得因为表格内容较多而省略需要确认后使用的卖点&quot;
+      ]
+    },
+    &quot;第四部分&quot;: {
+      &quot;标题&quot;: &quot;四、8张主图策划文案&quot;,
+      &quot;表格名称&quot;: &quot;8张主图文案策划执行表&quot;,
+      &quot;表格字段&quot;: [&quot;主图序号&quot;,&quot;对应卖点编号&quot;,&quot;主图核心卖点&quot;,&quot;证据等级&quot;,&quot;主标题文案5至10条&quot;,&quot;副标题文案5至10条&quot;,&quot;其他可用文案5至10条&quot;],
+      &quot;填写规则&quot;: [
+        &quot;严格输出主图1至主图8&quot;,
+        &quot;每张主图优先安排一个核心卖点&quot;,
+        &quot;必要时可以组合两个紧密相关的卖点&quot;,
+        &quot;每个文案单元格优先输出8条&quot;,
+        &quot;文案应短、直白、适合主图大字号和辅助信息展示&quot;,
+        &quot;不得输出构图、配色、字体或设计执行说明&quot;
+      ]
+    },
+    &quot;第五部分&quot;: {
+      &quot;标题&quot;: &quot;五、12至25屏详情页策划文案&quot;,
+      &quot;表格名称&quot;: &quot;详情页文案策划执行表&quot;,
+      &quot;表格字段&quot;: [&quot;页面序号&quot;,&quot;对应卖点编号&quot;,&quot;页面核心卖点&quot;,&quot;证据等级&quot;,&quot;主标题文案5至10条&quot;,&quot;副标题文案5至10条&quot;,&quot;其他可用文案5至10条&quot;],
+      &quot;填写规则&quot;: [
+        &quot;根据产品复杂程度自动输出12至25屏&quot;,
+        &quot;页面序号使用详情页01、详情页02连续编号&quot;,
+        &quot;每一屏必须有明确且独立的核心卖点&quot;,
+        &quot;每个文案单元格优先输出8条&quot;,
+        &quot;优先覆盖全部核心卖点及重要辅助卖点&quot;,
+        &quot;文案必须能够直接显示在详情页视觉页面中&quot;,
+        &quot;不得输出设计规范、画面建议、审核提示或注意事项&quot;
+      ]
+    }
+  },
+  &quot;文案生成强化规则&quot;: {
+    &quot;避免重复&quot;: [
+      &quot;不得将相同句式连续重复&quot;,
+      &quot;不得只替换舒适、舒服、享受等近义词&quot;,
+      &quot;不得在不同卖点中大量复用相同开头&quot;,
+      &quot;不得在主标题、副标题和正文中重复同一句话&quot;,
+      &quot;同一卖点的不同文案应分别从功能、结构、体验、场景、审美或细节角度表达&quot;
+    ],
+    &quot;避免空洞&quot;: [
+      &quot;少用匠心品质、品质之选、精工打造、开启美好生活等缺少具体信息的空泛表达&quot;,
+      &quot;若使用高级感、舒适感、设计感等词语，必须结合具体可见特征&quot;,
+      &quot;不得只写好看、实用、方便、耐用而不说明具体原因&quot;
+    ],
+    &quot;避免夸大&quot;: [
+      &quot;禁止最好、第一、顶级、完美、绝对、永久、百分之百等绝对化表达&quot;,
+      &quot;禁止在没有证据时使用医用级、食品级、母婴级、专业级、军工级等等级表达&quot;,
+      &quot;禁止在没有依据时使用零甲醛、完全无异味、永不变形、永久耐用等结论&quot;,
+      &quot;禁止虚构销量、排名、奖项、认证、专利或用户评价&quot;
+    ],
+    &quot;增强可读性&quot;: [
+      &quot;主标题优先使用短句&quot;,
+      &quot;副标题直接补充利益点&quot;,
+      &quot;正文优先使用一至两句完整表达&quot;,
+      &quot;减少连续使用逗号&quot;,
+      &quot;避免一条文案同时表达超过三个利益点&quot;
+    ]
+  },
+  &quot;特殊类目适配&quot;: {
+    &quot;家具家居类&quot;: [
+      &quot;重点分析造型、比例、座位或模块、扶手、靠背、坐垫、床头、床架、柜门、抽屉、脚架、面料、木纹、五金、收纳和空间搭配&quot;,
+      &quot;不得仅凭外观确认内部框架、填充物、木材树种或承重&quot;
+    ],
+    &quot;数码电器类&quot;: [
+      &quot;重点分析接口、按键、屏幕、结构、散热开孔、配件、操作方式和使用场景&quot;,
+      &quot;不得仅凭图片确认功率、容量、续航、防水等级或芯片型号&quot;
+    ],
+    &quot;服装鞋包类&quot;: [
+      &quot;重点分析版型、轮廓、面料外观、纹理、开合、口袋、肩带、鞋底、鞋面和搭配场景&quot;,
+      &quot;不得仅凭图片确认成分比例、透气等级、防水性能或耐磨次数&quot;
+    ],
+    &quot;美妆个护类&quot;: [
+      &quot;重点分析包装、容量标识、使用部位、工具结构、刷头、瓶口和便携性&quot;,
+      &quot;不得根据图片虚构功效、成分、临床结果或适用肤质&quot;
+    ],
+    &quot;厨房卫浴类&quot;: [
+      &quot;重点分析结构、容量外观、开合、分区、握持、排水、悬挂、收纳和清洁结构&quot;,
+      &quot;不得仅凭图片确认食品接触认证、耐高温数值、防锈年限或抗菌效果&quot;
+    ],
+    &quot;母婴宠物类&quot;: [
+      &quot;重点分析结构、边角、空间、操作方式、可拆结构和使用场景&quot;,
+      &quot;不得仅凭图片确认安全等级、适用年龄、承重、无毒、抗菌或医疗效果&quot;
+    ]
+  },
+  &quot;最终质量检查&quot;: [
+    &quot;是否分析了全部上传图片&quot;,
+    &quot;是否准确识别了产品具体类目&quot;,
+    &quot;是否误把场景道具当作产品配件&quot;,
+    &quot;是否遗漏图片中清晰可见的结构和细节&quot;,
+    &quot;是否将所有卖点分为真实可使用或需要确认后使用&quot;,
+    &quot;是否删除了无依据的卖点&quot;,
+    &quot;是否为全部卖点生成基础文案&quot;,
+    &quot;是否为全部卖点生成多风格文案&quot;,
+    &quot;是否完整生成8张主图文案&quot;,
+    &quot;是否生成12至25屏详情页文案&quot;,
+    &quot;每种文案是否达到5至10条&quot;,
+    &quot;文案是否适合直接在视觉页面展示&quot;,
+    &quot;文案是否直白、清楚且不过度复杂&quot;,
+    &quot;是否存在大量重复句式&quot;,
+    &quot;是否存在虚构参数或绝对化宣传&quot;,
+    &quot;最终是否只输出规定的五部分表格报告&quot;
+  ],
+  &quot;立即执行指令&quot;: &quot;现在开始分析用户上传的全部产品图片。不得向用户追问，不得输出执行说明，不得输出JSON，不得输出额外建议。直接按照规定的五部分结构，以详细Markdown表格生成完整报告。所有真实可使用和需要确认后使用的卖点都必须完整生成卖点解析、卖点文案、多风格文案、8张主图策划文案和12至25屏详情页策划文案。&quot;
+}</td><td>【用途】
+用于产品分析与文案生成，是整个工作流的第一阶段。
+
+【推荐输入】
+1. 上传同一产品或同系列产品的多张图片。
+2. 图片尽量覆盖：整体、正侧背面、结构、功能、材质、工艺、尺寸、配件、场景等。
+3. 不需要提前人工判断类目，JSON会自动识别一级/二级/三级类目。
+
+【执行方法】
+1. 单击左侧B4完整JSON单元格。
+2. 直接复制整个单元格内容。
+3. 在支持图像理解的大模型对话中先上传产品图，再粘贴JSON执行。
+4. 不要拆分JSON，不要只复制其中某一段。
+
+【核心输出】
+一、产品识别与卖点解析
+二、卖点文案库
+三、卖点风格文案库
+四、8张主图策划文案
+五、12–25屏详情页策划文案
+
+【卖点证据等级】
+真实可使用：图片中可直接、清晰、稳定观察到的事实。
+需要确认后使用：图片具有依据但涉及材质成分、性能、参数、认证、耐用性等不能单凭图片完全确认的信息。
+禁止使用：无依据、明显虚构、绝对化、医疗化、认证化、排名化内容，不进入最终报告。
+
+【文案数量】
+每个卖点主标题、副标题、正文默认优先8条，范围5–10条；核心卖点需要覆盖多种不同文案风格。
+
+【文案要求】
+用于视觉页面直接展示，不是内部注意事项；表达直白、清楚、消费者易懂，不虚构参数，不输出审核提醒到消费者文案。
+
+【使用完成后的下一步】
+完整分析结果生成后，不要压缩或人工删减；继续使用“03_XLSX导出JSON”中的第二阶段JSON，把完整结果导出为专业XLSX。</td></tr></tbody></table></div></section><section class="sheet" id="sheet-3"><div class="sheet-heading"><span>WORKSHEET / 03</span><h2>03_XLSX导出JSON</h2><small>4 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">JSON 02｜产品卖点分析报告完整导出XLSX</td><td></td><td></td></tr><tr><th scope="row">2</th><td>使用方式：第一阶段完整分析结果已经生成后 → 点击B4单元格复制完整JSON → 继续执行 → 输出带对应产品图真实嵌入的专业级XLSX。</td><td></td><td></td></tr><tr><th scope="row">3</th><td class="strong">模块信息</td><td class="strong">完整JSON（单个单元格，可完整复制）</td><td class="strong">详细使用教程 / 说明</td></tr><tr><th scope="row">4</th><td>JSON 02
+版本：XLSX Export 6.0 一键完整执行版
+阶段：第二阶段｜专业XLSX完整导出
+JSON字符数：16875</td><td>{
+  &quot;JSON名称&quot;: &quot;产品卖点分析报告完整导出XLSX-专业级JSON&quot;,
+  &quot;版本&quot;: &quot;XLSX Export 6.0 一键完整执行版&quot;,
+  &quot;使用场景&quot;: &quot;在已经使用“多图产品自动识别与全量卖点视觉文案生成JSON”完成产品分析，并已经获得完整的卖点解析、卖点文案库、卖点风格文案库、8张主图策划文案、12至25屏详情页策划文案之后执行本JSON。&quot;,
+  &quot;核心目标&quot;: &quot;将当前对话中已经生成的完整产品分析报告，连同本次任务中上传并用于分析的全部产品图片，完整整理并导出为一个专业级XLSX工作簿。不得减少报告内容，不得减少文案，不得修改原文案，不得重新改写卖点，不得重新生成替代文案。所有指定工作簿最左侧A列必须真实嵌入与该行内容对应的产品图片，图片右侧相邻单元格必须立即开始展示对应卖点、文案、主图或详情页内容。&quot;,
+  &quot;最终交付&quot;: {
+    &quot;文件格式&quot;: &quot;.xlsx&quot;,
+    &quot;文件要求&quot;: &quot;必须生成真实可下载、可正常使用Microsoft Excel/WPS打开的XLSX文件&quot;,
+    &quot;默认文件名&quot;: &quot;产品卖点与视觉文案完整策划报告.xlsx&quot;,
+    &quot;工作簿语言&quot;: &quot;简体中文&quot;,
+    &quot;禁止仅输出Markdown表格&quot;: true,
+    &quot;禁止仅输出CSV&quot;: true,
+    &quot;禁止仅输出HTML&quot;: true,
+    &quot;禁止输出模拟表格代替XLSX&quot;: true,
+    &quot;禁止只给代码不生成文件&quot;: true
+  },
+  &quot;最高执行原则&quot;: [
+    &quot;必须以当前对话中上一阶段已经生成完成的产品分析结果作为唯一文字内容来源。&quot;,
+    &quot;必须读取上一阶段完整分析报告，不得只处理当前可见的一小段内容。&quot;,
+    &quot;必须同时读取本次分析所使用的全部产品图片。&quot;,
+    &quot;不得重新分析后替换原分析结果。&quot;,
+    &quot;不得为了排版方便删除、压缩、合并或概括原报告内容。&quot;,
+    &quot;不得减少原报告中的任何卖点。&quot;,
+    &quot;不得减少原报告中的任何主标题、副标题、正文、其他可用文案。&quot;,
+    &quot;不得修改原报告中的任何文案措辞。&quot;,
+    &quot;不得润色、纠错、优化、缩写或扩写原文案。&quot;,
+    &quot;不得为了满足固定数量而凭空新增文案。&quot;,
+    &quot;如果原报告某一类型文案实际数量不足，不需要补齐，不需要备注，不需要写“数量不足”，直接按实际数量填写。&quot;,
+    &quot;如果原报告某一类型文案数量超过指定建议数量，必须全部保留，不得截断。&quot;,
+    &quot;图片必须以真正的Excel嵌入图片对象形式写入工作簿，不得使用图片URL、文件名、超链接或路径文字代替嵌入图片。&quot;,
+    &quot;图片与对应内容必须在同一行或对应合并区域中保持清晰的一一对应关系。&quot;,
+    &quot;所有核心内容工作簿中，A列固定为产品图片列。&quot;,
+    &quot;所有文字内容必须从B列开始。&quot;,
+    &quot;A列图片右侧相邻的B列必须立即开始放置该行最重要的对应文字内容。&quot;,
+    &quot;不得在A列图片与文字内容之间插入空列。&quot;,
+    &quot;不得把图片单独建立成与文案完全分离的图片工作簿来替代正文中的嵌图要求。&quot;,
+    &quot;允许额外建立图片索引工作簿，但不能替代每个核心工作簿内的实际嵌入图片。&quot;,
+    &quot;同一个卖点涉及多张图片时，可以在A列单元格区域内纵向或组合嵌入多张最相关图片，但必须保证可辨识。&quot;,
+    &quot;如果无法精确判断唯一对应图片，应选择最能直接证明该卖点、结构、功能、材质、工艺或场景的图片。&quot;,
+    &quot;如果一个卖点没有非常明确的特写图，应使用最相关的产品整体图，不得留空图片列，除非所有上传图片均与该条内容无关。&quot;,
+    &quot;主图策划与详情页策划中的图片必须优先选择与该页面核心卖点最相关的原始产品图片。&quot;,
+    &quot;不得生成AI新图片替代用户上传图片。&quot;,
+    &quot;不得修改用户上传产品图片内容。&quot;,
+    &quot;不得裁切掉关键产品结构。&quot;,
+    &quot;仅允许为了Excel排版进行等比例缩放。&quot;
+  ],
+  &quot;输入来源识别&quot;: {
+    &quot;文字输入来源&quot;: [
+      &quot;上一阶段输出的“产品识别与卖点解析”&quot;,
+      &quot;上一阶段输出的“卖点文案库”&quot;,
+      &quot;上一阶段输出的“卖点风格文案库”&quot;,
+      &quot;上一阶段输出的“8张主图策划文案”&quot;,
+      &quot;上一阶段输出的“12至25屏详情页策划文案”&quot;
+    ],
+    &quot;图片输入来源&quot;: [
+      &quot;用户在本轮产品分析任务中上传的全部产品原始图片&quot;,
+      &quot;包括产品整体图&quot;,
+      &quot;正面图&quot;,
+      &quot;侧面图&quot;,
+      &quot;背面图&quot;,
+      &quot;俯视图&quot;,
+      &quot;底部图&quot;,
+      &quot;结构图&quot;,
+      &quot;功能图&quot;,
+      &quot;尺寸图&quot;,
+      &quot;材质特写图&quot;,
+      &quot;工艺特写图&quot;,
+      &quot;配件图&quot;,
+      &quot;场景图&quot;,
+      &quot;色卡图&quot;,
+      &quot;包装图&quot;,
+      &quot;安装图&quot;
+    ],
+    &quot;输入完整性原则&quot;: &quot;必须优先使用当前对话中已经存在的数据和图片，不得要求用户重复粘贴已经存在的分析结果。&quot;
+  },
+  &quot;图片与内容自动匹配系统&quot;: {
+    &quot;目标&quot;: &quot;为卖点解析、文案库、风格文案库、主图策划文案、详情页策划文案的每一行自动选择最相关的产品图片。&quot;,
+    &quot;图片识别步骤&quot;: [
+      &quot;逐张识别上传图片中的产品主体。&quot;,
+      &quot;识别每张图片主要展示的信息。&quot;,
+      &quot;为每张图片建立内部图片编号IMG001、IMG002、IMG003连续编号。&quot;,
+      &quot;判断图片属于整体、结构、功能、材质、工艺、尺寸、场景、配件或其他类型。&quot;,
+      &quot;提取每张图片可以直接证明的产品特征。&quot;,
+      &quot;将图片可证明内容与卖点编号SP001、SP002等进行匹配。&quot;,
+      &quot;将图片与主图1至主图8核心卖点进行匹配。&quot;,
+      &quot;将图片与详情页01至详情页25核心卖点进行匹配。&quot;
+    ],
+    &quot;匹配优先级&quot;: [
+      &quot;第一优先：该图片直接展示该卖点本体。&quot;,
+      &quot;第二优先：该图片直接展示对应结构或功能。&quot;,
+      &quot;第三优先：该图片直接展示对应材质或工艺细节。&quot;,
+      &quot;第四优先：该图片展示该卖点实际使用状态。&quot;,
+      &quot;第五优先：产品整体图。&quot;,
+      &quot;第六优先：最接近该内容的其他产品图片。&quot;
+    ],
+    &quot;多图规则&quot;: [
+      &quot;一个卖点如果有一张最清晰图片，优先只嵌入该张图片。&quot;,
+      &quot;如果卖点必须通过两张或多张图片才能完整表达，可以在A列对应区域嵌入2至4张相关图片。&quot;,
+      &quot;多图必须整齐排列，并保持各图片原始宽高比例。&quot;,
+      &quot;不得因为有多图而移动文案到非相邻区域。&quot;
+    ]
+  },
+  &quot;工作簿总体结构&quot;: {
+    &quot;工作簿顺序&quot;: [
+      &quot;01_报告说明&quot;,
+      &quot;02_产品识别总览&quot;,
+      &quot;03_卖点解析&quot;,
+      &quot;04_卖点文案库&quot;,
+      &quot;05_卖点风格文案库&quot;,
+      &quot;06_主图策划文案&quot;,
+      &quot;07_详情页策划文案&quot;
+    ],
+    &quot;可选辅助工作簿&quot;: [&quot;08_产品图片索引&quot;],
+    &quot;禁止行为&quot;: [
+      &quot;不得把推荐文案单独建立一个工作簿。&quot;,
+      &quot;不得把备选文案单独建立一个工作簿。&quot;,
+      &quot;不得把其他文案单独建立一个工作簿。&quot;,
+      &quot;不得把主标题、副标题、正文拆成独立工作簿。&quot;,
+      &quot;不得把图片与正文拆开。&quot;,
+      &quot;推荐文案、备选文案、其他文案必须直接放进它们所属的卖点解析、文案库、风格文案库、主图策划文案、详情页策划文案对应工作簿中。&quot;
+    ]
+  },
+  &quot;01_报告说明&quot;: {
+    &quot;用途&quot;: &quot;作为整个XLSX文件的首页和使用说明页。&quot;,
+    &quot;内容要求&quot;: [
+      &quot;报告名称&quot;,&quot;产品识别名称&quot;,&quot;产品一级类目&quot;,&quot;产品二级类目&quot;,&quot;产品三级类目&quot;,&quot;分析图片数量&quot;,&quot;卖点总数&quot;,&quot;真实可使用卖点数量&quot;,&quot;需要确认后使用卖点数量&quot;,&quot;卖点文案库记录数量&quot;,&quot;风格文案库记录数量&quot;,&quot;主图策划数量&quot;,&quot;详情页策划数量&quot;
+    ],
+    &quot;说明内容&quot;: [
+      &quot;“真实可使用”代表能够根据图片直接观察并成立的产品信息。&quot;,
+      &quot;“需要确认后使用”代表图片可以提供一定依据，但正式商用前仍需要结合产品参数、检测结果、品牌资料或供应链资料进行确认。&quot;,
+      &quot;本文件所有原始卖点和文案均来源于上一阶段分析报告，导出过程中不对原文字内容进行改写。&quot;,
+      &quot;工作簿中的图片均来自用户上传的原始产品图片，并根据各行内容自动进行关联。&quot;
+    ]
+  },
+  &quot;02_产品识别总览&quot;: {
+    &quot;A列&quot;: &quot;产品图片&quot;,
+    &quot;B列&quot;: &quot;识别项目&quot;,
+    &quot;C列&quot;: &quot;识别结果&quot;,
+    &quot;D列&quot;: &quot;图片依据&quot;,
+    &quot;E列&quot;: &quot;确认状态&quot;,
+    &quot;要求&quot;: [
+      &quot;A列嵌入与识别项目对应的最相关产品图片。&quot;,
+      &quot;产品整体识别项目优先使用产品整体图。&quot;,
+      &quot;材质、结构、功能等项目优先使用对应特写图。&quot;,
+      &quot;完整保留上一阶段产品自动识别结果。&quot;,
+      &quot;不得删减识别项目。&quot;
+    ]
+  },
+  &quot;03_卖点解析&quot;: {
+    &quot;定位&quot;: &quot;完整保留上一阶段全部卖点解析，同时直接集成对应文案，不建立分离的文案附件。&quot;,
+    &quot;固定列顺序&quot;: [
+      &quot;A_对应产品图&quot;,&quot;B_卖点编号&quot;,&quot;C_卖点名称&quot;,&quot;D_卖点分类&quot;,&quot;E_证据等级&quot;,&quot;F_图片事实依据&quot;,&quot;G_详细卖点解析&quot;,&quot;H_用户价值&quot;,&quot;I_适合展示位置&quot;,&quot;J_推荐文案&quot;,&quot;K_备选一级文案&quot;,&quot;L_备选二级文案&quot;,&quot;M_备选三级文案&quot;,&quot;N_其他一级文案&quot;,&quot;O_其他二级文案&quot;,&quot;P_其他三级文案&quot;
+    ],
+    &quot;图片规则&quot;: [
+      &quot;A列必须嵌入与该卖点直接相关的产品图片。&quot;,
+      &quot;A列不得只填写IMG编号。&quot;,
+      &quot;IMG编号可以附加在图片下方作为辅助信息，但不能替代图片。&quot;,
+      &quot;图片必须与B列卖点编号处于同一行或同一合并行区域。&quot;
+    ],
+    &quot;文案映射&quot;: {
+      &quot;一级文案定义&quot;: &quot;主标题&quot;,
+      &quot;二级文案定义&quot;: &quot;副标题&quot;,
+      &quot;三级文案定义&quot;: &quot;正文&quot;,
+      &quot;推荐文案&quot;: {
+        &quot;位置&quot;: &quot;J列&quot;,
+        &quot;要求&quot;: &quot;只放置1套最推荐的完整文案组合。&quot;,
+        &quot;单元格结构&quot;: [
+          &quot;一级文案｜主标题：……&quot;,
+          &quot;二级文案｜副标题：……&quot;,
+          &quot;三级文案｜正文：……&quot;
+        ],
+        &quot;显示方式&quot;: &quot;三层文案全部处于J列同一个单元格内，使用Excel单元格内换行。&quot;
+      },
+      &quot;备选一级文案&quot;: {
+        &quot;位置&quot;: &quot;K列&quot;,
+        &quot;来源&quot;: &quot;除推荐主标题外的剩余主标题原文案&quot;,
+        &quot;数量&quot;: &quot;原则上5至15条；原报告少于5条则有多少填写多少；超过15条且属于原报告有效内容时不得删除，继续全部填写。&quot;,
+        &quot;显示方式&quot;: &quot;同一单元格内编号换行&quot;
+      },
+      &quot;备选二级文案&quot;: {
+        &quot;位置&quot;: &quot;L列&quot;,
+        &quot;来源&quot;: &quot;除推荐副标题外的剩余副标题原文案&quot;,
+        &quot;数量&quot;: &quot;原则上5至15条；实际以原报告全部内容为准。&quot;,
+        &quot;显示方式&quot;: &quot;同一单元格内编号换行&quot;
+      },
+      &quot;备选三级文案&quot;: {
+        &quot;位置&quot;: &quot;M列&quot;,
+        &quot;来源&quot;: &quot;除推荐正文外的剩余正文原文案&quot;,
+        &quot;数量&quot;: &quot;原则上5至15条；实际以原报告全部内容为准。&quot;,
+        &quot;显示方式&quot;: &quot;同一单元格内编号换行&quot;
+      },
+      &quot;其他一级文案&quot;: {
+        &quot;位置&quot;: &quot;N列&quot;,
+        &quot;来源&quot;: &quot;该卖点在其他风格、其他页面或其他可用文案中尚未进入推荐文案和备选一级文案的剩余主标题类文案。&quot;,
+        &quot;要求&quot;: &quot;禁止改写，只能搬运已有原文案。&quot;,
+        &quot;数量&quot;: &quot;5至15条优先；实际不足时直接填写现有内容。&quot;
+      },
+      &quot;其他二级文案&quot;: {
+        &quot;位置&quot;: &quot;O列&quot;,
+        &quot;来源&quot;: &quot;该卖点剩余副标题类原文案。&quot;,
+        &quot;数量&quot;: &quot;5至15条优先；实际以已有内容为准。&quot;
+      },
+      &quot;其他三级文案&quot;: {
+        &quot;位置&quot;: &quot;P列&quot;,
+        &quot;来源&quot;: &quot;该卖点剩余正文、其他可用说明类原文案。&quot;,
+        &quot;数量&quot;: &quot;5至15条优先；实际以已有内容为准。&quot;
+      }
+    },
+    &quot;完整性要求&quot;: [
+      &quot;上一阶段全部卖点必须逐条进入本工作簿。&quot;,
+      &quot;不得只保留核心卖点。&quot;,
+      &quot;真实可使用卖点必须全部保留。&quot;,
+      &quot;需要确认后使用卖点必须全部保留。&quot;,
+      &quot;原报告中的图片事实依据、卖点解析、用户价值、适合展示位置均必须完整保留。&quot;,
+      &quot;可以把已有文案同步进卖点解析工作簿，但不得因此从其他文案工作簿删除原内容。&quot;
+    ]
+  },
+  &quot;04_卖点文案库&quot;: {
+    &quot;定位&quot;: &quot;完整导出上一阶段全量基础卖点文案库。&quot;,
+    &quot;固定列顺序&quot;: [
+      &quot;A_对应产品图&quot;,&quot;B_卖点编号&quot;,&quot;C_卖点名称&quot;,&quot;D_证据等级&quot;,&quot;E_推荐文案&quot;,&quot;F_备选一级文案_主标题&quot;,&quot;G_备选二级文案_副标题&quot;,&quot;H_备选三级文案_正文&quot;,&quot;I_其他一级文案_主标题&quot;,&quot;J_其他二级文案_副标题&quot;,&quot;K_其他三级文案_正文&quot;
+    ],
+    &quot;推荐文案规则&quot;: {
+      &quot;要求&quot;: &quot;每个卖点只选择1套最推荐组合。&quot;,
+      &quot;组合方式&quot;: [
+        &quot;一级文案｜主标题：从原报告该卖点主标题中选1条最适合作为核心视觉标题的文案&quot;,
+        &quot;二级文案｜副标题：从原报告该卖点副标题中选1条与推荐主标题最匹配的文案&quot;,
+        &quot;三级文案｜正文：从原报告该卖点正文中选1条与前两级逻辑最完整的文案&quot;
+      ],
+      &quot;限制&quot;: &quot;只允许选择和组合，不允许修改任何字词。&quot;
+    },
+    &quot;备选文案规则&quot;: [
+      &quot;F列存放剩余主标题原文案。&quot;,
+      &quot;G列存放剩余副标题原文案。&quot;,
+      &quot;H列存放剩余正文原文案。&quot;,
+      &quot;每列内部使用1、2、3……编号。&quot;,
+      &quot;每条独立换行。&quot;,
+      &quot;各级优先至少5条。&quot;,
+      &quot;原报告不足5条时不得补写。&quot;,
+      &quot;原报告超过15条时不得因为15条建议上限而删除原文案。&quot;
+    ],
+    &quot;其他文案规则&quot;: [
+      &quot;I、J、K列用于收纳该卖点仍未归入推荐及备选区的剩余原始文案。&quot;,
+      &quot;包括同卖点其他表达版本、已存在的额外文案和其他可用文案。&quot;,
+      &quot;禁止为了填满其他文案列新增内容。&quot;,
+      &quot;没有内容时保持空白即可。&quot;
+    ],
+    &quot;图片规则&quot;: &quot;每个卖点行A列必须嵌入与该卖点最相关的原始产品图。&quot;
+  },
+  &quot;05_卖点风格文案库&quot;: {
+    &quot;定位&quot;: &quot;完整导出所有卖点、所有已生成文案风格以及每种风格下的全部文案。&quot;,
+    &quot;一行粒度&quot;: &quot;一个卖点 × 一个文案风格 = 一行。&quot;,
+    &quot;固定列顺序&quot;: [
+      &quot;A_对应产品图&quot;,&quot;B_卖点编号&quot;,&quot;C_卖点名称&quot;,&quot;D_证据等级&quot;,&quot;E_文案风格&quot;,&quot;F_推荐文案&quot;,&quot;G_备选一级文案_主标题&quot;,&quot;H_备选二级文案_副标题&quot;,&quot;I_备选三级文案_正文&quot;,&quot;J_其他一级文案_主标题&quot;,&quot;K_其他二级文案_副标题&quot;,&quot;L_其他三级文案_正文&quot;
+    ],
+    &quot;强制要求&quot;: [
+      &quot;必须保留上一阶段生成的全部风格。&quot;,
+      &quot;不得只保留6种风格。&quot;,
+      &quot;如果核心卖点原报告中有8、10、12种风格，必须全部导出。&quot;,
+      &quot;每种风格必须单独一行，不得把多个风格混合进同一个单元格。&quot;,
+      &quot;每一行A列都必须嵌入对应产品图片。&quot;,
+      &quot;即使同一个卖点连续出现多个风格，也不得省略A列图片。&quot;,
+      &quot;不得使用“同上”替代图片。&quot;
+    ],
+    &quot;推荐文案&quot;: &quot;F列放置该卖点该风格下最推荐的主标题+副标题+正文组合，全部在一个单元格内换行。&quot;,
+    &quot;备选文案&quot;: [&quot;G列：剩余主标题&quot;,&quot;H列：剩余副标题&quot;,&quot;I列：剩余正文&quot;],
+    &quot;其他文案&quot;: [&quot;J列：该风格剩余主标题类文案&quot;,&quot;K列：该风格剩余副标题类文案&quot;,&quot;L列：该风格剩余正文类文案&quot;],
+    &quot;内容来源限制&quot;: &quot;只能使用上一阶段已经生成的该卖点、该风格对应原文案，不得重新创造新风格文案。&quot;
+  },
+  &quot;06_主图策划文案&quot;: {
+    &quot;定位&quot;: &quot;完整导出8张主图策划，并将每张主图的完整文案库集中在该工作簿对应行，不建立额外文案表。&quot;,
+    &quot;固定行数&quot;: 8,
+    &quot;固定列顺序&quot;: [
+      &quot;A_对应产品图&quot;,&quot;B_主图序号&quot;,&quot;C_对应卖点编号&quot;,&quot;D_主图核心卖点&quot;,&quot;E_证据等级&quot;,&quot;F_推荐文案&quot;,&quot;G_备选一级文案_主标题&quot;,&quot;H_备选二级文案_副标题&quot;,&quot;I_备选三级文案_其他可用文案&quot;,&quot;J_其他一级文案_主标题&quot;,&quot;K_其他二级文案_副标题&quot;,&quot;L_其他三级文案_其他可用文案&quot;
+    ],
+    &quot;三级文案映射&quot;: {&quot;一级文案&quot;: &quot;主标题&quot;,&quot;二级文案&quot;: &quot;副标题&quot;,&quot;三级文案&quot;: &quot;其他可用文案&quot;},
+    &quot;推荐文案规则&quot;: [
+      &quot;每张主图只选择一套最推荐组合。&quot;,
+      &quot;F列同一单元格内依次放：一级文案、二级文案、三级文案。&quot;,
+      &quot;三级文案可从原主图策划中的其他可用文案选择1条最适合作为视觉辅助文案的内容。&quot;,
+      &quot;只允许选择原文案，不允许重新写。&quot;
+    ],
+    &quot;备选文案规则&quot;: [
+      &quot;G列放剩余主标题。&quot;,
+      &quot;H列放剩余副标题。&quot;,
+      &quot;I列放剩余其他可用文案。&quot;,
+      &quot;每列5至15条优先。&quot;,
+      &quot;原报告有多少保留多少。&quot;,
+      &quot;不得截断。&quot;
+    ],
+    &quot;其他文案规则&quot;: [
+      &quot;如果相同卖点在卖点文案库或风格文案库中还存在可以直接支持该主图的原始文案，可放入J、K、L列。&quot;,
+      &quot;不得改写。&quot;,
+      &quot;不得强行补齐。&quot;,
+      &quot;如果不存在则留空。&quot;
+    ],
+    &quot;图片规则&quot;: [
+      &quot;主图1至主图8每一行A列必须嵌入对应产品图。&quot;,
+      &quot;优先选择最能够证明该主图核心卖点的图片。&quot;,
+      &quot;如果该主图核心卖点为整体设计或产品定位，优先使用清晰完整整体产品图。&quot;,
+      &quot;如果为结构卖点，优先使用结构图或结构特写。&quot;,
+      &quot;如果为材质卖点，优先使用材质特写。&quot;,
+      &quot;如果为功能卖点，优先使用功能状态图。&quot;,
+      &quot;如果为尺寸卖点，优先使用尺寸图。&quot;
+    ]
+  },
+  &quot;07_详情页策划文案&quot;: {
+    &quot;定位&quot;: &quot;完整导出上一阶段实际生成的12至25屏详情页策划，并将全部文案集中在各页面对应行。&quot;,
+    &quot;行数规则&quot;: &quot;严格按照上一阶段实际详情页数量导出，不得固定强制为12、20或25。原报告有多少屏就完整导出多少屏。&quot;,
+    &quot;固定列顺序&quot;: [
+      &quot;A_对应产品图&quot;,&quot;B_页面序号&quot;,&quot;C_对应卖点编号&quot;,&quot;D_页面核心卖点&quot;,&quot;E_证据等级&quot;,&quot;F_推荐文案&quot;,&quot;G_备选一级文案_主标题&quot;,&quot;H_备选二级文案_副标题&quot;,&quot;I_备选三级文案_其他可用文案&quot;,&quot;J_其他一级文案_主标题&quot;,&quot;K_其他二级文案_副标题&quot;,&quot;L_其他三级文案_其他可用文案&quot;
+    ],
+    &quot;三级文案映射&quot;: {&quot;一级文案&quot;: &quot;主标题&quot;,&quot;二级文案&quot;: &quot;副标题&quot;,&quot;三级文案&quot;: &quot;其他可用文案&quot;},
+    &quot;推荐文案规则&quot;: [
+      &quot;每一屏只选择一套最推荐组合。&quot;,
+      &quot;F列一个单元格内依次放主标题、副标题、其他可用文案。&quot;,
+      &quot;仅对已有文案进行选择组合。&quot;,
+      &quot;严禁重新修改。&quot;
+    ],
+    &quot;备选文案规则&quot;: [
+      &quot;G列放该屏剩余主标题。&quot;,
+      &quot;H列放该屏剩余副标题。&quot;,
+      &quot;I列放该屏剩余其他可用文案。&quot;,
+      &quot;每列使用编号换行。&quot;,
+      &quot;5至15条优先。&quot;,
+      &quot;已有多少保留多少。&quot;
+    ],
+    &quot;其他文案规则&quot;: [
+      &quot;J、K、L列允许收纳同一核心卖点在基础卖点文案库、风格文案库及其他页面中尚未重复收录的已有可用文案。&quot;,
+      &quot;不得修改文案。&quot;,
+      &quot;不得重新生成。&quot;,
+      &quot;不存在时直接留空。&quot;
+    ],
+    &quot;图片规则&quot;: [
+      &quot;每一屏A列都必须嵌入与该屏核心内容最相关的产品图片。&quot;,
+      &quot;不得只在第1屏放图片、后续行留空。&quot;,
+      &quot;不得用“同主图”“同上图”等文字代替。&quot;,
+      &quot;同一张产品图可以重复嵌入多个不同页面行，只要其确实对应相应卖点。&quot;,
+      &quot;图片数量不足时允许重复使用最匹配图片，优先保证每行有图。&quot;
+    ]
+  },
+  &quot;08_产品图片索引&quot;: {
+    &quot;是否必须&quot;: false,
+    &quot;建议建立&quot;: true,
+    &quot;用途&quot;: &quot;用于查看上传的原始图片与内部IMG编号关系。&quot;,
+    &quot;列结构&quot;: [&quot;A_图片&quot;,&quot;B_图片编号&quot;,&quot;C_图片类型&quot;,&quot;D_主要展示内容&quot;,&quot;E_关联卖点编号&quot;,&quot;F_关联主图&quot;,&quot;G_关联详情页&quot;],
+    &quot;注意&quot;: &quot;该工作簿只是辅助索引，绝对不能替代其他工作簿A列嵌入图片。&quot;
+  },
+  &quot;推荐文案选择算法&quot;: {
+    &quot;原则&quot;: &quot;只能从原报告现有文案中选择，不得进行文字改写。&quot;,
+    &quot;选择顺序&quot;: [
+      &quot;优先选择与卖点事实依据最一致的文案。&quot;,
+      &quot;优先选择消费者一眼能够理解的文案。&quot;,
+      &quot;优先选择长度适合视觉页面展示的文案。&quot;,
+      &quot;优先选择利益点清晰而非空泛描述的文案。&quot;,
+      &quot;主标题、副标题、正文或其他可用文案三者之间必须逻辑一致。&quot;,
+      &quot;避免推荐组合内部重复表达完全相同的信息。&quot;
+    ],
+    &quot;禁止行为&quot;: [
+      &quot;禁止把两条原文案拼接成一条新文案。&quot;,
+      &quot;禁止修改标点之外的文字。&quot;,
+      &quot;原则上连标点也保持原报告不变。&quot;,
+      &quot;禁止为了使推荐组合更顺畅而重新润色。&quot;
+    ]
+  },
+  &quot;文案完整迁移规则&quot;: {
+    &quot;核心原则&quot;: &quot;零删减、零改写、零截断。&quot;,
+    &quot;规则&quot;: [
+      &quot;原报告中所有文案必须被保留。&quot;,
+      &quot;推荐文案属于原文案的选择，不代表删除其他文案。&quot;,
+      &quot;被选择作为推荐文案的原文案可以同时保留在原始完整文案集合中，但为了阅读效率可以在对应备选列不重复展示；无论如何不得从整个XLSX中彻底丢失。&quot;,
+      &quot;如果原报告某卖点主标题有10条、副标题有8条、正文有6条，则必须完整保存10、8、6条。&quot;,
+      &quot;如果某风格有主标题5条、副标题5条、正文5条，则全部保存。&quot;,
+      &quot;如果某主图其他可用文案只有4条，则只放4条，不补第5条。&quot;,
+      &quot;如果某详情页文案超过15条，则继续全部保存，可以超过15条。&quot;,
+      &quot;文案数量范围5至15条属于优先展示建议，不属于删除上限。&quot;,
+      &quot;若单元格文字过多，可增加行高、自动换行或允许单元格内容自然扩展，不允许因单元格过长而删减文字。&quot;,
+      &quot;禁止使用“等”“略”“其余见原报告”等方式省略内容。&quot;
+    ]
+  },
+  &quot;图片真实嵌入技术规则&quot;: {
+    &quot;必须满足&quot;: [
+      &quot;图片必须作为XLSX内部drawing/media对象真正写入文件。&quot;,
+      &quot;必须保证XLSX文件离开原电脑后仍可以显示图片。&quot;,
+      &quot;不得使用本地路径引用图片。&quot;,
+      &quot;不得使用网络链接引用图片。&quot;,
+      &quot;不得使用IMAGE公式作为唯一方式。&quot;,
+      &quot;优先采用Excel兼容的实际嵌入方式。&quot;,
+      &quot;应兼容Microsoft Excel与WPS Office。&quot;
+    ],
+    &quot;图片格式处理&quot;: [
+      &quot;JPEG、JPG、PNG直接优先使用。&quot;,
+      &quot;其他不兼容格式可以在不改变视觉内容的前提下转换为PNG后嵌入。&quot;,
+      &quot;禁止降低至影响产品细节辨识的过低分辨率。&quot;
+    ],
+    &quot;图片尺寸&quot;: {
+      &quot;A列建议宽度&quot;: &quot;18至28个Excel字符宽度，具体根据产品图片比例自动调整&quot;,
+      &quot;单行图片建议高度&quot;: &quot;100至180像素等效高度&quot;,
+      &quot;复杂细节图&quot;: &quot;可适当放大到180至240像素等效高度&quot;,
+      &quot;原则&quot;: &quot;保证能看清产品，同时不要让工作簿极度臃肿&quot;
+    },
+    &quot;图片定位&quot;: [
+      &quot;图片尽量完整位于A列单元格视觉范围内。&quot;,
+      &quot;图片左上角与对应A列单元格左上区域对齐。&quot;,
+      &quot;保持图片宽高比例。&quot;,
+      &quot;图片不要覆盖B列文字。&quot;,
+      &quot;图片不要漂移到其他数据行。&quot;,
+      &quot;调整行高以容纳图片。&quot;,
+      &quot;冻结窗格或筛选后应尽量保持图片和对应数据视觉匹配。&quot;
+    ]
+  },
+  &quot;专业级Excel排版规范&quot;: {
+    &quot;整体风格&quot;: &quot;专业、清晰、高级、适合电商策划、运营、视觉设计和管理团队直接使用。&quot;,
+    &quot;标题行&quot;: [
+      &quot;每个工作簿第1行设置工作簿中文标题。&quot;,
+      &quot;允许将标题区域横向合并，但不得影响A列正文图片位置。&quot;,
+      &quot;标题使用较大字号和加粗。&quot;,
+      &quot;第2至第4行可放工作簿说明或统计信息。&quot;,
+      &quot;正式表头建议从第5行开始，具体可根据内容调整。&quot;
+    ],
+    &quot;表头&quot;: [
+      &quot;加粗&quot;,&quot;垂直居中&quot;,&quot;水平居中&quot;,&quot;自动换行&quot;,&quot;设置筛选&quot;,&quot;冻结表头&quot;,&quot;使用统一专业配色&quot;,&quot;禁止过度花哨&quot;
+    ],
+    &quot;正文&quot;: [
+      &quot;全部自动换行&quot;,&quot;长文本顶端对齐&quot;,&quot;图片行垂直居中&quot;,&quot;卖点编号、主图序号、页面序号居中&quot;,&quot;长文案列左对齐&quot;,&quot;根据内容自动或合理设置列宽&quot;
+    ],
+    &quot;边框&quot;: &quot;所有正文表格设置清晰细边框。&quot;,
+    &quot;证据等级&quot;: [
+      &quot;真实可使用可使用一种统一浅色标记。&quot;,
+      &quot;需要确认后使用可使用另一种醒目但不刺眼的浅色标记。&quot;,
+      &quot;颜色只用于辅助识别，不得修改文字本身。&quot;
+    ],
+    &quot;筛选&quot;: [
+      &quot;卖点解析支持按卖点分类、证据等级筛选。&quot;,
+      &quot;风格文案库支持按卖点编号、证据等级、文案风格筛选。&quot;,
+      &quot;主图与详情页支持按卖点编号、证据等级筛选。&quot;
+    ],
+    &quot;冻结窗格&quot;: [
+      &quot;建议冻结表头。&quot;,
+      &quot;大型工作簿建议同时冻结A列图片列和B列关键编号列，使横向查看文案时仍能看到对应产品图与编号。&quot;
+    ],
+    &quot;打印与查看&quot;: [
+      &quot;设置合理缩放。&quot;,
+      &quot;不强制所有列压缩到单页。&quot;,
+      &quot;优先保证屏幕查看与编辑体验。&quot;
+    ]
+  },
+  &quot;单元格内部格式&quot;: {
+    &quot;推荐文案单元格模板&quot;: &quot;一级文案｜主标题：{原主标题}\\n二级文案｜副标题：{原副标题}\\n三级文案｜正文/其他可用文案：{原三级文案}&quot;,
+    &quot;备选文案单元格模板&quot;: &quot;1、{原文案1}\\n2、{原文案2}\\n3、{原文案3}\\n4、{原文案4}\\n5、{原文案5}\\n……&quot;,
+    &quot;其他文案单元格模板&quot;: &quot;1、{剩余原文案1}\\n2、{剩余原文案2}\\n3、{剩余原文案3}\\n……&quot;,
+    &quot;强制要求&quot;: [
+      &quot;必须使用真实Excel单元格内换行。&quot;,
+      &quot;不要把&lt;br&gt;文本直接写进Excel。&quot;,
+      &quot;不要把多条文案拆成大量独立行，除非工作簿定义明确要求一行一个卖点×风格。&quot;,
+      &quot;推荐文案的一级、二级、三级必须全部在同一个单元格内。&quot;,
+      &quot;备选一级、二级、三级分别各占一个独立列。&quot;,
+      &quot;其他一级、二级、三级分别各占一个独立列。&quot;
+    ]
+  },
+  &quot;去重与保真规则&quot;: {
+    &quot;去重原则&quot;: &quot;仅允许对完全相同且由报告重复输出产生的机械重复进行显示层面的整理，不能删除原报告中具有任何文字差异的版本。&quot;,
+    &quot;禁止错误去重&quot;: [
+      &quot;两条文案哪怕只相差一个词，也视为不同文案，必须保留。&quot;,
+      &quot;不同文案风格下相同文字如果属于各自原始记录，可以继续保留。&quot;,
+      &quot;不同主图或详情页使用相同文案时不得擅自删除其中一个页面内容。&quot;
+    ],
+    &quot;保真&quot;: [
+      &quot;保留原文大小写。&quot;,
+      &quot;保留原数字。&quot;,
+      &quot;保留原单位。&quot;,
+      &quot;保留原标点。&quot;,
+      &quot;保留原括号。&quot;,
+      &quot;保留原英文。&quot;,
+      &quot;保留原卖点编号。&quot;,
+      &quot;保留原证据等级。&quot;,
+      &quot;保留原页面序号。&quot;
+    ]
+  },
+  &quot;禁止拆分规则&quot;: [
+    &quot;卖点文案库的推荐、备选、其他文案必须全部位于“04_卖点文案库”。&quot;,
+    &quot;风格文案库的推荐、备选、其他文案必须全部位于“05_卖点风格文案库”。&quot;,
+    &quot;主图全部文案必须位于“06_主图策划文案”。&quot;,
+    &quot;详情页全部文案必须位于“07_详情页策划文案”。&quot;,
+    &quot;禁止额外生成“推荐文案表”“备选文案表”“其他文案表”。&quot;,
+    &quot;禁止建立主标题工作簿、副标题工作簿、正文工作簿。&quot;,
+    &quot;禁止为了方便导出将每个卖点建立独立工作簿。&quot;,
+    &quot;禁止把图片统一放在一个工作簿后让用户自行查找对应关系。&quot;
+  ],
+  &quot;工作簿内部关联规则&quot;: {
+    &quot;卖点编号&quot;: &quot;以SP001、SP002……作为各工作簿之间的主要关联键。&quot;,
+    &quot;主图编号&quot;: &quot;使用主图1至主图8。&quot;,
+    &quot;详情页编号&quot;: &quot;沿用原报告中的详情页01、详情页02……&quot;,
+    &quot;图片编号&quot;: &quot;内部建立IMG001、IMG002……，可用于辅助记录，但A列必须仍然实际显示图片。&quot;,
+    &quot;目标&quot;: &quot;用户可以通过卖点编号快速从卖点解析跳到基础文案、风格文案、主图和详情页相关内容。&quot;
+  },
+  &quot;可选增强功能&quot;: {
+    &quot;允许&quot;: [
+      &quot;设置自动筛选。&quot;,
+      &quot;设置冻结窗格。&quot;,
+      &quot;设置工作簿标签颜色。&quot;,
+      &quot;设置目录式超链接。&quot;,
+      &quot;设置回到首页超链接。&quot;,
+      &quot;设置卖点编号内部跳转链接。&quot;,
+      &quot;设置图片索引。&quot;,
+      &quot;设置表头说明批注。&quot;,
+      &quot;设置数据验证下拉筛选。&quot;
+    ],
+    &quot;限制&quot;: &quot;这些功能只能增强使用体验，不能改变、替代、删除原始数据与文案。&quot;
+  },
+  &quot;XLSX生成技术要求&quot;: {
+    &quot;推荐实现&quot;: [
+      &quot;优先使用可以真正创建XLSX并支持图片嵌入的电子表格处理能力。&quot;,
+      &quot;若运行环境支持Python，可使用openpyxl或等效Excel库。&quot;,
+      &quot;必须使用支持嵌入图片的方式创建图片对象并锚定到A列指定单元格。&quot;,
+      &quot;必须设置单元格wrap_text为开启状态。&quot;,
+      &quot;必须根据图片高度同步调整对应Excel行高。&quot;,
+      &quot;必须对每个核心工作簿逐行检查图片是否成功插入。&quot;
+    ],
+    &quot;禁止实现&quot;: [
+      &quot;禁止把Markdown保存为.xlsx后缀冒充Excel。&quot;,
+      &quot;禁止把HTML文件改后缀为xlsx。&quot;,
+      &quot;禁止把CSV改后缀为xlsx。&quot;,
+      &quot;禁止因图片嵌入困难而退化为图片路径。&quot;,
+      &quot;禁止只输出Python代码而不实际执行生成文件。&quot;
+    ]
+  },
+  &quot;生成前数据校验&quot;: [
+    &quot;检查上一阶段五大模块是否全部存在。&quot;,
+    &quot;统计卖点数量。&quot;,
+    &quot;统计基础文案数量。&quot;,
+    &quot;统计风格文案记录数量。&quot;,
+    &quot;确认主图为8张。&quot;,
+    &quot;确认详情页实际页数。&quot;,
+    &quot;统计上传产品图片数量。&quot;,
+    &quot;为全部图片建立内部编号。&quot;,
+    &quot;完成卖点与图片匹配。&quot;,
+    &quot;完成主图与图片匹配。&quot;,
+    &quot;完成详情页与图片匹配。&quot;
+  ],
+  &quot;生成后强制自检&quot;: [
+    &quot;XLSX文件是否真实生成并能够打开。&quot;,
+    &quot;是否存在01至07全部核心工作簿。&quot;,
+    &quot;上一阶段完整报告内容是否全部进入XLSX。&quot;,
+    &quot;卖点数量是否与上一阶段一致。&quot;,
+    &quot;是否保留全部真实可使用卖点。&quot;,
+    &quot;是否保留全部需要确认后使用卖点。&quot;,
+    &quot;基础卖点文案是否完整。&quot;,
+    &quot;风格文案是否完整。&quot;,
+    &quot;8张主图是否完整。&quot;,
+    &quot;详情页数量是否与原报告完全一致。&quot;,
+    &quot;是否有任何文案被改写。&quot;,
+    &quot;是否有任何文案被截断。&quot;,
+    &quot;是否有任何内容使用“略”“等”“省略”代替。&quot;,
+    &quot;03_卖点解析A列是否每个卖点都有对应产品图片。&quot;,
+    &quot;04_卖点文案库A列是否每个卖点都有对应产品图片。&quot;,
+    &quot;05_卖点风格文案库A列是否每个风格行都有对应产品图片。&quot;,
+    &quot;06_主图策划文案A列是否8行全部有对应产品图片。&quot;,
+    &quot;07_详情页策划文案A列是否所有页面全部有对应产品图片。&quot;,
+    &quot;A列图片右侧是否紧邻B列正文。&quot;,
+    &quot;图片是否真正嵌入XLSX内部。&quot;,
+    &quot;图片是否存在明显变形。&quot;,
+    &quot;图片是否覆盖正文。&quot;,
+    &quot;推荐文案是否全部位于一个单元格。&quot;,
+    &quot;备选一级、二级、三级是否分别独立占列。&quot;,
+    &quot;其他一级、二级、三级是否分别独立占列。&quot;,
+    &quot;是否错误建立了分离的推荐、备选、其他文案工作簿。&quot;,
+    &quot;所有长文本是否自动换行。&quot;,
+    &quot;表头是否冻结并支持筛选。&quot;,
+    &quot;工作簿是否具备专业可读性。&quot;
+  ],
+  &quot;异常处理规则&quot;: {
+    &quot;图片数量少于卖点数量&quot;: &quot;允许重复使用最相关产品图，绝对不能因为图片数量不足而减少卖点或删除行。&quot;,
+    &quot;某卖点无专属特写&quot;: &quot;使用最相关的产品整体图。&quot;,
+    &quot;某卖点有多张相关图片&quot;: &quot;优先选择最清晰的一张；必要时在A列对应区域内嵌入多张。&quot;,
+    &quot;某类文案少于5条&quot;: &quot;按实际数量填写，不新增、不备注、不提示数量不足。&quot;,
+    &quot;某类文案超过15条&quot;: &quot;全部保留，不因15条建议值而删除。&quot;,
+    &quot;原报告某字段为空&quot;: &quot;保持对应单元格为空，不虚构内容。&quot;,
+    &quot;上一阶段存在多个产品&quot;: &quot;按产品A、产品B等建立分组，但仍保持同一套工作簿结构；必要时通过产品编号或产品名称列区分，不得混淆图片与卖点。&quot;,
+    &quot;工作簿内容过大&quot;: &quot;允许增加行高、列宽、工作簿文件体积，不允许通过删除文案解决。&quot;,
+    &quot;图片文件较大&quot;: &quot;可进行合理的显示尺寸缩放和适度文件压缩，但不得明显损坏产品细节。&quot;
+  },
+  &quot;最终执行流程&quot;: [
+    &quot;第一步：读取当前对话中上一阶段完整分析结果。&quot;,
+    &quot;第二步：读取用于上一阶段分析的全部产品图片。&quot;,
+    &quot;第三步：建立产品图片索引与IMG编号。&quot;,
+    &quot;第四步：根据卖点编号、核心卖点和事实依据为每项内容匹配最相关图片。&quot;,
+    &quot;第五步：建立XLSX工作簿。&quot;,
+    &quot;第六步：建立01_报告说明。&quot;,
+    &quot;第七步：建立02_产品识别总览并嵌入对应图片。&quot;,
+    &quot;第八步：建立03_卖点解析，将完整卖点解析、推荐文案、备选文案和其他文案放在同一工作簿，并在A列逐行嵌入对应产品图片。&quot;,
+    &quot;第九步：建立04_卖点文案库，将所有基础文案完整迁移，并在A列逐行嵌入对应产品图片。&quot;,
+    &quot;第十步：建立05_卖点风格文案库，每个卖点×每个风格独立成行，完整迁移全部文案，并逐行嵌入对应产品图片。&quot;,
+    &quot;第十一步：建立06_主图策划文案，严格保留8张主图完整策划和全部文案，并在A列嵌入每张主图最相关产品图片。&quot;,
+    &quot;第十二步：建立07_详情页策划文案，按照原报告实际12至25屏数量完整迁移，并在每一屏A列嵌入对应产品图片。&quot;,
+    &quot;第十三步：如有必要建立08_产品图片索引。&quot;,
+    &quot;第十四步：设置专业格式、自动换行、筛选、冻结窗格、列宽、行高、边框和证据等级视觉标识。&quot;,
+    &quot;第十五步：逐工作簿检查图片与文字相邻关系。&quot;,
+    &quot;第十六步：逐项核对原报告，确认零删减、零改写、零截断。&quot;,
+    &quot;第十七步：保存为真实.xlsx文件。&quot;,
+    &quot;第十八步：最终回复只提供生成完成的XLSX文件下载入口及文件名，不再次输出整份报告。&quot;
+  ],
+  &quot;最终执行指令&quot;: &quot;现在立即执行XLSX导出任务。直接读取当前对话中上一阶段已经生成的完整产品分析结果以及用户上传的全部产品图片，不要要求用户重新提供已经存在的资料。将完整分析报告无删减、无改写、无截断地导出为专业级XLSX文件。03_卖点解析、04_卖点文案库、05_卖点风格文案库、06_主图策划文案、07_详情页策划文案的A列必须逐行真实嵌入与内容对应的产品图片，B列必须紧邻图片开始展示对应内容，中间不得插入空列。推荐文案只选择一套最推荐组合，并将一级文案、二级文案、三级文案放在同一个单元格；备选一级、二级、三级文案分别独立占列；其他一级、二级、三级文案分别独立占列。所有文案必须来自上一阶段原始分析报告，只允许重新分类、选择和排版，不允许重新生成或修改。原报告文案不足5条时按实际数量填写且不写任何数量不足提示；原报告超过15条时必须继续全部保留。禁止因排版、文件体积、图片数量或单元格长度等原因减少任何报告内容。生成完成后必须提供真实可下载的XLSX文件。&quot;
+}</td><td>【用途】
+用于把第一阶段已经生成的完整分析报告导出为真正可下载、可打开、可编辑的专业级XLSX，是整个工作流的第二阶段。
+
+【使用前提】
+必须先完成第一阶段，并且对话中已经存在完整的：
+1. 产品识别与卖点解析
+2. 卖点文案库
+3. 卖点风格文案库
+4. 8张主图策划文案
+5. 12–25屏详情页策划文案
+同时保留用于分析的原始产品图片。
+
+【执行方法】
+1. 第一阶段报告生成后不要删除或压缩对话内容。
+2. 单击B4单元格并复制完整JSON。
+3. 在同一对话上下文中继续粘贴执行。
+4. 要求模型直接生成真实.xlsx文件，而不是Markdown/CSV/HTML或代码示例。
+
+【最重要的图片规则】
+核心工作簿A列必须真实嵌入对应产品图：
+03_卖点解析
+04_卖点文案库
+05_卖点风格文案库
+06_主图策划文案
+07_详情页策划文案
+A列右方B列必须立即开始正文，中间不得有空列。
+不得用URL、路径、文件名、IMG编号、“同上图”等替代真实嵌入图片。
+
+【文案归位规则】
+推荐文案：只选择1套最推荐组合，一级/二级/三级文案放在同一单元格。
+备选文案：一级、二级、三级分别独立占列。
+其他文案：一级、二级、三级分别独立占列。
+所有内容必须直接放在所属模块内，不额外拆成“推荐文案表”“备选文案表”等独立工作簿。
+
+【保真原则】
+零删减、零改写、零截断。
+只能从第一阶段原文案中选择、分类和排版。
+不能润色、缩写、扩写、纠错或重新生成替代文案。
+
+【数量规则】
+不足5条：按实际已有数量填写，不补、不备注。
+超过15条：全部保留，不得按15条截断。
+
+【建议最终检查】
+确认卖点数与原报告一致；主图严格8张；详情页数量与原报告一致；所有长文本完整；图片逐行匹配；文件能够在Excel/WPS独立显示图片。</td></tr></tbody></table></div></section><section class="sheet" id="sheet-4"><div class="sheet-heading"><span>WORKSHEET / 04</span><h2>04_工作流与字段速查</h2><small>24 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th><th scope="col">H</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">工作流与字段速查</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">一、两阶段工作流</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">5</th><td class="strong">阶段</td><td class="strong">使用JSON</td><td class="strong">输入</td><td class="strong">主要处理</td><td class="strong">输出</td><td class="strong">图片要求</td><td class="strong">文案要求</td><td class="strong">下一步</td></tr><tr><th scope="row">6</th><td>第一阶段</td><td>JSON 01</td><td>多张产品图片</td><td>自动识别类目、证据分级、提取全量卖点、生成基础/风格/主图/详情文案</td><td>Markdown详细表格报告</td><td>分析全部图片并交叉验证</td><td>真实可使用+需要确认后使用均生成文案</td><td>执行JSON 02</td></tr><tr><th scope="row">7</th><td>第二阶段</td><td>JSON 02</td><td>第一阶段完整报告 + 原始产品图片</td><td>完整迁移报告并生成专业XLSX</td><td>真实.xlsx文件</td><td>核心工作簿A列逐行真实嵌图</td><td>零删减、零改写、零截断</td><td>交付/归档/团队使用</td></tr><tr><th scope="row">9</th><td class="strong">二、第一阶段五大输出模块速查</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">10</th><td class="strong">模块</td><td class="strong">核心字段</td><td class="strong">覆盖范围</td><td class="strong">基础文案数量</td><td class="strong">风格数量</td><td class="strong">主图/页面数量</td><td class="strong">证据等级</td><td class="strong">用途</td></tr><tr><th scope="row">11</th><td>卖点解析</td><td>卖点编号/名称/分类/证据等级/事实依据/详细解析/用户价值/展示位置</td><td>全部有效卖点</td><td>—</td><td>—</td><td>—</td><td>真实可使用/需要确认后使用</td><td>产品价值与证据基础</td></tr><tr><th scope="row">12</th><td>卖点文案库</td><td>主标题/副标题/正文</td><td>全部有效卖点</td><td>每级5–10条，优先8条</td><td>基础直白型</td><td>—</td><td>继承卖点等级</td><td>视觉页面基础文案</td></tr><tr><th scope="row">13</th><td>卖点风格文案库</td><td>风格/主标题/副标题/正文</td><td>全部有效卖点</td><td>每级5–10条，优先8条</td><td>至少6种，核心8–12种</td><td>—</td><td>继承卖点等级</td><td>多风格视觉表达</td></tr><tr><th scope="row">14</th><td>主图策划文案</td><td>主标题/副标题/其他可用文案</td><td>8张购买说服链路</td><td>每级5–10条</td><td>按页面需要</td><td>固定8张</td><td>保留</td><td>电商主图策划</td></tr><tr><th scope="row">15</th><td>详情页策划文案</td><td>主标题/副标题/其他可用文案</td><td>12–25屏</td><td>每级5–10条</td><td>按页面需要</td><td>自动12–25屏</td><td>保留</td><td>完整详情页文案链路</td></tr><tr><th scope="row">17</th><td class="strong">三、第二阶段推荐 / 备选 / 其他文案结构</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">18</th><td class="strong">文案区域</td><td class="strong">一级文案</td><td class="strong">二级文案</td><td class="strong">三级文案</td><td class="strong">单元格规则</td><td class="strong">数量规则</td><td class="strong">是否允许改写</td><td class="strong">说明</td></tr><tr><th scope="row">19</th><td>推荐文案</td><td>主标题</td><td>副标题</td><td>正文/其他可用文案</td><td>三者位于同一个单元格</td><td>只选1套组合</td><td>不允许</td><td>从原报告中选择最匹配组合</td></tr><tr><th scope="row">20</th><td>备选文案</td><td>独立一列</td><td>独立一列</td><td>独立一列</td><td>各级分别一个单元格，单元格内编号换行</td><td>5–15条优先；不足不补；超过不删</td><td>不允许</td><td>收纳推荐之外的已有原文案</td></tr><tr><th scope="row">21</th><td>其他文案</td><td>独立一列</td><td>独立一列</td><td>独立一列</td><td>各级分别一个单元格，单元格内编号换行</td><td>5–15条优先；实际以原文为准</td><td>不允许</td><td>收纳仍未进入推荐/备选区的已有原文案</td></tr><tr><th scope="row">23</th><td class="strong">四、XLSX核心工作簿图片位置</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">24</th><td class="strong">工作簿</td><td class="strong">A列</td><td class="strong">B列起始内容</td><td class="strong">图片是否必须</td><td class="strong">允许重复使用图片</td><td class="strong">允许路径/URL代替</td><td class="strong">允许“同上”</td><td class="strong">核心检查</td></tr><tr><th scope="row">25</th><td>03_卖点解析</td><td>对应产品图</td><td>卖点编号</td><td>必须</td><td>允许</td><td>不允许</td><td>不允许</td><td>每个卖点有图，图文相邻</td></tr><tr><th scope="row">26</th><td>04_卖点文案库</td><td>对应产品图</td><td>卖点编号</td><td>必须</td><td>允许</td><td>不允许</td><td>不允许</td><td>每个卖点有图，图文相邻</td></tr><tr><th scope="row">27</th><td>05_卖点风格文案库</td><td>对应产品图</td><td>卖点编号</td><td>必须</td><td>允许</td><td>不允许</td><td>不允许</td><td>每个卖点×风格行均有图</td></tr><tr><th scope="row">28</th><td>06_主图策划文案</td><td>对应产品图</td><td>主图序号</td><td>必须</td><td>允许</td><td>不允许</td><td>不允许</td><td>主图1–8全部有图</td></tr><tr><th scope="row">29</th><td>07_详情页策划文案</td><td>对应产品图</td><td>页面序号</td><td>必须</td><td>允许</td><td>不允许</td><td>不允许</td><td>全部页面逐行有图</td></tr></tbody></table></div></section><section class="sheet" id="sheet-5"><div class="sheet-heading"><span>WORKSHEET / 05</span><h2>05_需求与约束汇总</h2><small>20 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">本轮对话需求与约束汇总</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">类别</td><td class="strong">需求/约束</td><td class="strong">第一阶段JSON覆盖</td><td class="strong">第二阶段JSON覆盖</td><td class="strong">强制程度</td><td class="strong">执行说明</td></tr><tr><th scope="row">5</th><td>产品识别</td><td>通过上传多张产品图片自动分析产品类目</td><td>是</td><td>承接结果</td><td>必须</td><td>逐张识别并跨图片验证，不只看第一张</td></tr><tr><th scope="row">6</th><td>卖点解析</td><td>生成尽可能完整的真实可用及需要确认后使用的卖点</td><td>是</td><td>完整迁移</td><td>必须</td><td>禁止无依据卖点进入报告</td></tr><tr><th scope="row">7</th><td>基础文案库</td><td>每个卖点主标题/副标题/正文各5–10条，越多越好</td><td>是</td><td>完整迁移并归位</td><td>必须</td><td>所有有效卖点均覆盖</td></tr><tr><th scope="row">8</th><td>风格文案库</td><td>每个卖点多种风格，主标题/副标题/正文各5–10条</td><td>是</td><td>完整迁移并归位</td><td>必须</td><td>核心卖点优先8–12种风格</td></tr><tr><th scope="row">9</th><td>主图策划</td><td>8张，每张主标题/副标题/其他可用文案各5–10条</td><td>是</td><td>固定模块导出</td><td>必须</td><td>形成购买说服顺序</td></tr><tr><th scope="row">10</th><td>详情页策划</td><td>12–25屏，每屏主标题/副标题/其他可用文案各5–10条</td><td>是</td><td>按原实际页数导出</td><td>必须</td><td>结构复杂时输出更多页面</td></tr><tr><th scope="row">11</th><td>文案属性</td><td>必须是视觉页面可展示文案，不是内部注意事项</td><td>是</td><td>保留原文</td><td>必须</td><td>表达直白、易懂</td></tr><tr><th scope="row">12</th><td>证据分级</td><td>区分真实可使用与需要确认后使用</td><td>是</td><td>完整保留</td><td>必须</td><td>需要确认项正式商用前核实</td></tr><tr><th scope="row">13</th><td>图片嵌入</td><td>卖点解析、文案库、风格文案库、主图、详情页最左列都嵌入对应产品图</td><td>—</td><td>是</td><td>最高优先</td><td>A列真实嵌入，不得仅放路径/编号</td></tr><tr><th scope="row">14</th><td>图文相邻</td><td>文案与产品图位置相邻，正文从A列图片右侧单元格开始</td><td>—</td><td>是</td><td>最高优先</td><td>B列紧邻A列，中间不空列</td></tr><tr><th scope="row">15</th><td>推荐文案</td><td>只写一套最推荐组合，一二三级文案同列同单元格</td><td>—</td><td>是</td><td>必须</td><td>仅从原文中选择组合</td></tr><tr><th scope="row">16</th><td>备选文案</td><td>剩余一二三级文案分别占一列，各级5–15条，越多越好</td><td>—</td><td>是</td><td>必须</td><td>不足不补，超过不删</td></tr><tr><th scope="row">17</th><td>其他文案</td><td>剩余一二三级文案分别占一列，各级5–15条，越多越好</td><td>—</td><td>是</td><td>必须</td><td>不存在则留空</td></tr><tr><th scope="row">18</th><td>内容完整性</td><td>不能减少报告内容、不能减少文案、不能修改文案</td><td>—</td><td>是</td><td>最高优先</td><td>零删减、零改写、零截断</td></tr><tr><th scope="row">19</th><td>不足处理</td><td>文案数量不足不生成注释，不填写即可</td><td>—</td><td>是</td><td>必须</td><td>按已有数量填写</td></tr><tr><th scope="row">20</th><td>JSON归档</td><td>每段JSON必须在一个单元格内完整可复制，右侧附详细教程</td><td>本工作簿实现</td><td>本工作簿实现</td><td>必须</td><td>JSON 01/02分别位于B4单元格</td></tr><tr><th scope="row">21</th><td>首页</td><td>第一页需要介绍、说明、注意事项等内容</td><td>本工作簿实现</td><td>本工作簿实现</td><td>必须</td><td>已在01_说明与总览集中整理</td></tr><tr><th scope="row">22</th><td>文件命名</td><td>XX（项目名）-江东</td><td>—</td><td>—</td><td>必须</td><td>本文件命名为“产品卖点与视觉文案生成-江东.xlsx”</td></tr></tbody></table></div></section></main>
+<footer class="bottom"><div class="wrap">帖磊 · 视觉设计作品集</div></footer><script src="../sheet-viewer.js" defer></script></body></html>

@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>三步骤高清重绘-江东 · 在线预览</title>
+<style>
+:root{color-scheme:dark;font-family:Arial,"Microsoft YaHei",sans-serif;background:#111513;color:#f3f0e8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}a{color:inherit;text-decoration:none}button,a{-webkit-tap-highlight-color:transparent}
+.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px max(22px,4vw);background:#111513f2;border-bottom:1px solid #3b413d;backdrop-filter:blur(12px)}
+.top strong{font-size:17px;letter-spacing:.03em}.top nav{display:flex;gap:22px;align-items:center;font-size:12px}.top nav a:last-child{color:#f36a3e}.top nav a:hover,.sheet-nav a:hover{color:#f36a3e}
+.wrap{max-width:1600px;margin:auto;padding:0 max(22px,4vw)}.eyebrow{color:#f36a3e;font-size:11px;font-weight:700;letter-spacing:.12em}.intro{padding:62px 0 42px;border-bottom:1px solid #3b413d}.intro h1{font-size:clamp(30px,4.5vw,64px);line-height:1.15;overflow-wrap:anywhere;margin:20px 0 14px}.intro p{color:#aeb7b0;font-size:14px}
+.sheet-nav{display:flex;gap:8px;overflow:auto;padding:18px 0 34px;scrollbar-width:thin}.sheet-nav a{flex:none;display:flex;align-items:center;gap:9px;padding:11px 14px;border:1px solid #3b413d;font-size:12px;white-space:nowrap}.sheet-nav span{color:#f36a3e;font-size:10px;font-weight:700}
+.sheet{padding:45px 0 68px;border-top:1px solid #3b413d;scroll-margin-top:80px}.sheet-heading{display:flex;align-items:end;gap:24px;margin-bottom:22px}.sheet-heading>span{color:#f36a3e;font-size:11px;font-weight:700;letter-spacing:.1em}.sheet-heading h2{font-size:clamp(22px,2.3vw,34px);margin:0;overflow-wrap:anywhere}.sheet-heading small{margin-left:auto;color:#9eaaa1;white-space:nowrap}
+.table-scroll{overflow:auto;max-height:77vh;border:1px solid #3b413d;scrollbar-width:thin}table{border-collapse:separate;border-spacing:0;min-width:100%;font-size:13px;line-height:1.6}th,td{border-right:1px solid #343b36;border-bottom:1px solid #343b36;padding:10px 13px;vertical-align:top}thead th{position:sticky;top:0;z-index:2;background:#252b27;color:#b9c2ba;font-size:11px;text-align:left}tbody th{position:sticky;left:0;z-index:1;background:#1a201c;color:#91a094;font-size:11px;text-align:right;font-weight:400;min-width:42px}td{min-width:170px;max-width:440px;white-space:pre-wrap;overflow-wrap:anywhere}td:empty{min-width:70px}td.strong{font-weight:700;color:#fff}td a{color:#f36a3e;text-decoration:underline}tr:hover td{background:#1b211d}.empty{color:#9eaaa1}
+.bottom{padding:35px 0 55px;border-top:1px solid #3b413d;color:#9eaaa1;font-size:12px}@media(max-width:640px){.top{align-items:start;flex-direction:column}.sheet-heading{align-items:start;flex-wrap:wrap;gap:8px}.sheet-heading h2{width:100%}.sheet-heading small{margin:0}.intro{padding-top:36px}}
+</style></head><body>
+<header class="top"><strong>帖磊 <span style="color:#f36a3e">/</span> 作品集</strong><nav><a href="../../index.html#chapter-02">返回作品集 ↗</a><a href="../../02-AIGC/06-Prompt%E6%90%AD%E5%BB%BA/AIGC%E5%85%A8%E6%B5%81%E7%A8%8B/%E4%B8%89%E6%AD%A5%E9%AA%A4%E9%AB%98%E6%B8%85%E9%87%8D%E7%BB%98-%E6%B1%9F%E4%B8%9C.xlsx" download>下载原始 XLSX ↓</a></nav></header>
+<main class="wrap"><div class="intro"><span class="eyebrow">PROMPT ARCHIVE / 在线文档预览</span><h1>三步骤高清重绘-江东</h1><p>共 9 个工作表。点击下方名称可跳转，表格可横向滚动。原文件可在右上角下载。</p></div><nav class="sheet-nav" aria-label="工作表目录"><a href="#sheet-1"><span>01</span>00_使用导航</a><a href="#sheet-2"><span>02</span>01_白膜结构稿</a><a href="#sheet-3"><span>03</span>02_标准色稿</a><a href="#sheet-4"><span>04</span>03_最终重新渲染</a><a href="#sheet-5"><span>05</span>04_完整工作流程</a><a href="#sheet-6"><span>06</span>05_参数建议</a><a href="#sheet-7"><span>07</span>06_质量检查清单</a><a href="#sheet-8"><span>08</span>07_常见问题排查</a><a href="#sheet-9"><span>09</span>08_使用记录</a></nav><section class="sheet" id="sheet-1"><div class="sheet-heading"><span>WORKSHEET / 01</span><h2>00_使用导航</h2><small>20 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">图片三步骤重绘-江东</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td class="strong">适用于：原图模糊、低清晰度、综合色发红、白平衡异常、材质与结构细节丢失的分步骤重绘工作流</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">阶段</td><td class="strong">输入图片</td><td class="strong">核心目标</td><td class="strong">输出文件</td><td class="strong">对应工作表</td><td class="strong">是否直接用于最终图</td><td class="strong">关键注意事项</td></tr><tr><th scope="row">5</th><td>第1步</td><td>原始模糊/发红图片</td><td>重建结构、比例、透视、部件与空间关系</td><td>白膜结构稿</td><td>01_白膜结构稿</td><td>否</td><td>只解决结构，不保留颜色</td></tr><tr><th scope="row">6</th><td>第2步</td><td>同一张原始图片</td><td>修正综合色与白平衡，建立颜色和材质分区</td><td>标准色稿</td><td>02_标准色稿</td><td>否</td><td>只解决颜色与材质区域，不追求最终光影</td></tr><tr><th scope="row">7</th><td>第3步</td><td>图一白膜 + 图二色稿</td><td>结构跟随白膜，颜色材质跟随色稿，重新高清渲染</td><td>最终重新渲染图</td><td>03_最终重新渲染</td><td>是</td><td>上传顺序不可颠倒</td></tr><tr><th scope="row">9</th><td class="strong">推荐文件命名规则</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">10</th><td>原始图片</td><td>项目名_00_原始图</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">11</th><td>白膜结构稿</td><td>项目名_01_白膜结构稿</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">12</th><td>标准色稿</td><td>项目名_02_标准色稿</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">13</th><td>最终渲染图</td><td>项目名_03_最终重新渲染</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">15</th><td class="strong">完整工作流使用顺序</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">16</th><td>1</td><td>使用原始图生成白膜结构稿</td><td>进入“01_白膜结构稿”，完整复制Prompt单元格</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">17</th><td>2</td><td>使用同一原始图生成标准色稿</td><td>进入“02_标准色稿”，完整复制Prompt单元格</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">18</th><td>3</td><td>检查白膜与色稿是否构图一致</td><td>如差异明显，先重新生成对应阶段</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">19</th><td>4</td><td>白膜作为图一，色稿作为图二</td><td>进入“03_最终重新渲染”，按顺序上传</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">20</th><td>5</td><td>生成最终高清渲染图</td><td>按“06_质量检查清单”验收，不合格时查看“07_常见问题排查”</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">22</th><td>复制说明</td><td>每个完整Prompt均单独存放在一个单元格内。单击Prompt单元格后使用 Ctrl+C，即可完整复制，不会被拆分。</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">23</th><td>比例说明</td><td>默认保持原图比例。9:16、3:4、1:1、16:9等比例应与原始图片或最终用途一致。</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">24</th><td>版本说明</td><td>本文件为通用专业版，可用于家具、产品、室内场景、人物及其他有明确结构和颜色分区的图片。</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></section><section class="sheet" id="sheet-2"><div class="sheet-heading"><span>WORKSHEET / 02</span><h2>01_白膜结构稿</h2><small>9 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">第1步｜原图转白膜结构稿</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td class="strong">作用：锁定结构、比例、部件、镜头、透视和空间层级，彻底移除原图综合色与材质颜色</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">阶段编号</td><td class="strong">输入要求</td><td class="strong">完整 Prompt（单元格内整段复制）</td><td class="strong">详细使用教程 / 说明</td><td class="strong">输出验收标准</td><td class="strong">Prompt字符数</td></tr><tr><th scope="row">5</th><td>01</td><td>只上传原始模糊或画面发红图片1张；保持原始构图与比例。</td><td>请以当前上传的原始图片作为唯一的画面、主体和结构参考，对图片进行一次高精度的“白膜结构重绘”。本次任务不是重新设计画面，也不是生成相似图片，而是从原图中准确识别并重建全部真实可见的主体结构、空间结构、部件关系、比例关系、透视关系和轮廓细节，将原图转换为一张干净、清晰、真实、完整的三维白膜结构稿。
+
+【核心任务】
+
+请自动识别原图中的主要主体及其所在场景，包括但不限于家具、产品、人物、建筑、室内空间、装饰物、地面、墙面、门窗、软装、配件及其他可见元素。严格按照原图的实际内容，对全部可见结构进行高清重建。
+
+将画面中的所有物体统一转换为中性白色或浅灰白色的三维白膜材质，白膜只用于表达结构、体积、比例、轮廓、层级、前后关系和空间关系，不保留原图中的红色色偏、错误色温、杂乱颜色、综合色污染、材质颜色或装饰性色彩。
+
+【必须严格保留的内容】
+
+1. 保持原图整体画面比例、画布尺寸和构图范围不变，不裁切画面，不随意扩图，不改变主体在画面中的位置和占比。
+
+2. 保持原图拍摄角度、镜头机位、镜头高度、俯视或仰视角度、透视关系、空间纵深和消失点不变。
+
+3. 保持所有主体的真实外轮廓、长宽高比例、厚度关系、大小关系、体积关系和相互距离不变。
+
+4. 保持原图中每一个可见部件的数量、位置、方向和连接方式不变，不删除部件，不合并部件，不复制部件，不凭空增加部件。
+
+5. 对家具或产品结构进行准确重建，包括但不限于靠背、扶手、座包、靠包、床头、床尾、床垫、柜门、抽屉、拉手、桌面、桌腿、椅背、支撑脚、金属架、软包、缝隙、转角、边框、五金件和其他真实可见结构。
+
+6. 对室内场景进行准确重建，包括墙面、地面、天花、门窗、窗帘、灯具、地毯、装饰画、柜体、植物、饰品及所有原图中存在的元素，保持其原始位置和空间关系。
+
+7. 原图中被遮挡的区域只允许根据可见结构进行合理连接和最小程度补全，不得擅自改变产品款式，不得创造原图中没有依据的新结构。
+
+【白膜材质要求】
+
+画面中的全部物体使用统一、干净、中性的哑光白膜材质，以白色黏土模型、灰白色三维结构模型或专业3D建模白模效果呈现。
+
+不同物体之间必须通过轻微的灰度差异、环境遮蔽、接触阴影、转折明暗和边缘变化区分层级，避免所有结构融成一片纯白。
+
+白膜表面不得出现原图中的红色、粉色、黄色、蓝色或其他颜色，不保留木纹、布纹、皮纹、花纹、图案、文字、商标、综合色偏和材质颜色。
+
+允许保留真实的缝线位置、拼接线、折角、压线、凹槽、结构边界、软包起伏、自然褶皱和部件间隙，但全部以白膜结构形式表达。
+
+【清晰度与结构修复】
+
+针对原图模糊、低清晰度、噪点严重、边缘发虚、局部过曝、局部欠曝、画面发红或细节丢失的问题进行结构性修复。
+
+优先恢复真实轮廓和部件关系，强化主体边缘、结构转折、连接位置、遮挡关系和空间层级，但不要过度锐化，不要产生白边、锯齿、塑料边缘或虚假的机械线条。
+
+软体家具应保留合理的柔软体积、自然圆角、轻微压痕和软包饱满度，不要变成坚硬石膏块；木制、金属或硬质结构应保持准确、平整和稳定，不要产生弯曲、融化或塌陷。
+
+【光影要求】
+
+使用中性、柔和、均匀的专业三维工作室光照，以清晰显示结构为主要目的。
+
+保持原图主要光线方向和明暗逻辑，不制造夸张戏剧光，不使用强烈暖光或红光。
+
+保留合理的接触阴影、环境遮蔽和物体之间的投影关系，使主体稳定落地，不悬浮、不穿模、不相互粘连。
+
+整体曝光均衡，高光不过曝，暗部保留结构，白膜背景与白膜主体之间具有足够层次。
+
+【严格禁止】
+
+禁止改变原图主体款式、造型、尺寸比例、部件数量、空间布局和构图。
+
+禁止将模糊区域随意设计成新的结构。
+
+禁止增加原图不存在的家具、产品、人物、饰品、抱枕、灯具、文字、标志或装饰物。
+
+禁止删除原图中实际存在的可见结构和必要元素。
+
+禁止改变镜头角度、旋转主体、调整产品方向、移动主体位置或重新安排画面。
+
+禁止保留原图发红、偏粉、偏黄、色彩污染和综合色偏。
+
+禁止生成线稿、素描稿、卡通稿、低多边形模型、透明材质、金属镀铬材质或纯平面剪影。
+
+禁止出现结构变形、部件错位、比例错误、重复部件、缺少部件、悬浮、穿模、边缘融化和表面破损。
+
+【最终输出标准】
+
+最终输出一张构图、比例、角度、透视、主体位置和全部结构均与原图严格一致的高清三维白膜结构稿。
+
+画面应干净、中性、无综合色偏，所有主要结构清晰可辨，前后层级准确，边缘自然，体积真实，可作为下一步色稿制作和最终重新渲染的标准结构底稿。
+
+只输出一张完整白膜图，不生成对比图，不生成拼图，不添加文字说明、标注、水印、边框或额外版式。</td><td>【适用阶段】
+第1步：原始模糊图或整体发红图片 → 白膜结构稿。
+
+【上传方式】
+只上传原始图片1张。不要同时上传色稿、白底图或其他风格参考图，避免模型混淆结构来源。
+
+【操作步骤】
+1. 打开支持参考图编辑或图生图的平台。
+2. 上传需要修复的原始图片。
+3. 保持原图比例；平台可选比例时，选择与原图一致的比例。
+4. 整段复制左侧“完整 Prompt”单元格内容，不要删减章节。
+5. 首次生成建议只输出1张，先检查结构准确度。
+6. 若结构正确但清晰度仍不足，可使用同一Prompt再次重绘；不要在此阶段添加颜色、材质替换或场景美化要求。
+7. 将合格结果保存为“项目名_01_白膜结构稿”。
+
+【重点检查】
+• 主体位置、大小、角度、透视是否与原图一致。
+• 沙发/床/柜体等部件数量是否准确。
+• 是否错误增加抱枕、支撑脚、缝线、门板或其他元素。
+• 白膜是否保留清晰层次，而不是整片纯白。
+• 是否彻底去除红色、粉色和综合色污染。
+
+【失败时如何处理】
+• 结构变形：在Prompt最前方补充具体结构锁定句，如“沙发必须保持三座位、左右扶手数量不变”。
+• 部件遗漏：补充“必须完整保留的部件名称与数量”。
+• 白膜过白无层次：补充“增加轻微灰度层级、环境遮蔽与接触阴影”。
+• 模型擅自补全：补充“不可推测不可见结构，只做最小程度连接”。
+
+【输出用途】
+该图只负责结构，不负责颜色。合格白膜必须用于第3步的图一。</td><td>构图、比例、机位、透视和部件数量与原图一致；全部为中性白膜；层级清楚；无红色污染；无新增或缺失结构。</td><td>1913</td></tr><tr><th scope="row">7</th><td class="strong">复制与使用提示</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">8</th><td>复制方法</td><td>单击 C5 单元格 → Ctrl+C → 粘贴到生图平台。C5中保存的是完整Prompt，不要分段复制。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">9</th><td>修改原则</td><td>只有在明确知道产品部件、材质或比例时才补充具体信息；不要删除原Prompt中的结构锁定与禁止项。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">10</th><td>输出数量</td><td>首次测试建议生成1张；确认结构与颜色逻辑正确后，再批量生成备选图。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">11</th><td>使用记录</td><td>建议在“08_使用记录”中记录模型、比例、生成结果和失败原因，便于复用稳定参数。</td><td></td><td></td><td></td><td></td></tr></tbody></table></div></section><section class="sheet" id="sheet-3"><div class="sheet-heading"><span>WORKSHEET / 03</span><h2>02_标准色稿</h2><small>9 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">第2步｜原图转标准色稿</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td class="strong">作用：修正发红、偏粉、偏橙和错误白平衡，建立准确的颜色、材质类别与区域边界</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">阶段编号</td><td class="strong">输入要求</td><td class="strong">完整 Prompt（单元格内整段复制）</td><td class="strong">详细使用教程 / 说明</td><td class="strong">输出验收标准</td><td class="strong">Prompt字符数</td></tr><tr><th scope="row">5</th><td>02</td><td>只上传与第1步相同的原始图片1张；不要同时上传白膜图。</td><td>请以当前上传的原始图片作为唯一的颜色、材质、区域分布和画面内容参考，对图片进行一次高精度的“标准色稿重绘”。
+
+本次任务的重点不是强化立体光影，也不是重新设计产品或场景，而是在保持原图构图、主体结构、部件数量、空间位置和透视关系不变的前提下，去除原图发红、综合色污染、错误白平衡、模糊噪点和不自然色偏，重新建立准确、干净、清晰、稳定的标准颜色关系与材质区域分布，为后续结合白膜结构稿进行最终渲染提供可靠的色彩参考。
+
+【核心任务】
+
+请自动识别原图中所有可见物体及其颜色区域，包括主体产品、家具、墙面、地面、门窗、软装、配件、装饰物、人物、植物、灯具及其他画面元素。
+
+根据原图能够辨认的真实信息，恢复每个区域原本合理的综合色倾向、明度、饱和度、色相、材质分类和颜色边界。
+
+重点修正原图整体发红、偏粉、偏橙、偏黄、局部综合色溢出和错误暖色覆盖，使白色恢复中性白，灰色恢复中性灰，黑色保持纯净，木色、布料、皮革、金属、玻璃和墙地面颜色恢复自然真实。
+
+【必须严格保留的内容】
+
+1. 保持原图画面比例、画布范围、构图、主体位置和主体大小不变。
+
+2. 保持原图镜头机位、拍摄角度、透视关系、空间纵深、遮挡关系和物体前后顺序不变。
+
+3. 保持所有主体的款式、结构、外轮廓、尺寸比例、部件数量、拼接关系和摆放方式不变。
+
+4. 原图中存在的颜色区域必须全部保留，不随意互换颜色，不改变不同部件之间的配色关系。
+
+5. 不得把某一个区域的颜色扩散到其他区域，所有颜色边界应准确贴合对应结构。
+
+6. 对于原图因综合色偏而无法完全确认的颜色，应结合该物体的材质、相邻中性色和画面光线进行保守校正，不得擅自改成强烈的新颜色。
+
+【色稿表现方式】
+
+输出应是一张清晰、准确、便于识别颜色区域的高质量标准色稿。
+
+色稿保留完整场景和全部主体，但适当减弱复杂光影、强反射、强高光、深重阴影和环境综合色干扰，使每个区域的基础颜色和材质颜色清楚可辨。
+
+不同部件之间通过准确的颜色边界、轻微明暗和必要的材质差异进行区分，但不要制作成完全没有体积的儿童填色图。
+
+整体光线应中性、柔和、均匀，以展示真实颜色为主。建议使用接近中性日光的白平衡，不使用红色灯光、粉色灯光、强橙色灯光或过度暖黄色灯光。
+
+【综合色偏修正要求】
+
+彻底去除覆盖全画面的红色滤镜、粉色雾感、橙红综合色、异常暖调和局部红色溢出。
+
+校正白平衡时，不得简单地把整张图片强行变蓝或变绿，而应逐区域恢复自然综合色。
+
+白色区域应呈现干净的中性白、米白或原图真实白色，不得残留粉红色。
+
+灰色区域应恢复中性灰、暖灰或冷灰的真实状态，不得发紫或发红。
+
+黑色区域应保留暗部层次，不能变成死黑色块。
+
+木质区域应呈现自然木色，不夸大橙红色，不生成错误木纹。
+
+布料、皮革、绒面、金属和玻璃应分别保留合理的基础颜色与最低限度的材质识别特征。
+
+【材质区域要求】
+
+布料区域应保留真实颜色、细微织物感和柔软层次，但不要生成夸张纹理、密集噪点或不存在的花纹。
+
+皮革区域应保留准确颜色、柔和反光和自然皮面质感，但不要变成高亮塑料。
+
+木材区域应保留合理木色和原图可辨认的纹理方向，不凭空增加大面积树结、黑斑或复杂纹路。
+
+金属区域应保留金属颜色和适度反射，不吸收周围红色色偏，不变成镜面镀铬。
+
+玻璃区域应保持透明或半透明关系，不涂成实色，不改变玻璃后的可见内容。
+
+【清晰度处理】
+
+修复原图模糊、噪点、压缩痕迹、颜色断层、局部脏污和边界发虚。
+
+让颜色区域边缘准确贴合结构，不产生溢色、错位、光晕、白边、锯齿和色块粘连。
+
+细小部件、缝隙、拼接线、边框、五金和装饰物应保留其正确颜色归属，不可因模糊而被错误合并。
+
+修复只服务于颜色识别和区域准确，不得重新设计原图结构或增加不存在的细节。
+
+【严格禁止】
+
+禁止改变原图主体款式、部件数量、产品结构、空间布局、拍摄角度和透视关系。
+
+禁止把色稿变成白膜图、黑白图、线稿、素描稿、油画、插画或卡通效果。
+
+禁止为了所谓“高级感”而擅自改变原图配色。
+
+禁止添加新的综合色滤镜、复古滤镜、电影滤镜、暖黄色滤镜或红色氛围光。
+
+禁止生成原图中不存在的花纹、文字、商标、装饰、产品部件和场景元素。
+
+禁止过度饱和、过度锐化、过度降噪和过度磨皮。
+
+禁止出现颜色溢出、材质混淆、区域错色、局部变色、白色发红、灰色发紫、黑色堵塞或高光过曝。
+
+【最终输出标准】
+
+最终输出一张与原图画面内容、构图、结构、比例、机位和透视严格一致的高清标准色稿。
+
+色稿应综合色准确、白平衡正常、颜色区域清楚、材质分类明确、边界干净，不保留原图异常红色色偏，同时不过度渲染复杂光影。
+
+该图片将作为最终重新渲染阶段的颜色与材质分区参考，因此必须优先保证颜色准确、区域准确、结构对应准确和综合色稳定。
+
+只输出一张完整色稿，不生成前后对比图，不生成拼图，不添加色卡、文字、标注、水印、边框或说明。</td><td>【适用阶段】
+第2步：原始模糊图或整体发红图片 → 标准色稿。
+
+【上传方式】
+只上传与第1步相同的原始图片。不要上传白膜图，避免模型把色稿生成成白膜或灰模效果。
+
+【操作步骤】
+1. 上传原始图片。
+2. 使用与原图相同的画面比例和构图范围。
+3. 整段复制左侧“完整 Prompt”单元格内容。
+4. 首次生成建议只输出1张，并重点检查颜色区域，而不是追求最终商业渲染效果。
+5. 判断原图偏红时，重点观察白色、灰色、木色和肤色是否恢复自然。
+6. 色稿不需要极强的阴影、反射和电影感；应保证区域颜色稳定、材质类别清楚。
+7. 将合格结果保存为“项目名_02_标准色稿”。
+
+【重点检查】
+• 白色区域是否仍发粉、发红或发黄。
+• 灰色是否发紫，黑色是否堵死。
+• 产品各部件颜色是否错位或串色。
+• 木纹、布纹、皮纹是否符合原图，不得凭空创造。
+• 主体结构和构图是否保持不变。
+• 色稿是否过度美化、过度饱和或使用了新的滤镜。
+
+【失败时如何处理】
+• 校色过冷：补充“保持中性自然白平衡，不得整体偏蓝或偏绿”。
+• 局部串色：补充具体部件与颜色对应关系。
+• 材质错误：明确填写“某区域为布料/皮革/木材/金属”。
+• 颜色无法判断：要求模型保守修正，不得改成强烈新颜色。
+
+【输出用途】
+该图只负责颜色、材质分类和区域边界。合格色稿必须用于第3步的图二。</td><td>综合色自然、白平衡稳定；颜色区域准确；材质分类清楚；构图结构不变；不过度光影化；无串色与溢色。</td><td>2026</td></tr><tr><th scope="row">7</th><td class="strong">复制与使用提示</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">8</th><td>复制方法</td><td>单击 C5 单元格 → Ctrl+C → 粘贴到生图平台。C5中保存的是完整Prompt，不要分段复制。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">9</th><td>修改原则</td><td>只有在明确知道产品部件、材质或比例时才补充具体信息；不要删除原Prompt中的结构锁定与禁止项。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">10</th><td>输出数量</td><td>首次测试建议生成1张；确认结构与颜色逻辑正确后，再批量生成备选图。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">11</th><td>使用记录</td><td>建议在“08_使用记录”中记录模型、比例、生成结果和失败原因，便于复用稳定参数。</td><td></td><td></td><td></td><td></td></tr></tbody></table></div></section><section class="sheet" id="sheet-4"><div class="sheet-heading"><span>WORKSHEET / 04</span><h2>03_最终重新渲染</h2><small>9 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">第3步｜白膜 + 色稿最终重新渲染</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td class="strong">作用：图一锁定结构，图二锁定颜色与材质，重新生成高清、真实、商业级最终画面</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">阶段编号</td><td class="strong">输入要求</td><td class="strong">完整 Prompt（单元格内整段复制）</td><td class="strong">详细使用教程 / 说明</td><td class="strong">输出验收标准</td><td class="strong">Prompt字符数</td></tr><tr><th scope="row">5</th><td>03</td><td>必须上传2张图：图一为白膜结构稿，图二为标准色稿；上传顺序不可颠倒。</td><td>请执行一次高精度、多参考图协同的最终重新渲染任务。
+
+【参考图用途定义】
+
+图一为白膜结构稿，是本次最终渲染的唯一结构、造型、构图、比例、镜头、透视和空间关系参考。
+
+图二为标准色稿，是本次最终渲染的唯一颜色、材质分类、综合色倾向、区域分布和配色关系参考。
+
+最终图片必须以图一的结构为基础，将图二对应区域的颜色和材质准确映射到图一的相同结构区域中，生成一张高清、真实、自然、完整的最终渲染图。
+
+不得将两张图片简单叠加，不得制作拼图，不得平均融合两张图片，也不得重新设计画面。
+
+【参考优先级】
+
+结构发生冲突时，以图一白膜结构稿为准。
+
+颜色和材质发生冲突时，以图二标准色稿为准。
+
+图一负责锁定：
+
+画面比例、画布范围、整体构图、主体位置、主体大小、镜头机位、拍摄角度、透视关系、空间纵深、外轮廓、尺寸比例、部件数量、部件连接、遮挡关系和前后层级。
+
+图二负责锁定：
+
+每个对应部件的颜色、综合色倾向、明度、饱和度、色相、材质类别、纹理类型、颜色区域边界和整体配色关系。
+
+【核心渲染要求】
+
+请将图二中的颜色和材质逐一对应到图一中的相同部件，确保结构区域和颜色区域完全匹配。
+
+每一种颜色只能应用在图二所对应的真实区域中，不得串色、溢色、错色或跨越结构边界。
+
+在准确还原图二色彩和材质的基础上，对图一白膜结构进行真实的商业级三维渲染，重新建立自然的体积、光影、材质反射、表面细节、接触阴影、空间层次和真实质感。
+
+最终效果不是白膜图，不是色块图，也不是对原模糊图片进行简单锐化，而是基于白膜结构和标准色稿重新完成一次完整、高清、真实的画面渲染。
+
+【结构锁定要求】
+
+1. 最终画面必须完整继承图一的构图和画布范围，不裁切、不扩展、不改变图片比例。
+
+2. 保持图一的镜头高度、视角方向、俯仰角度、透视关系、消失点和景别不变。
+
+3. 保持所有主体的外轮廓、大小比例、厚度关系、长宽高关系和体积关系不变。
+
+4. 保持所有部件的数量、形状、位置、方向、间距和连接方式不变。
+
+5. 保持所有物体之间的遮挡关系、接触关系、前后关系和空间距离不变。
+
+6. 不得因增加材质而使主体变厚、变薄、膨胀、收缩、拉长、压扁或改变款式。
+
+7. 图一中可见的细小结构、边框、转角、缝隙、拼接线、软包、五金、支撑脚和装饰物都必须准确保留。
+
+【颜色与白平衡要求】
+
+最终综合色必须以图二色稿为基准，保持自然、中性、稳定的白平衡。
+
+彻底避免原始图片可能存在的全局发红、偏粉、偏橙、综合色污染和异常暖色覆盖。
+
+白色区域保持真实中性白、米白或图二规定的白色，不得变成粉红色。
+
+灰色区域保持自然中性灰、暖灰或冷灰，不得发紫、发红或发脏。
+
+黑色区域保留暗部层次和材质细节，不变成完全没有细节的死黑。
+
+木色区域自然真实，不夸张橙色和红色。
+
+所有颜色在不同明暗区域中保持色相稳定，不因阴影或反射出现大面积错误变色。
+
+【材质重新渲染要求】
+
+请根据图二中每个区域对应的材质类型，恢复真实、细腻、符合物理规律的表面效果。
+
+布料：
+
+准确表现织物纹理、纤维密度、柔软感、厚薄关系、哑光程度、轻微压痕和自然褶皱。纹理尺度应与物体尺寸匹配，不生成过粗、过密、过锐或重复排列的假纹理。
+
+皮革：
+
+表现真实皮面颗粒、柔和反光、自然褶皱、轻微拉伸和合理光泽，不生成镜面塑料感，不夸大纹路和油亮效果。
+
+木材：
+
+保留自然木色、合理木纹方向、细腻表面和适度哑光效果。木纹应顺应结构方向，不生成错向木纹、重复纹理、巨大树结或不合理黑斑。
+
+金属：
+
+表现真实金属颜色、边缘高光、环境反射和表面粗糙度。避免完全镜面化、过曝高光、黑色脏块或颜色污染。
+
+玻璃：
+
+保持合理透明度、折射、反射和玻璃后的可见关系，不将玻璃涂成实色，不生成破裂、变形或错误镜像。
+
+软体结构：
+
+保留图一白膜中的真实软包体积、圆角、饱满度、轻微压陷、自然起伏和结构边界，不使软体家具变成坚硬模型或过度蓬松。
+
+硬质结构：
+
+保持边缘稳定、平面平整、转角准确和连接合理，不弯曲、不融化、不产生不规则波浪。
+
+【光影重新建立】
+
+根据图一的空间、物体位置和表面朝向，建立自然、统一、符合物理规律的光照系统。
+
+以中性、柔和、干净的商业摄影光线为基础，保持图一原有的主要光线方向和空间明暗逻辑。
+
+光线应真实展现结构和材质，不使用强烈红光、粉色光、橙红滤镜或夸张电影调色。
+
+生成合理的主光、环境光、反射光、接触阴影和环境遮蔽。
+
+所有主体必须稳定落地，底部与接触面之间具有自然接触阴影，不悬浮。
+
+投影方向、软硬程度和明暗变化应保持一致，不得出现多个互相矛盾的光源。
+
+高光不过曝，暗部不堵死，中间调层次丰富，表面纹理和结构均可清晰识别。
+
+【高清重绘与细节修复】
+
+将最终图片提升至高清商业渲染质量，修复原图片可能存在的模糊、低分辨率、噪点、压缩痕迹、色块断层、边缘发虚和细节丢失。
+
+增强应建立在图一和图二已有信息基础上，不得凭空设计原图没有依据的产品结构和装饰细节。
+
+主体边缘清晰自然，不出现过度锐化形成的白边、黑边、锯齿、光晕和人工描边。
+
+恢复合理的表面微细节，但微细节必须符合对应材质，不能用统一噪点覆盖全部画面。
+
+保持背景与主体清晰度关系自然，不使用过度景深模糊，不将重要结构虚化。
+
+【一致性检查】
+
+渲染前后必须检查以下内容：
+
+图一中有多少个部件，最终图中必须保持相同数量。
+
+图一中每个部件所在位置，最终图中必须保持相同位置。
+
+图二中每个颜色区域，必须准确对应到最终图的相同部件。
+
+图一中的轮廓线、结构缝隙和遮挡边界不得被材质覆盖或改变。
+
+最终图不得出现图一、图二中都不存在的新物体。
+
+最终图不得遗漏图一中可见的任何重要结构。
+
+最终图不得重新排列场景，不得移动家具或主体，不得改变原有空间关系。
+
+【严格禁止】
+
+禁止重新设计主体款式、外形、结构、部件和场景布局。
+
+禁止改变图一的构图、比例、机位、透视和主体位置。
+
+禁止错误理解图二颜色区域，禁止综合色串色和材质错配。
+
+禁止把图一的白色直接保留为最终材质，必须按照图二完成颜色和材质映射。
+
+禁止把图二的平面色块直接覆盖在图一上，必须重新建立真实体积和光影。
+
+禁止生成拼图、对比图、分镜图、多角度图或过程图。
+
+禁止添加文字、标志、水印、色卡、标注、边框及任何无关元素。
+
+禁止生成卡通、插画、油画、素描、塑料模型、低多边形或过度AI化效果。
+
+禁止出现结构变形、比例错误、重复部件、缺失部件、悬浮、穿模、边缘融化、表面破损、颜色溢出、纹理错位和透视错误。
+
+禁止恢复原始图片中的红色滤镜、粉红综合色和异常暖色污染。
+
+【最终输出标准】
+
+最终输出一张结构严格遵循图一、颜色和材质严格遵循图二的高清写实重新渲染图。
+
+成品应具有真实的三维体积、准确的综合色、清晰的结构、自然的材质、合理的光影、稳定的透视和商业级画面质感。
+
+整体画面干净、通透、真实、清晰，不发红、不偏色，不过度锐化，不产生虚假细节。
+
+只输出一张完整最终效果图，不输出任何文字解释、制作步骤、参考图编号、前后对比或附加内容。</td><td>【适用阶段】
+第3步：白膜结构稿 + 标准色稿 → 高清最终渲染图。
+
+【上传顺序】
+图一：第1步生成的白膜结构稿。
+图二：第2步生成的标准色稿。
+必须严格按此顺序上传，避免模型把结构和颜色参考反过来。
+
+【操作步骤】
+1. 确认白膜与色稿画面比例、构图和主体位置基本一致。
+2. 图一上传白膜，图二上传色稿。
+3. 整段复制左侧“完整 Prompt”单元格内容。
+4. 首次只生成1张，优先检查结构锁定与颜色映射。
+5. 若平台支持参考图权重：结构图权重略高于色稿；但不要把白膜权重高到最终画面仍呈白色。
+6. 生成后按“结构—颜色—材质—光影—清晰度”的顺序检查。
+7. 将合格结果保存为“项目名_03_最终重新渲染”。
+
+【结构检查】
+• 最终图必须继承白膜的构图、角度、比例和全部部件。
+• 不得出现白膜中没有的新结构。
+• 不得因材质渲染导致扶手、靠背、座包、床头或柜门变形。
+
+【颜色检查】
+• 所有颜色必须来自色稿的对应区域。
+• 白色、灰色、黑色、木色均不得重新发红。
+• 不得出现颜色跨部件溢出或综合色串色。
+
+【材质检查】
+• 布料不能变塑料；皮革不能过度油亮；木纹方向不能错；金属不能完全镜面化；玻璃不能变成实色。
+• 纹理尺度必须与产品尺寸匹配。
+
+【失败时如何处理】
+• 最终图仍是白膜：补充“图一只提供结构，最终全部材质与颜色必须来自图二”。
+• 结构跟随色稿变形：补充“结构冲突时无条件以图一为准”。
+• 色彩又发红：补充“锁定中性白平衡，禁止暖红综合色与红色环境光”。
+• 细节虚假：降低创造性，强调“只恢复有依据的微细节”。
+
+【输出用途】
+最终用于电商主图、详情页、海报、场景展示或后续高清放大。</td><td>最终图结构严格跟随白膜，颜色材质严格跟随色稿；光影真实；无红色污染；部件不变形；达到商业级高清重绘质量。</td><td>2918</td></tr><tr><th scope="row">7</th><td class="strong">复制与使用提示</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">8</th><td>复制方法</td><td>单击 C5 单元格 → Ctrl+C → 粘贴到生图平台。C5中保存的是完整Prompt，不要分段复制。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">9</th><td>修改原则</td><td>只有在明确知道产品部件、材质或比例时才补充具体信息；不要删除原Prompt中的结构锁定与禁止项。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">10</th><td>输出数量</td><td>首次测试建议生成1张；确认结构与颜色逻辑正确后，再批量生成备选图。</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">11</th><td>使用记录</td><td>建议在“08_使用记录”中记录模型、比例、生成结果和失败原因，便于复用稳定参数。</td><td></td><td></td><td></td><td></td></tr></tbody></table></div></section><section class="sheet" id="sheet-5"><div class="sheet-heading"><span>WORKSHEET / 05</span><h2>04_完整工作流程</h2><small>12 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">完整工作流程与交付规范</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td class="strong">从原始图片评估、分步生成、阶段验收到最终交付的标准化执行流程</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">序号</td><td class="strong">执行阶段</td><td class="strong">具体动作</td><td class="strong">输入文件</td><td class="strong">输出文件</td><td class="strong">必须检查</td><td class="strong">不合格时处理</td></tr><tr><th scope="row">5</th><td>1</td><td>原图预检</td><td>确认模糊程度、综合色偏、画面比例、主体部件与最终用途</td><td>原始图</td><td>问题记录</td><td>是否存在严重裁切、过曝、遮挡或无法判断结构</td><td>记录不确定区域，后续采用保守修复</td></tr><tr><th scope="row">6</th><td>2</td><td>白膜生成</td><td>使用第1步Prompt重建全部结构与空间关系</td><td>原始图</td><td>白膜结构稿</td><td>构图、机位、比例、部件数量、遮挡关系</td><td>针对具体部件补充锁定句后重做</td></tr><tr><th scope="row">7</th><td>3</td><td>白膜验收</td><td>逐项比对原图与白膜，确认没有增删结构</td><td>原图+白膜</td><td>合格白膜</td><td>扶手、靠背、座包、脚架、门板、拉手等</td><td>只修正错误部件，不添加颜色要求</td></tr><tr><th scope="row">8</th><td>4</td><td>色稿生成</td><td>使用第2步Prompt去除发红并建立标准颜色区域</td><td>原始图</td><td>标准色稿</td><td>白色、灰色、黑色、木色与主要材质综合色</td><td>补充部件与颜色对应关系后重做</td></tr><tr><th scope="row">9</th><td>5</td><td>色稿验收</td><td>检查色稿是否准确而非过度美化</td><td>原图+色稿</td><td>合格色稿</td><td>颜色边界、材质类别、白平衡、综合色稳定</td><td>降低饱和度与创造性，强调保守校色</td></tr><tr><th scope="row">10</th><td>6</td><td>双图对齐</td><td>确认白膜与色稿构图、比例、位置基本一致</td><td>白膜+色稿</td><td>可用于合成的双图</td><td>主体位置、画布范围、镜头、透视</td><td>优先重做偏差较大的阶段图</td></tr><tr><th scope="row">11</th><td>7</td><td>最终渲染</td><td>图一上传白膜，图二上传色稿，使用第3步Prompt</td><td>白膜+色稿</td><td>最终渲染图</td><td>结构跟随图一、颜色材质跟随图二</td><td>根据问题类型查看故障排查表</td></tr><tr><th scope="row">12</th><td>8</td><td>最终验收</td><td>按结构、颜色、材质、光影、清晰度五项检查</td><td>最终渲染图</td><td>合格成品</td><td>无变形、无串色、无红偏、无虚假细节</td><td>只针对失败项迭代，不同时改动全部条件</td></tr><tr><th scope="row">13</th><td>9</td><td>文件归档</td><td>按统一命名保存原图、白膜、色稿和成品</td><td>全部过程文件</td><td>项目文件夹</td><td>版本编号、日期、模型和比例记录完整</td><td>在使用记录表中补全信息</td></tr></tbody></table></div></section><section class="sheet" id="sheet-6"><div class="sheet-heading"><span>WORKSHEET / 06</span><h2>05_参数建议</h2><small>13 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">平台通用参数与生成建议</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td class="strong">适用于支持参考图、图生图或多图参考的生图模型；实际参数名称可能因平台不同而变化</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">参数项目</td><td class="strong">第1步白膜</td><td class="strong">第2步色稿</td><td class="strong">第3步最终渲染</td><td class="strong">建议范围/原则</td><td class="strong">风险提示</td><td class="strong">使用说明</td></tr><tr><th scope="row">5</th><td>输出数量</td><td>1张</td><td>1张</td><td>1张</td><td>首次固定1张，验证后再批量</td><td>一次生成过多不便判断错误来源</td><td>先求正确，再求备选</td></tr><tr><th scope="row">6</th><td>画面比例</td><td>与原图一致</td><td>与原图一致</td><td>与白膜一致</td><td>9:16、3:4、1:1、16:9等按原图/用途选择</td><td>比例变化会导致裁切、扩图或主体变形</td><td>三个阶段尽量保持同一比例</td></tr><tr><th scope="row">7</th><td>参考图强度</td><td>中高</td><td>中高</td><td>图一结构略高、图二颜色中高</td><td>优先保证构图与部件一致</td><td>过高可能复制模糊，过低可能改款</td><td>根据模型实际表现小幅调整</td></tr><tr><th scope="row">8</th><td>创造性/风格化</td><td>低</td><td>低</td><td>低至中低</td><td>以修复和准确还原为主</td><td>过高会新增结构、改色或改变场景</td><td>除非需要艺术化，否则保持低值</td></tr><tr><th scope="row">9</th><td>清晰度/质量</td><td>高</td><td>高</td><td>最高</td><td>优先2K/4K输出或高质量模式</td><td>低质量模式可能造成边缘融化</td><td>最终图可再进行一次无损放大</td></tr><tr><th scope="row">10</th><td>锐化</td><td>低至中</td><td>低</td><td>中</td><td>以自然边缘为准</td><td>过度锐化产生白边、锯齿和人工描边</td><td>先修结构，再提升细节</td></tr><tr><th scope="row">11</th><td>降噪</td><td>中</td><td>中</td><td>中</td><td>去除压缩噪点但保留材质</td><td>过强降噪会抹掉布纹、木纹和缝线</td><td>色稿阶段尤其避免过度磨平</td></tr><tr><th scope="row">12</th><td>光影强度</td><td>中性柔和</td><td>弱至中</td><td>中等真实</td><td>与原图方向一致</td><td>强戏剧光会改变颜色和结构识别</td><td>最终阶段才建立完整商业光影</td></tr><tr><th scope="row">13</th><td>综合色/白平衡</td><td>完全中性</td><td>中性日光</td><td>以色稿为准</td><td>禁止红、粉、橙红综合色污染</td><td>直接整体加蓝会造成新的偏色</td><td>逐区域恢复自然综合色</td></tr><tr><th scope="row">14</th><td>多图顺序</td><td>不适用</td><td>不适用</td><td>图一白膜、图二色稿</td><td>严格按顺序上传</td><td>顺序颠倒会导致结构与颜色优先级混乱</td><td>上传后再次确认缩略图顺序</td></tr></tbody></table></div></section><section class="sheet" id="sheet-7"><div class="sheet-heading"><span>WORKSHEET / 07</span><h2>06_质量检查清单</h2><small>17 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">三步骤质量验收清单</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td class="strong">生成完成后逐项检查；建议全部通过后再进入下一阶段或交付最终图</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">阶段</td><td class="strong">检查分类</td><td class="strong">检查项目</td><td class="strong">通过标准</td><td class="strong">失败表现</td><td class="strong">修正方向</td><td class="strong">验收</td></tr><tr><th scope="row">5</th><td>白膜</td><td>构图</td><td>画面比例与裁切</td><td>与原图一致，无新增扩图与缺失裁切</td><td>主体变大/变小、边缘被截断</td><td>锁定原图画布范围与主体占比</td><td>□</td></tr><tr><th scope="row">6</th><td>白膜</td><td>结构</td><td>部件数量</td><td>所有可见部件数量准确</td><td>扶手、座包、脚架、门板重复或缺失</td><td>明确填写部件名称和数量</td><td>□</td></tr><tr><th scope="row">7</th><td>白膜</td><td>透视</td><td>镜头与消失点</td><td>角度、机位、俯仰与原图一致</td><td>主体被旋转或透视被拉直</td><td>强调镜头机位与透视不可改变</td><td>□</td></tr><tr><th scope="row">8</th><td>白膜</td><td>层级</td><td>白膜灰度与接触阴影</td><td>结构清楚、不融成纯白</td><td>全部发白无层次或主体悬浮</td><td>增加环境遮蔽与接触阴影</td><td>□</td></tr><tr><th scope="row">9</th><td>白膜</td><td>综合色</td><td>是否彻底去色</td><td>无红、粉、黄、蓝等材质颜色</td><td>残留综合色或彩色材质</td><td>强调统一中性哑光白膜</td><td>□</td></tr><tr><th scope="row">10</th><td>色稿</td><td>白平衡</td><td>白色与灰色</td><td>白色自然，灰色不发紫发红</td><td>整体偏粉、偏橙或过冷</td><td>逐区域校色，禁止整体加蓝</td><td>□</td></tr><tr><th scope="row">11</th><td>色稿</td><td>颜色</td><td>颜色区域对应</td><td>每个部件颜色边界准确</td><td>串色、溢色、局部错色</td><td>补充部件—颜色对应关系</td><td>□</td></tr><tr><th scope="row">12</th><td>色稿</td><td>材质</td><td>材质类别识别</td><td>布、皮、木、金属、玻璃正确区分</td><td>布变塑料、木色错误、玻璃变实色</td><td>明确各区域材质类型</td><td>□</td></tr><tr><th scope="row">13</th><td>色稿</td><td>光影</td><td>是否便于识别基础色</td><td>不过度阴影、高光和电影调色</td><td>暗部堵死或综合色过强</td><td>降低光影和风格化强度</td><td>□</td></tr><tr><th scope="row">14</th><td>最终</td><td>结构</td><td>是否严格跟随白膜</td><td>构图、比例、部件全部一致</td><td>结构跟随色稿变形或新增元素</td><td>强调冲突时无条件以图一为准</td><td>□</td></tr><tr><th scope="row">15</th><td>最终</td><td>颜色</td><td>是否严格跟随色稿</td><td>对应区域颜色准确且不发红</td><td>白膜残留、颜色映射错误</td><td>强调图二提供全部颜色材质</td><td>□</td></tr><tr><th scope="row">16</th><td>最终</td><td>材质</td><td>材质物理真实性</td><td>纹理尺度、反射、粗糙度合理</td><td>皮革塑料感、木纹错向、金属镜面化</td><td>补充具体材质限制</td><td>□</td></tr><tr><th scope="row">17</th><td>最终</td><td>光影</td><td>落地与阴影</td><td>光源统一、接触阴影自然、不悬浮</td><td>多光源冲突、投影方向错误</td><td>锁定原图主要光线方向</td><td>□</td></tr><tr><th scope="row">18</th><td>最终</td><td>清晰度</td><td>边缘与微细节</td><td>清晰自然，无白边、锯齿和虚假噪点</td><td>过度锐化、纹理重复、边缘融化</td><td>降低锐化与创造性</td><td>□</td></tr></tbody></table></div></section><section class="sheet" id="sheet-8"><div class="sheet-heading"><span>WORKSHEET / 08</span><h2>07_常见问题排查</h2><small>16 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">常见失败问题与修正方案</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td class="strong">按失败表现定位发生阶段，只修改对应问题，避免同时加入过多互相冲突的要求</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">问题现象</td><td class="strong">常见阶段</td><td class="strong">主要原因</td><td class="strong">建议追加的修正语句</td><td class="strong">是否需要重做前一步</td><td class="strong">检查重点</td><td class="strong">备注</td></tr><tr><th scope="row">5</th><td>白膜仍带红色或粉色</td><td>第1步</td><td>模型仍在保留原图综合色</td><td>画面所有物体必须统一为中性哑光白膜，不得保留任何综合色、材质颜色或红色环境光。</td><td>否</td><td>白色区域与暗部反射</td><td></td></tr><tr><th scope="row">6</th><td>白膜全部纯白看不清结构</td><td>第1步</td><td>缺少灰度层级和环境遮蔽</td><td>通过轻微灰度差、转折明暗、环境遮蔽和接触阴影区分结构，禁止融成一片纯白。</td><td>否</td><td>缝隙、软包转折、底部接触面</td><td></td></tr><tr><th scope="row">7</th><td>家具部件被增删</td><td>第1步/第3步</td><td>模型自动补全或改款</td><td>必须保留【填写具体部件及数量】，不得删除、复制、合并或新增任何部件。</td><td>可能</td><td>座位数、扶手数、脚架数、门板数</td><td></td></tr><tr><th scope="row">8</th><td>镜头角度发生变化</td><td>第1步/第3步</td><td>模型重新构图或正视化</td><td>锁定原图镜头机位、镜头高度、俯仰角、透视关系和消失点，禁止旋转或重新取景。</td><td>可能</td><td>主体边线与背景消失点</td><td></td></tr><tr><th scope="row">9</th><td>色稿仍然发红</td><td>第2步</td><td>只做了轻微调色或保留暖光</td><td>彻底去除全局红色滤镜、粉色雾感和橙红综合色，逐区域恢复自然中性白平衡。</td><td>否</td><td>白墙、灰色、木色、肤色</td><td></td></tr><tr><th scope="row">10</th><td>色稿整体过蓝/过绿</td><td>第2步</td><td>通过反向综合色粗暴校正</td><td>不得通过整体加蓝或加绿修正红偏，必须逐区域恢复真实综合色。</td><td>否</td><td>中性色与肤色</td><td></td></tr><tr><th scope="row">11</th><td>颜色跨部件溢出</td><td>第2步/第3步</td><td>颜色区域边界识别错误</td><td>【填写部件】必须保持【填写颜色/材质】，颜色边界严格贴合结构，不得扩散到相邻部件。</td><td>否</td><td>拼接线、缝隙、边框</td><td></td></tr><tr><th scope="row">12</th><td>最终图仍像白膜</td><td>第3步</td><td>结构参考权重过高或色稿作用不足</td><td>图一只负责结构，最终画面的全部颜色、材质与表面属性必须完整来自图二。</td><td>否</td><td>大面积白色残留</td><td></td></tr><tr><th scope="row">13</th><td>最终结构跟随色稿变形</td><td>第3步</td><td>两张图结构存在偏差或模型未执行优先级</td><td>结构发生任何冲突时，无条件以图一白膜结构稿为唯一标准。</td><td>可能</td><td>主体轮廓与部件位置</td><td></td></tr><tr><th scope="row">14</th><td>布料变成塑料</td><td>第3步</td><td>光泽度过高、纹理错误</td><td>布料必须保持哑光、柔软、细微纤维与合理织物纹理，禁止塑料高光和镜面反射。</td><td>否</td><td>高光面积、纹理尺度</td><td></td></tr><tr><th scope="row">15</th><td>木纹方向错误或重复</td><td>第3步</td><td>模型生成通用纹理贴图</td><td>木纹必须顺应真实构件方向，禁止错向、镜像重复、巨大树结和不合理黑斑。</td><td>否</td><td>桌面、床框、柜门方向</td><td></td></tr><tr><th scope="row">16</th><td>边缘白边、锯齿或光晕</td><td>第3步</td><td>过度锐化或抠图式增强</td><td>保持边缘清晰自然，禁止过度锐化、人工描边、白边、黑边、锯齿和光晕。</td><td>否</td><td>主体轮廓和细小五金</td><td></td></tr><tr><th scope="row">17</th><td>主体悬浮</td><td>第1步/第3步</td><td>缺少接触阴影或地面关系</td><td>主体底部必须与接触面自然衔接，生成符合光源方向的柔和接触阴影，不得悬浮。</td><td>否</td><td>脚架、床脚、沙发底部</td><td></td></tr></tbody></table></div></section><section class="sheet" id="sheet-9"><div class="sheet-heading"><span>WORKSHEET / 09</span><h2>08_使用记录</h2><small>3 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th><th scope="col">H</th><th scope="col">I</th><th scope="col">J</th><th scope="col">K</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">项目使用与版本记录</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td class="strong">用于记录不同图片、模型、比例和生成结果，便于沉淀稳定参数与复用经验</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">日期</td><td class="strong">项目/产品</td><td class="strong">原图问题</td><td class="strong">使用平台/模型</td><td class="strong">画面比例</td><td class="strong">白膜结果</td><td class="strong">色稿结果</td><td class="strong">最终结果</td><td class="strong">主要失败原因</td><td class="strong">修正措施</td><td class="strong">文件保存位置</td></tr></tbody></table></div></section></main>
+<footer class="bottom"><div class="wrap">帖磊 · 视觉设计作品集</div></footer><script src="../sheet-viewer.js" defer></script></body></html>

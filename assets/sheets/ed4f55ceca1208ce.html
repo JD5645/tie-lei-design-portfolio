@@ -1,0 +1,656 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>模特提取与多视图生成-江东 · 在线预览</title>
+<style>
+:root{color-scheme:dark;font-family:Arial,"Microsoft YaHei",sans-serif;background:#111513;color:#f3f0e8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}a{color:inherit;text-decoration:none}button,a{-webkit-tap-highlight-color:transparent}
+.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px max(22px,4vw);background:#111513f2;border-bottom:1px solid #3b413d;backdrop-filter:blur(12px)}
+.top strong{font-size:17px;letter-spacing:.03em}.top nav{display:flex;gap:22px;align-items:center;font-size:12px}.top nav a:last-child{color:#f36a3e}.top nav a:hover,.sheet-nav a:hover{color:#f36a3e}
+.wrap{max-width:1600px;margin:auto;padding:0 max(22px,4vw)}.eyebrow{color:#f36a3e;font-size:11px;font-weight:700;letter-spacing:.12em}.intro{padding:62px 0 42px;border-bottom:1px solid #3b413d}.intro h1{font-size:clamp(30px,4.5vw,64px);line-height:1.15;overflow-wrap:anywhere;margin:20px 0 14px}.intro p{color:#aeb7b0;font-size:14px}
+.sheet-nav{display:flex;gap:8px;overflow:auto;padding:18px 0 34px;scrollbar-width:thin}.sheet-nav a{flex:none;display:flex;align-items:center;gap:9px;padding:11px 14px;border:1px solid #3b413d;font-size:12px;white-space:nowrap}.sheet-nav span{color:#f36a3e;font-size:10px;font-weight:700}
+.sheet{padding:45px 0 68px;border-top:1px solid #3b413d;scroll-margin-top:80px}.sheet-heading{display:flex;align-items:end;gap:24px;margin-bottom:22px}.sheet-heading>span{color:#f36a3e;font-size:11px;font-weight:700;letter-spacing:.1em}.sheet-heading h2{font-size:clamp(22px,2.3vw,34px);margin:0;overflow-wrap:anywhere}.sheet-heading small{margin-left:auto;color:#9eaaa1;white-space:nowrap}
+.table-scroll{overflow:auto;max-height:77vh;border:1px solid #3b413d;scrollbar-width:thin}table{border-collapse:separate;border-spacing:0;min-width:100%;font-size:13px;line-height:1.6}th,td{border-right:1px solid #343b36;border-bottom:1px solid #343b36;padding:10px 13px;vertical-align:top}thead th{position:sticky;top:0;z-index:2;background:#252b27;color:#b9c2ba;font-size:11px;text-align:left}tbody th{position:sticky;left:0;z-index:1;background:#1a201c;color:#91a094;font-size:11px;text-align:right;font-weight:400;min-width:42px}td{min-width:170px;max-width:440px;white-space:pre-wrap;overflow-wrap:anywhere}td:empty{min-width:70px}td.strong{font-weight:700;color:#fff}td a{color:#f36a3e;text-decoration:underline}tr:hover td{background:#1b211d}.empty{color:#9eaaa1}
+.bottom{padding:35px 0 55px;border-top:1px solid #3b413d;color:#9eaaa1;font-size:12px}@media(max-width:640px){.top{align-items:start;flex-direction:column}.sheet-heading{align-items:start;flex-wrap:wrap;gap:8px}.sheet-heading h2{width:100%}.sheet-heading small{margin:0}.intro{padding-top:36px}}
+</style></head><body>
+<header class="top"><strong>帖磊 <span style="color:#f36a3e">/</span> 作品集</strong><nav><a href="../../index.html#chapter-02">返回作品集 ↗</a><a href="../../02-AIGC/06-Prompt%E6%90%AD%E5%BB%BA/%E5%9B%BE%E7%89%87%E7%B1%BB/%E6%A8%A1%E7%89%B9%E6%8F%90%E5%8F%96%E4%B8%8E%E5%A4%9A%E8%A7%86%E5%9B%BE%E7%94%9F%E6%88%90-%E6%B1%9F%E4%B8%9C.xlsx" download>下载原始 XLSX ↓</a></nav></header>
+<main class="wrap"><div class="intro"><span class="eyebrow">PROMPT ARCHIVE / 在线文档预览</span><h1>模特提取与多视图生成-江东</h1><p>共 9 个工作表。点击下方名称可跳转，表格可横向滚动。原文件可在右上角下载。</p></div><nav class="sheet-nav" aria-label="工作表目录"><a href="#sheet-1"><span>01</span>00_封面导航</a><a href="#sheet-2"><span>02</span>01_一键复制库</a><a href="#sheet-3"><span>03</span>02_豆包即梦版</a><a href="#sheet-4"><span>04</span>03_Nano_image2版</a><a href="#sheet-5"><span>05</span>04_通用强化版</a><a href="#sheet-6"><span>06</span>05_基础扩展Prompt库</a><a href="#sheet-7"><span>07</span>06_JSON字段说明</a><a href="#sheet-8"><span>08</span>07_8视图角度规范</a><a href="#sheet-9"><span>09</span>08_质量检查清单</a></nav><section class="sheet" id="sheet-1"><div class="sheet-heading"><span>WORKSHEET / 01</span><h2>00_封面导航</h2><small>22 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th><th scope="col">H</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">模特提取与多视图生成-江东</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td class="strong">版本说明</td><td class="strong">适配模型</td><td class="strong">核心用途</td><td class="strong">画面比例</td><td class="strong">输出形式</td><td class="strong">是否一键复制</td><td class="strong">推荐场景</td><td class="strong">备注</td></tr><tr><th scope="row">3</th><td>豆包 / 即梦版</td><td>豆包、即梦、中文大模型生图</td><td>人物提取、白底素材、8视图角色板</td><td>1:1</td><td>Prompt + JSON</td><td>是</td><td>中文环境、国内生图工具</td><td>正负面提示词已融合</td></tr><tr><th scope="row">4</th><td>Nanobanana / image2版</td><td>Nanobanana、image2、英文提示词模型</td><td>人物白底提取、8视图角色板</td><td>1:1</td><td>Prompt + JSON</td><td>是</td><td>英文模型、API调用、国际化工作流</td><td>英文Prompt更稳定</td></tr><tr><th scope="row">5</th><td>通用强化版</td><td>多数生图模型</td><td>保留一份最稳定8视图JSON</td><td>1:1</td><td>JSON</td><td>是</td><td>快速调用、团队共享</td><td>中文通用字段</td></tr><tr><th scope="row">6</th><td>基础扩展库</td><td>通用</td><td>保留前序对话的基础Prompt、三视图、单角度等</td><td>可按需求修改</td><td>Prompt + JSON</td><td>是</td><td>二次扩展、改写</td><td>保留更完整素材库</td></tr><tr><th scope="row">8</th><td class="strong">使用建议</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">9</th><td>1</td><td>先使用「提取人物白底素材图」生成干净人物主体，再使用「人物8视图生成」生成人物多视图角色板。</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">10</th><td>2</td><td>如果模型不支持JSON字段，直接复制对应Prompt单元格内容即可。</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">11</th><td>3</td><td>人物8视图固定为：正面、左前45°、右前45°、左侧面、右侧面、背面、半身近景、自然坐姿。</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">12</th><td>4</td><td>所有版本都已加入画面比例1:1约束，以及身份、发型、服装、比例、边缘质量和负面约束。</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">13</th><td>5</td><td>若参考图只有半身或部分身体，背面/侧面可能需要模型合理推断，建议配合多视图参考图使用。</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">15</th><td class="strong">工作簿结构</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">16</th><td>00_封面导航</td><td>文档说明、版本导航、使用建议</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">17</th><td>01_一键复制库</td><td>所有最终Prompt/JSON按版本和用途汇总，主复制入口</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">18</th><td>02_豆包即梦版</td><td>豆包/即梦专用中文Prompt + JSON</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">19</th><td>03_Nano_image2版</td><td>Nanobanana/image2英文Prompt + JSON</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">20</th><td>04_通用强化版</td><td>通用中文一键JSON和适配说明</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">21</th><td>05_基础扩展Prompt库</td><td>前序基础Prompt、单角度Prompt、负面约束</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">22</th><td>06_JSON字段说明</td><td>JSON字段解释、可修改字段、注意事项</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">23</th><td>07_8视图角度规范</td><td>8个视图的角度标准与质量检查</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">24</th><td>08_质量检查清单</td><td>出图前/出图后检查表</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></section><section class="sheet" id="sheet-2"><div class="sheet-heading"><span>WORKSHEET / 02</span><h2>01_一键复制库</h2><small>14 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th><th scope="col">H</th><th scope="col">I</th><th scope="col">J</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">模型版本</td><td class="strong">模块/用途</td><td class="strong">格式</td><td class="strong">适用说明</td><td class="strong">画面比例</td><td class="strong">背景</td><td class="strong">风格</td><td class="strong">一键复制内容（完整Prompt / JSON）</td><td class="strong">角度/视图说明</td><td class="strong">备注</td></tr><tr><th scope="row">2</th><td>豆包 / 即梦</td><td>提取人物白底素材图</td><td>Prompt</td><td>从参考图抠出同一人物，去背景白底，适合后续合成</td><td>1:1</td><td>纯白背景</td><td>高清写实商业摄影</td><td>请以我上传的参考图作为唯一人物依据，精准识别并提取画面中的人物主体，生成一张干净、高清、真实的白底人物素材图，画面比例固定为1:1正方形。
+
+必须严格保持参考图中人物的真实身份感和外貌特征不变，包括脸型、五官比例、眼睛形状、鼻子、嘴巴、眉形、面部轮廓、发型、发色、发量、肤色、年龄感、身材比例、体态特征和整体气质，不允许换脸，不允许把人物美化成另一张脸，不允许改变人物年龄、肤色、身材或辨识度。
+
+人物服装穿搭必须完全参考原图，保持衣服颜色、款式、版型、面料质感、纹理、褶皱、领口、袖口、裤型、裙摆、鞋子、袜子、包包、眼镜、首饰、帽子或其他配饰等全部可见细节一致，不允许换衣服，不允许改变服装颜色，不允许增加或删除配饰，不允许重新设计服装。
+
+请去除原图背景和无关杂物，只保留人物主体。背景为干净纯白色，人物完整居中展示，边缘清晰自然，头发丝边缘细致，不能有抠图毛边、白边、黑边、锯齿、背景残留、阴影脏边或透明缺损。人物比例真实自然，不要拉伸、压扁、变形或裁切身体。
+
+整体效果为高清写实商业摄影人物素材图，皮肤质感真实自然，不要过度磨皮，不要塑料皮肤，不要AI涂抹感，不要卡通化，不要动漫风，不要油画感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo。画面干净、真实、清晰，适合后续用于家具场景合成、电商海报、广告设计和人物素材库。</td><td></td><td>推荐优先用于中文模型，正负面约束已融合</td></tr><tr><th scope="row">3</th><td>豆包 / 即梦</td><td>提取人物白底素材图</td><td>JSON</td><td>同上，结构化字段版</td><td>1:1</td><td>纯白背景</td><td>高清写实商业摄影</td><td>{
+  &quot;prompt&quot;: &quot;请以我上传的参考图作为唯一人物依据，精准识别并提取画面中的人物主体，生成一张干净、高清、真实的白底人物素材图，画面比例固定为1:1正方形。 必须严格保持参考图中人物的真实身份感和外貌特征不变，包括脸型、五官比例、眼睛形状、鼻子、嘴巴、眉形、面部轮廓、发型、发色、发量、肤色、年龄感、身材比例、体态特征和整体气质，不允许换脸，不允许把人物美化成另一张脸，不允许改变人物年龄、肤色、身材或辨识度。 人物服装穿搭必须完全参考原图，保持衣服颜色、款式、版型、面料质感、纹理、褶皱、领口、袖口、裤型、裙摆、鞋子、袜子、包包、眼镜、首饰、帽子或其他配饰等全部可见细节一致，不允许换衣服，不允许改变服装颜色，不允许增加或删除配饰，不允许重新设计服装。 请去除原图背景和无关杂物，只保留人物主体。背景为干净纯白色，人物完整居中展示，边缘清晰自然，头发丝边缘细致，不能有抠图毛边、白边、黑边、锯齿、背景残留、阴影脏边或透明缺损。人物比例真实自然，不要拉伸、压扁、变形或裁切身体。 整体效果为高清写实商业摄影人物素材图，皮肤质感真实自然，不要过度磨皮，不要塑料皮肤，不要AI涂抹感，不要卡通化，不要动漫风，不要油画感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo。画面干净、真实、清晰，适合后续用于家具场景合成、电商海报、广告设计和人物素材库。&quot;,
+  &quot;aspect_ratio&quot;: &quot;1:1&quot;,
+  &quot;background&quot;: &quot;纯白背景&quot;,
+  &quot;style&quot;: &quot;高清写实商业摄影&quot;,
+  &quot;output_type&quot;: &quot;人物白底素材图&quot;,
+  &quot;image_count&quot;: 1
+}</td><td></td><td>可直接复制到支持JSON字段的工作流</td></tr><tr><th scope="row">4</th><td>豆包 / 即梦</td><td>人物8视图生成</td><td>Prompt</td><td>生成正面、左右45°、左右侧、背面、半身近景、自然坐姿</td><td>1:1</td><td>纯白或浅灰白背景</td><td>高清写实商业摄影</td><td>请以我上传的参考图作为唯一人物依据，根据画面中人物的真实外貌特征、发型、身材比例和服装穿搭，生成同一位人物的标准多视图角色素材图，画面比例固定为1:1正方形。
+
+这不是重新设计人物，也不是生成多个相似人物，而是生成同一位参考人物在不同观察角度下的真实多视图展示。所有视图必须能够明确判断为同一个人，人物身份感、脸型、五官比例、眼睛、鼻子、嘴巴、眉形、面部轮廓、发型、发色、发量、肤色、年龄感、身材比例、体态特征和整体气质必须保持一致，不允许换脸，不允许五官漂移，不允许发型变化，不允许肤色变化，不允许身材变形，不允许把人物变成另一个模特。
+
+画面中生成8个独立人物视图，分别为：正面全身视图、左前方45度全身视图、右前方45度全身视图、左侧面全身视图、右侧面全身视图、背面全身视图、半身近景视图、自然坐姿视图。8个视图可以横向或网格方式整齐排版，但必须保持每个视图清晰完整，人物比例统一，视觉高度统一，不能互相遮挡，不能拼接混乱，不能出现重复角度代替指定角度。
+
+人物服装穿搭必须完全参考原图，保持衣服颜色、款式、版型、面料质感、纹理、褶皱、领口、袖口、裤型、裙摆、鞋子、袜子、包包、眼镜、首饰、帽子或其他配饰等全部可见细节一致。不同角度下服装结构需要符合真实三维转向关系，背面视图要合理展示服装背部结构，但不得凭空增加原图没有的复杂设计，不允许换衣服，不允许改变服装颜色，不允许新增或删除配饰，不允许改变穿搭风格。
+
+人物站姿自然稳定，四肢比例真实，双手自然，手指结构正确，脚部落点合理；自然坐姿要放松真实，不能僵硬，不能夸张摆拍，不能出现肢体扭曲。半身近景需要保持同一张脸、同一发型和同一服装细节，五官清晰，表情自然。
+
+背景为干净纯白色或浅灰白背景，整体为高清写实商业摄影质感，光影统一，人物边缘清晰自然，头发边缘细致，服装纹理清晰，皮肤真实自然。不要动漫风，不要卡通风，不要插画风，不要油画感，不要AI涂抹感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo，不要背景杂乱，不要人物畸形，不要多手指，不要少手指，不要多手臂，不要少手臂，不要多腿，不要断肢，不要脸部崩坏，不要眼睛不对称，不要不同人物混入同一画面。最终效果适合用于人物素材库、家具场景合成、电商海报和广告设计。</td><td>8视图：正面、左前45°、右前45°、左侧、右侧、背面、半身近景、自然坐姿</td><td>推荐用于角色板/人物素材库</td></tr><tr><th scope="row">5</th><td>豆包 / 即梦</td><td>人物8视图生成</td><td>JSON</td><td>同一人物8视图角色素材图</td><td>1:1</td><td>纯白或浅灰白背景</td><td>高清写实商业摄影</td><td>{
+  &quot;prompt&quot;: &quot;请以我上传的参考图作为唯一人物依据，根据画面中人物的真实外貌特征、发型、身材比例和服装穿搭，生成同一位人物的标准多视图角色素材图，画面比例固定为1:1正方形。 这不是重新设计人物，也不是生成多个相似人物，而是生成同一位参考人物在不同观察角度下的真实多视图展示。所有视图必须能够明确判断为同一个人，人物身份感、脸型、五官比例、眼睛、鼻子、嘴巴、眉形、面部轮廓、发型、发色、发量、肤色、年龄感、身材比例、体态特征和整体气质必须保持一致，不允许换脸，不允许五官漂移，不允许发型变化，不允许肤色变化，不允许身材变形，不允许把人物变成另一个模特。 画面中生成8个独立人物视图，分别为：正面全身视图、左前方45度全身视图、右前方45度全身视图、左侧面全身视图、右侧面全身视图、背面全身视图、半身近景视图、自然坐姿视图。8个视图可以横向或网格方式整齐排版，但必须保持每个视图清晰完整，人物比例统一，视觉高度统一，不能互相遮挡，不能拼接混乱，不能出现重复角度代替指定角度。 人物服装穿搭必须完全参考原图，保持衣服颜色、款式、版型、面料质感、纹理、褶皱、领口、袖口、裤型、裙摆、鞋子、袜子、包包、眼镜、首饰、帽子或其他配饰等全部可见细节一致。不同角度下服装结构需要符合真实三维转向关系，背面视图要合理展示服装背部结构，但不得凭空增加原图没有的复杂设计，不允许换衣服，不允许改变服装颜色，不允许新增或删除配饰，不允许改变穿搭风格。 人物站姿自然稳定，四肢比例真实，双手自然，手指结构正确，脚部落点合理；自然坐姿要放松真实，不能僵硬，不能夸张摆拍，不能出现肢体扭曲。半身近景需要保持同一张脸、同一发型和同一服装细节，五官清晰，表情自然。 背景为干净纯白色或浅灰白背景，整体为高清写实商业摄影质感，光影统一，人物边缘清晰自然，头发边缘细致，服装纹理清晰，皮肤真实自然。不要动漫风，不要卡通风，不要插画风，不要油画感，不要AI涂抹感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo，不要背景杂乱，不要人物畸形，不要多手指，不要少手指，不要多手臂，不要少手臂，不要多腿，不要断肢，不要脸部崩坏，不要眼睛不对称，不要不同人物混入同一画面。最终效果适合用于人物素材库、家具场景合成、电商海报和广告设计。&quot;,
+  &quot;aspect_ratio&quot;: &quot;1:1&quot;,
+  &quot;background&quot;: &quot;纯白背景或浅灰白背景&quot;,
+  &quot;style&quot;: &quot;高清写实商业摄影&quot;,
+  &quot;output_type&quot;: &quot;同一人物8视图角色素材图&quot;,
+  &quot;image_count&quot;: 1,
+  &quot;views&quot;: [
+    &quot;正面全身视图&quot;,
+    &quot;左前方45度全身视图&quot;,
+    &quot;右前方45度全身视图&quot;,
+    &quot;左侧面全身视图&quot;,
+    &quot;右侧面全身视图&quot;,
+    &quot;背面全身视图&quot;,
+    &quot;半身近景视图&quot;,
+    &quot;自然坐姿视图&quot;
+  ],
+  &quot;layout&quot;: &quot;8个视图整齐排版，可横向或网格排版，所有视图保持同一人物身份和同一服装&quot;
+}</td><td>8视图完整写入views字段</td><td>可直接复制</td></tr><tr><th scope="row">6</th><td>Nanobanana / image2</td><td>提取人物白底素材图</td><td>Prompt</td><td>英文版人物抠图/白底素材生成</td><td>1:1</td><td>pure white background</td><td>realistic commercial photography</td><td>Use the uploaded reference image as the only source for the target person. Accurately extract the person from the image and generate a clean, high-resolution, realistic character cutout on a pure white background. The final image must be a 1:1 square composition.
+
+Preserve the exact identity of the person from the reference image. Keep the same face shape, facial proportions, eyes, nose, mouth, eyebrows, jawline, hairstyle, hair color, hair volume, skin tone, age impression, body proportions, posture characteristics and overall temperament. Do not change the face, do not beautify the person into a different model, do not alter the age, skin tone, body shape, hairstyle or recognizability.
+
+Keep the outfit exactly the same as in the reference image. Preserve the clothing color, style, cut, silhouette, fabric texture, material details, folds, collar, sleeves, pants, skirt, shoes, socks, bag, glasses, jewelry, hat and all visible accessories. Do not change the outfit, do not change the clothing color, do not redesign the clothes, do not add or remove accessories.
+
+Remove the original background and all irrelevant objects. Keep only the person as the main subject. The background must be pure white, clean and minimal. The person should be complete, centered and naturally scaled. The edges must be clean and realistic, especially around the hair. Avoid cutout artifacts, rough edges, white outlines, black outlines, jagged borders, background residue, dirty shadow edges or missing body parts.
+
+The image should look like a high-end realistic commercial photography character asset. Skin texture should be natural, not over-smoothed, not plastic-like. Clothing texture should be clear and detailed. Avoid AI smearing, cartoon style, anime style, illustration style, oil painting style, low resolution, blur, noise, watermark, text, logo, messy background, distorted body, stretched body, flattened body or cropped limbs. The result should be suitable for furniture scene compositing, e-commerce posters, advertising design and character asset libraries.</td><td></td><td>适合英文提示词模型</td></tr><tr><th scope="row">7</th><td>Nanobanana / image2</td><td>提取人物白底素材图</td><td>JSON</td><td>英文结构化字段版</td><td>1:1</td><td>pure white background</td><td>realistic commercial photography</td><td>{
+  &quot;prompt&quot;: &quot;Use the uploaded reference image as the only source for the target person. Accurately extract the person from the image and generate a clean, high-resolution, realistic character cutout on a pure white background. The final image must be a 1:1 square composition. Preserve the exact identity of the person from the reference image. Keep the same face shape, facial proportions, eyes, nose, mouth, eyebrows, jawline, hairstyle, hair color, hair volume, skin tone, age impression, body proportions, posture characteristics and overall temperament. Do not change the face, do not beautify the person into a different model, do not alter the age, skin tone, body shape, hairstyle or recognizability. Keep the outfit exactly the same as in the reference image. Preserve the clothing color, style, cut, silhouette, fabric texture, material details, folds, collar, sleeves, pants, skirt, shoes, socks, bag, glasses, jewelry, hat and all visible accessories. Do not change the outfit, do not change the clothing color, do not redesign the clothes, do not add or remove accessories. Remove the original background and all irrelevant objects. Keep only the person as the main subject. The background must be pure white, clean and minimal. The person should be complete, centered and naturally scaled. The edges must be clean and realistic, especially around the hair. Avoid cutout artifacts, rough edges, white outlines, black outlines, jagged borders, background residue, dirty shadow edges or missing body parts. The image should look like a high-end realistic commercial photography character asset. Skin texture should be natural, not over-smoothed, not plastic-like. Clothing texture should be clear and detailed. Avoid AI smearing, cartoon style, anime style, illustration style, oil painting style, low resolution, blur, noise, watermark, text, logo, messy background, distorted body, stretched body, flattened body or cropped limbs. The result should be suitable for furniture scene compositing, e-commerce posters, advertising design and character asset libraries.&quot;,
+  &quot;aspect_ratio&quot;: &quot;1:1&quot;,
+  &quot;background&quot;: &quot;pure white background&quot;,
+  &quot;style&quot;: &quot;realistic commercial photography&quot;,
+  &quot;output_type&quot;: &quot;character cutout on white background&quot;,
+  &quot;image_count&quot;: 1
+}</td><td></td><td>可直接复制</td></tr><tr><th scope="row">8</th><td>Nanobanana / image2</td><td>人物8视图生成</td><td>Prompt</td><td>英文版同一人物8视图角色板</td><td>1:1</td><td>pure white or light gray-white background</td><td>realistic commercial photography</td><td>Use the uploaded reference image as the only source for the target person. Based on the person’s real facial features, hairstyle, body proportions and outfit in the reference image, generate a standard multi-view character sheet of the same person. The final image must be a 1:1 square composition.
+
+This is not a character redesign and not a set of similar-looking models. The goal is to show the same reference person from multiple viewing angles while preserving identity consistency. Every view must clearly look like the same person. Keep the same face shape, facial proportions, eyes, nose, mouth, eyebrows, jawline, hairstyle, hair color, hair volume, skin tone, age impression, body proportions, body type, posture characteristics and overall temperament. Do not change the face, do not create a different model, do not shift facial features, do not change the hairstyle, do not change skin tone, do not change body shape.
+
+Generate 8 separate views of the same person in one clean character sheet: front full-body view, front-left 45-degree full-body view, front-right 45-degree full-body view, left side full-body view, right side full-body view, back full-body view, half-body close-up view and natural seated pose view. The 8 views may be arranged in a clean row or grid layout, but each view must be clear, complete, evenly scaled and not overlapping. Do not replace any required angle with a repeated angle. Do not merge body parts between views. Do not create multiple different people.
+
+The outfit must remain exactly the same as in the reference image. Preserve the clothing color, style, cut, silhouette, fabric texture, material details, folds, collar, sleeves, pants, skirt, shoes, socks, bag, glasses, jewelry, hat and all visible accessories. The clothing structure should rotate naturally across different angles, and the back view should show a reasonable back-side structure based on the same outfit. Do not invent complex back details that are not supported by the original outfit. Do not change the outfit, do not change clothing colors, do not add or remove accessories, do not change the styling.
+
+The standing poses should be natural and stable, with realistic body proportions, correct arms, correct hands, accurate fingers and reasonable foot placement. The seated pose should look relaxed and natural, not stiff and not exaggerated. The half-body close-up should keep the exact same face, hairstyle and outfit details, with clear facial features and a natural expression.
+
+Use a clean pure white or light gray-white background. The image should have a realistic commercial photography look, unified lighting, clean natural edges, detailed hair edges, clear clothing textures and natural skin texture. Avoid anime style, cartoon style, illustration style, oil painting style, AI smearing, low resolution, blur, noise, watermark, text, logo, messy background, distorted anatomy, extra fingers, missing fingers, extra arms, missing arms, extra legs, broken limbs, twisted joints, collapsed face, asymmetrical eyes, inconsistent faces, inconsistent outfits or different people mixed in the same sheet. The final result should be suitable for character asset libraries, furniture scene compositing, e-commerce posters and advertising design.</td><td>8 views: front, front-left 45°, front-right 45°, left side, right side, back, half-body close-up, seated</td><td>推荐用于image2/Nanobanana</td></tr><tr><th scope="row">9</th><td>Nanobanana / image2</td><td>人物8视图生成</td><td>JSON</td><td>英文结构化8视图字段版</td><td>1:1</td><td>pure white or light gray-white background</td><td>realistic commercial photography</td><td>{
+  &quot;prompt&quot;: &quot;Use the uploaded reference image as the only source for the target person. Based on the person’s real facial features, hairstyle, body proportions and outfit in the reference image, generate a standard multi-view character sheet of the same person. The final image must be a 1:1 square composition. This is not a character redesign and not a set of similar-looking models. The goal is to show the same reference person from multiple viewing angles while preserving identity consistency. Every view must clearly look like the same person. Keep the same face shape, facial proportions, eyes, nose, mouth, eyebrows, jawline, hairstyle, hair color, hair volume, skin tone, age impression, body proportions, body type, posture characteristics and overall temperament. Do not change the face, do not create a different model, do not shift facial features, do not change the hairstyle, do not change skin tone, do not change body shape. Generate 8 separate views of the same person in one clean character sheet: front full-body view, front-left 45-degree full-body view, front-right 45-degree full-body view, left side full-body view, right side full-body view, back full-body view, half-body close-up view and natural seated pose view. The 8 views may be arranged in a clean row or grid layout, but each view must be clear, complete, evenly scaled and not overlapping. Do not replace any required angle with a repeated angle. Do not merge body parts between views. Do not create multiple different people. The outfit must remain exactly the same as in the reference image. Preserve the clothing color, style, cut, silhouette, fabric texture, material details, folds, collar, sleeves, pants, skirt, shoes, socks, bag, glasses, jewelry, hat and all visible accessories. The clothing structure should rotate naturally across different angles, and the back view should show a reasonable back-side structure based on the same outfit. Do not invent complex back details that are not supported by the original outfit. Do not change the outfit, do not change clothing colors, do not add or remove accessories, do not change the styling. The standing poses should be natural and stable, with realistic body proportions, correct arms, correct hands, accurate fingers and reasonable foot placement. The seated pose should look relaxed and natural, not stiff and not exaggerated. The half-body close-up should keep the exact same face, hairstyle and outfit details, with clear facial features and a natural expression. Use a clean pure white or light gray-white background. The image should have a realistic commercial photography look, unified lighting, clean natural edges, detailed hair edges, clear clothing textures and natural skin texture. Avoid anime style, cartoon style, illustration style, oil painting style, AI smearing, low resolution, blur, noise, watermark, text, logo, messy background, distorted anatomy, extra fingers, missing fingers, extra arms, missing arms, extra legs, broken limbs, twisted joints, collapsed face, asymmetrical eyes, inconsistent faces, inconsistent outfits or different people mixed in the same sheet. The final result should be suitable for character asset libraries, furniture scene compositing, e-commerce posters and advertising design.&quot;,
+  &quot;aspect_ratio&quot;: &quot;1:1&quot;,
+  &quot;background&quot;: &quot;pure white or light gray-white background&quot;,
+  &quot;style&quot;: &quot;realistic commercial photography&quot;,
+  &quot;output_type&quot;: &quot;same-person 8-view character sheet&quot;,
+  &quot;image_count&quot;: 1,
+  &quot;views&quot;: [
+    &quot;front full-body view&quot;,
+    &quot;front-left 45-degree full-body view&quot;,
+    &quot;front-right 45-degree full-body view&quot;,
+    &quot;left side full-body view&quot;,
+    &quot;right side full-body view&quot;,
+    &quot;back full-body view&quot;,
+    &quot;half-body close-up view&quot;,
+    &quot;natural seated pose view&quot;
+  ],
+  &quot;layout&quot;: &quot;clean row or grid layout, all 8 views evenly scaled, same identity and same outfit&quot;
+}</td><td>8 views complete</td><td>可直接复制</td></tr><tr><th scope="row">10</th><td>通用强化版</td><td>人物8视图生成</td><td>JSON</td><td>中文通用一键版，适配两个模型方向</td><td>1:1</td><td>纯白背景或浅灰白背景</td><td>高清写实商业摄影</td><td>{
+  &quot;prompt&quot;: &quot;请以我上传的参考图作为唯一人物依据，根据画面中人物的真实外貌特征、发型、身材比例和服装穿搭，生成同一位人物的标准8视图角色素材图，画面比例固定为1:1正方形。 这不是重新设计人物，也不是生成多个相似人物，而是生成同一位参考人物在不同观察角度下的真实多视图展示。所有视图必须能够明确判断为同一个人，人物身份感、脸型、五官比例、眼睛、鼻子、嘴巴、眉形、面部轮廓、发型、发色、发量、肤色、年龄感、身材比例、体态特征和整体气质必须保持一致，不允许换脸，不允许五官漂移，不允许发型变化，不允许肤色变化，不允许身材变形，不允许把人物变成另一个模特。 画面中生成8个独立人物视图，分别为：正面全身视图、左前方45度全身视图、右前方45度全身视图、左侧面全身视图、右侧面全身视图、背面全身视图、半身近景视图、自然坐姿视图。8个视图可以横向或网格方式整齐排版，但必须保持每个视图清晰完整，人物比例统一，视觉高度统一，不能互相遮挡，不能拼接混乱，不能出现重复角度代替指定角度。 人物服装穿搭必须完全参考原图，保持衣服颜色、款式、版型、面料质感、纹理、褶皱、领口、袖口、裤型、裙摆、鞋子、袜子、包包、眼镜、首饰、帽子或其他配饰等全部可见细节一致。不同角度下服装结构需要符合真实三维转向关系，背面视图要合理展示服装背部结构，但不得凭空增加原图没有的复杂设计，不允许换衣服，不允许改变服装颜色，不允许新增或删除配饰，不允许改变穿搭风格。 人物站姿自然稳定，四肢比例真实，双手自然，手指结构正确，脚部落点合理；自然坐姿要放松真实，不能僵硬，不能夸张摆拍，不能出现肢体扭曲。半身近景需要保持同一张脸、同一发型和同一服装细节，五官清晰，表情自然。 背景为干净纯白色或浅灰白背景，整体为高清写实商业摄影质感，光影统一，人物边缘清晰自然，头发边缘细致，服装纹理清晰，皮肤真实自然。不要动漫风，不要卡通风，不要插画风，不要油画感，不要AI涂抹感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo，不要背景杂乱，不要人物畸形，不要多手指，不要少手指，不要多手臂，不要少手臂，不要多腿，不要断肢，不要脸部崩坏，不要眼睛不对称，不要不同人物混入同一画面。最终效果适合用于人物素材库、家具场景合成、电商海报和广告设计。&quot;,
+  &quot;aspect_ratio&quot;: &quot;1:1&quot;,
+  &quot;background&quot;: &quot;纯白背景或浅灰白背景&quot;,
+  &quot;style&quot;: &quot;高清写实商业摄影&quot;,
+  &quot;output_type&quot;: &quot;同一人物8视图角色素材图&quot;,
+  &quot;image_count&quot;: 1,
+  &quot;views&quot;: [
+    &quot;正面全身视图&quot;,
+    &quot;左前方45度全身视图&quot;,
+    &quot;右前方45度全身视图&quot;,
+    &quot;左侧面全身视图&quot;,
+    &quot;右侧面全身视图&quot;,
+    &quot;背面全身视图&quot;,
+    &quot;半身近景视图&quot;,
+    &quot;自然坐姿视图&quot;
+  ]
+}</td><td>8视图完整写入views字段</td><td>保留一份最稳定总版本</td></tr><tr><th scope="row">11</th><td>基础扩展</td><td>完整详细Prompt</td><td>Prompt</td><td>提取人物 + 生成多视图的详细生产版</td><td>建议1:1</td><td>白底或透明背景</td><td>高清写实商业摄影</td><td>请根据参考图中的人物，精准提取并生成同一位人物的多角度人物素材图。
+
+核心目标：
+从参考图中识别并保留人物主体，严格保持该人物的身份一致性，并根据原图人物的外貌特征、发型、肤色、身材比例、年龄感、气质和服装穿搭，生成同一人物的多个视图。输出结果需适合后续用于家具场景合成、电商展示、海报设计和人物素材整理。
+
+人物一致性要求：
+必须保持人物与参考图中的人物为同一人，不允许改变人物身份感。人物的脸型、五官比例、眼睛、鼻子、嘴巴、眉形、面部轮廓、发型、发量、发色、肤色、身材比例、年龄感、气质风格必须与参考图一致。不得换脸，不得美化成另一张脸，不得改变人物的辨识度。
+
+服装一致性要求：
+人物穿搭必须完全参考原图，保持服装的颜色、款式、版型、面料、纹理、褶皱、裁剪结构、领口、袖口、裤型、鞋子、袜子、配饰等细节一致。不得更换服装，不得改变颜色，不得新增或删除穿搭元素，不得改变服装风格。
+
+视图生成要求：
+生成同一人物的多个标准视图，包括：
+1. 正面全身视图
+2. 左前方45度全身视图
+3. 右前方45度全身视图
+4. 左侧面全身视图
+5. 右侧面全身视图
+6. 背面全身视图
+7. 半身近景视图
+8. 自然坐姿视图
+
+其中所有视图中的人物必须是同一人，外貌特征、服装穿搭、身材比例、发型发色保持统一，不可出现不同版本的人物。
+
+姿态与表现要求：
+人物姿态自然，站姿稳定，双脚结构正常，四肢比例真实，双手自然，手指结构准确。坐姿自然放松，不僵硬，不夸张。表情自然，避免过度摆拍感。人物整体状态应符合真实商业摄影中的模特素材效果。
+
+背景与画面要求：
+背景为干净纯白色背景，或透明背景素材效果。画面干净简洁，无多余杂物，无残留背景。人物边缘清晰自然，尤其头发边缘需要细致干净，无白边、黑边、锯齿或抠图痕迹。
+
+画质与风格要求：
+整体为高清写实商业摄影风格，清晰自然，光影统一，皮肤质感真实不过度磨皮，服装纹理清晰，头发丝细节完整，人体比例准确，透视合理。画面不能有AI涂抹感、塑料感、油画感或卡通感。适合后续直接用于家居场景融合、电商广告和海报设计。
+
+负面要求：
+不要换脸，不要改变人物身份，不要改变发型，不要改变发色，不要改变肤色，不要改变身材比例，不要改变年龄感，不要改变服装款式，不要改变服装颜色，不要改变服装材质，不要新增或删除配饰。
+
+不要人物畸形，不要头身比例异常，不要多手指，不要少手指，不要多手臂，不要少手臂，不要多腿，不要断肢，不要扭曲，不要关节错误，不要脸部崩坏，不要五官错位，不要眼睛不对称，不要僵硬表情，不要假笑。
+
+不要卡通风，不要动漫风，不要插画风，不要油画感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo，不要背景杂乱，不要抠图毛边，不要残留原背景。</td><td>包含8视图</td><td>适合二次改写和长提示词模型</td></tr><tr><th scope="row">12</th><td>基础扩展</td><td>标准多视图排版</td><td>Prompt</td><td>精简增强版，多视图排版图</td><td>建议1:1</td><td>纯白背景</td><td>商业摄影质感</td><td>根据参考图中的人物，生成同一位人物的标准多视图人物排版图。
+
+要求严格保持人物身份一致，包括脸型、五官比例、发型、发色、肤色、身材比例、年龄感、气质完全一致。服装穿搭完全参考原图，保持衣服颜色、款式、版型、材质纹理、褶皱、裤子、鞋子、配饰全部一致，不允许更换服装，不允许改变颜色和细节。
+
+画面需要包含以下多个完整视图：
+正面全身、左前方45度、右前方45度、左侧面、右侧面、背面、半身近景、自然坐姿。
+
+所有人物必须是同一人，不能出现脸部变化、发型变化、服装变化或身材变化。人物站姿自然，比例准确，四肢完整，手指正常，表情自然。
+
+背景为纯白色，画面干净简洁，商业摄影质感，高清清晰，边缘自然，头发边缘细致，无抠图痕迹。整体适合作为人物素材库、服装参考图和家具场景合成参考图。
+
+负面要求：不要换脸，不要改变身份，不要改变发型，不要改变服装，不要肢体畸形，不要多手指，不要少手指，不要变形，不要模糊，不要卡通化，不要油画感，不要水印，不要文字。</td><td>包含8视图</td><td>更短、更好复制</td></tr><tr><th scope="row">13</th><td>基础扩展</td><td>通用型JSON</td><td>JSON</td><td>通用结构化字段版</td><td>建议3:4/1:1可改</td><td>白底或透明背景</td><td>高清写实商业摄影</td><td>{
+  &quot;task&quot;: &quot;extract_character_and_generate_multi_views&quot;,
+  &quot;language&quot;: &quot;zh-CN&quot;,
+  &quot;prompt&quot;: &quot;请根据参考图中的人物，精准提取并生成同一位人物的多角度人物素材图。必须保持人物与参考图中的人物为同一人，不允许改变人物身份感。人物的脸型、五官比例、眼睛、鼻子、嘴巴、眉形、面部轮廓、发型、发量、发色、肤色、身材比例、年龄感、气质风格必须与参考图一致。服装穿搭必须完全参考原图，保持服装的颜色、款式、版型、面料、纹理、褶皱、裁剪结构、领口、袖口、裤型、鞋子、袜子、配饰等细节一致。生成同一人物的多个标准视图，包括：正面全身视图、左前方45度全身视图、右前方45度全身视图、左侧面全身视图、右侧面全身视图、背面全身视图、半身近景视图、自然坐姿视图。背景为纯白色或透明背景效果，画面干净简洁，人物边缘自然清晰，头发边缘细致，无抠图痕迹。整体为高清写实商业摄影风格，皮肤质感自然，服装纹理清晰，光影统一，适合后续用于家具场景合成、电商展示和海报设计。&quot;,
+  &quot;negative_prompt&quot;: &quot;不要换脸，不要改变人物身份，不要改变发型，不要改变发色，不要改变肤色，不要改变身材比例，不要改变年龄感，不要改变服装款式，不要改变服装颜色，不要改变服装材质，不要新增或删除配饰。不要人物畸形，不要头身比例异常，不要多手指，不要少手指，不要多手臂，不要少手臂，不要多腿，不要断肢，不要扭曲，不要关节错误，不要脸部崩坏，不要五官错位，不要眼睛不对称，不要僵硬表情，不要假笑。不要卡通风，不要动漫风，不要插画风，不要油画感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo，不要背景杂乱，不要抠图毛边，不要残留原背景。&quot;,
+  &quot;views&quot;: [
+    &quot;正面全身视图&quot;,
+    &quot;左前方45度全身视图&quot;,
+    &quot;右前方45度全身视图&quot;,
+    &quot;左侧面全身视图&quot;,
+    &quot;右侧面全身视图&quot;,
+    &quot;背面全身视图&quot;,
+    &quot;半身近景视图&quot;,
+    &quot;自然坐姿视图&quot;
+  ],
+  &quot;background&quot;: &quot;纯白背景或透明背景效果&quot;,
+  &quot;style&quot;: &quot;高清写实商业摄影&quot;,
+  &quot;quality&quot;: &quot;high&quot;,
+  &quot;consistency_requirement&quot;: &quot;all_views_must_be_same_person&quot;,
+  &quot;output_usage&quot;: [
+    &quot;家具场景合成&quot;,
+    &quot;电商展示&quot;,
+    &quot;广告海报&quot;,
+    &quot;人物素材整理&quot;
+  ]
+}</td><td>包含8视图</td><td>来自前序整理版本</td></tr><tr><th scope="row">14</th><td>基础扩展</td><td>生产级详细JSON</td><td>JSON</td><td>字段更细，适合自动化和脚本化工作流</td><td>建议按项目修改</td><td>白底或透明背景</td><td>高清写实商业摄影</td><td>{
+  &quot;task_name&quot;: &quot;人物提取与多视图生成&quot;,
+  &quot;task_type&quot;: &quot;character_extraction_and_multi_view_generation&quot;,
+  &quot;language&quot;: &quot;zh-CN&quot;,
+  &quot;input_requirement&quot;: {
+    &quot;reference_image&quot;: true,
+    &quot;reference_image_description&quot;: &quot;包含目标人物的原始参考图&quot;
+  },
+  &quot;goal&quot;: &quot;从参考图中提取人物主体，并根据人物原始外貌和穿搭生成同一人物的多个视图&quot;,
+  &quot;prompt&quot;: {
+    &quot;main&quot;: &quot;请根据参考图中的人物，精准提取并生成同一位人物的多角度人物素材图。保持人物身份一致，严格保留人物的脸型、五官比例、眼睛、鼻子、嘴巴、眉形、面部轮廓、发型、发量、发色、肤色、身材比例、年龄感、气质和整体形象。服装必须与参考图一致，保持衣服颜色、款式、版型、面料、纹理、褶皱、领口、袖口、裤型、鞋子、袜子、配饰等细节完全一致。生成多个视图，包括正面全身、左前方45度、右前方45度、左侧面、右侧面、背面、半身近景、自然坐姿。所有视图中的人物必须是同一人，背景为纯白色或透明背景效果，画面干净简洁，边缘清晰自然，头发边缘细致，整体为高清写实商业摄影风格。&quot;,
+    &quot;identity_lock&quot;: &quot;同一人物的所有视图必须保持脸部特征一致、发型一致、身材比例一致、服装一致、气质一致，不得出现不同版本的人物。&quot;,
+    &quot;appearance_details&quot;: &quot;人物外貌真实自然，皮肤质感细腻但不过度磨皮，面部清晰，表情自然，避免夸张摆拍感。&quot;,
+    &quot;pose_details&quot;: &quot;站姿稳定自然，双脚结构正确，手臂自然，手指结构正常；坐姿放松自然，不僵硬。&quot;,
+    &quot;edge_quality&quot;: &quot;人物边缘需要干净自然，头发丝边缘保留细节，无白边、黑边、锯齿或抠图痕迹。&quot;,
+    &quot;render_quality&quot;: &quot;高清、清晰、真实、自然、商业摄影质感，光影统一，透视合理，服装纹理清楚。&quot;
+  },
+  &quot;negative_prompt&quot;: {
+    &quot;identity&quot;: [
+      &quot;不要换脸&quot;,
+      &quot;不要改变人物身份&quot;,
+      &quot;不要改变发型&quot;,
+      &quot;不要改变发色&quot;,
+      &quot;不要改变肤色&quot;,
+      &quot;不要改变年龄感&quot;,
+      &quot;不要改变身材比例&quot;
+    ],
+    &quot;clothing&quot;: [
+      &quot;不要更换服装&quot;,
+      &quot;不要改变服装颜色&quot;,
+      &quot;不要改变服装材质&quot;,
+      &quot;不要改变服装版型&quot;,
+      &quot;不要新增配饰&quot;,
+      &quot;不要删除服装细节&quot;
+    ],
+    &quot;anatomy&quot;: [
+      &quot;不要人物畸形&quot;,
+      &quot;不要多手指&quot;,
+      &quot;不要少手指&quot;,
+      &quot;不要多手臂&quot;,
+      &quot;不要少手臂&quot;,
+      &quot;不要多腿&quot;,
+      &quot;不要断肢&quot;,
+      &quot;不要关节错误&quot;,
+      &quot;不要头身比例异常&quot;,
+      &quot;不要脸部崩坏&quot;,
+      &quot;不要五官错位&quot;
+    ],
+    &quot;image_quality&quot;: [
+      &quot;不要模糊&quot;,
+      &quot;不要低清晰度&quot;,
+      &quot;不要噪点&quot;,
+      &quot;不要油画感&quot;,
+      &quot;不要AI涂抹感&quot;,
+      &quot;不要塑料感&quot;,
+      &quot;不要卡通风&quot;,
+      &quot;不要动漫风&quot;
+    ],
+    &quot;background_cleanup&quot;: [
+      &quot;不要残留原背景&quot;,
+      &quot;不要抠图毛边&quot;,
+      &quot;不要白边&quot;,
+      &quot;不要黑边&quot;,
+      &quot;不要背景杂乱&quot;
+    ],
+    &quot;extra&quot;: [
+      &quot;不要文字&quot;,
+      &quot;不要水印&quot;,
+      &quot;不要logo&quot;
+    ]
+  },
+  &quot;view_list&quot;: [
+    {
+      &quot;name&quot;: &quot;正面全身视图&quot;,
+      &quot;type&quot;: &quot;full_body_front&quot;
+    },
+    {
+      &quot;name&quot;: &quot;左前方45度全身视图&quot;,
+      &quot;type&quot;: &quot;full_body_front_left_45&quot;
+    },
+    {
+      &quot;name&quot;: &quot;右前方45度全身视图&quot;,
+      &quot;type&quot;: &quot;full_body_front_right_45&quot;
+    },
+    {
+      &quot;name&quot;: &quot;左侧面全身视图&quot;,
+      &quot;type&quot;: &quot;full_body_left_side&quot;
+    },
+    {
+      &quot;name&quot;: &quot;右侧面全身视图&quot;,
+      &quot;type&quot;: &quot;full_body_right_side&quot;
+    },
+    {
+      &quot;name&quot;: &quot;背面全身视图&quot;,
+      &quot;type&quot;: &quot;full_body_back&quot;
+    },
+    {
+      &quot;name&quot;: &quot;半身近景视图&quot;,
+      &quot;type&quot;: &quot;half_body_closeup&quot;
+    },
+    {
+      &quot;name&quot;: &quot;自然坐姿视图&quot;,
+      &quot;type&quot;: &quot;seated_pose&quot;
+    }
+  ],
+  &quot;background&quot;: {
+    &quot;type&quot;: &quot;solid_white_or_transparent&quot;,
+    &quot;description&quot;: &quot;纯白背景或透明背景效果&quot;
+  },
+  &quot;style&quot;: {
+    &quot;render_style&quot;: &quot;写实&quot;,
+    &quot;photo_style&quot;: &quot;商业摄影&quot;,
+    &quot;lighting&quot;: &quot;自然柔和统一&quot;,
+    &quot;detail_level&quot;: &quot;high_detail&quot;
+  },
+  &quot;output&quot;: {
+    &quot;image_count&quot;: 8,
+    &quot;layout&quot;: &quot;single_or_multi_view&quot;,
+    &quot;resolution&quot;: &quot;high&quot;,
+    &quot;usage&quot;: [
+      &quot;家具场景合成&quot;,
+      &quot;电商展示&quot;,
+      &quot;人物素材提取&quot;,
+      &quot;海报设计&quot;
+    ]
+  }
+}</td><td>包含8视图</td><td>适合工作流字段拆解</td></tr></tbody></table></div></section><section class="sheet" id="sheet-3"><div class="sheet-heading"><span>WORKSHEET / 03</span><h2>02_豆包即梦版</h2><small>5 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">模型版本</td><td class="strong">模块</td><td class="strong">格式</td><td class="strong">完整内容（可一键复制）</td></tr><tr><th scope="row">2</th><td>豆包/即梦</td><td>提取人物白底素材图</td><td>Prompt</td><td>请以我上传的参考图作为唯一人物依据，精准识别并提取画面中的人物主体，生成一张干净、高清、真实的白底人物素材图，画面比例固定为1:1正方形。
+
+必须严格保持参考图中人物的真实身份感和外貌特征不变，包括脸型、五官比例、眼睛形状、鼻子、嘴巴、眉形、面部轮廓、发型、发色、发量、肤色、年龄感、身材比例、体态特征和整体气质，不允许换脸，不允许把人物美化成另一张脸，不允许改变人物年龄、肤色、身材或辨识度。
+
+人物服装穿搭必须完全参考原图，保持衣服颜色、款式、版型、面料质感、纹理、褶皱、领口、袖口、裤型、裙摆、鞋子、袜子、包包、眼镜、首饰、帽子或其他配饰等全部可见细节一致，不允许换衣服，不允许改变服装颜色，不允许增加或删除配饰，不允许重新设计服装。
+
+请去除原图背景和无关杂物，只保留人物主体。背景为干净纯白色，人物完整居中展示，边缘清晰自然，头发丝边缘细致，不能有抠图毛边、白边、黑边、锯齿、背景残留、阴影脏边或透明缺损。人物比例真实自然，不要拉伸、压扁、变形或裁切身体。
+
+整体效果为高清写实商业摄影人物素材图，皮肤质感真实自然，不要过度磨皮，不要塑料皮肤，不要AI涂抹感，不要卡通化，不要动漫风，不要油画感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo。画面干净、真实、清晰，适合后续用于家具场景合成、电商海报、广告设计和人物素材库。</td></tr><tr><th scope="row">3</th><td>豆包/即梦</td><td>提取人物白底素材图</td><td>JSON</td><td>{
+  &quot;prompt&quot;: &quot;请以我上传的参考图作为唯一人物依据，精准识别并提取画面中的人物主体，生成一张干净、高清、真实的白底人物素材图，画面比例固定为1:1正方形。 必须严格保持参考图中人物的真实身份感和外貌特征不变，包括脸型、五官比例、眼睛形状、鼻子、嘴巴、眉形、面部轮廓、发型、发色、发量、肤色、年龄感、身材比例、体态特征和整体气质，不允许换脸，不允许把人物美化成另一张脸，不允许改变人物年龄、肤色、身材或辨识度。 人物服装穿搭必须完全参考原图，保持衣服颜色、款式、版型、面料质感、纹理、褶皱、领口、袖口、裤型、裙摆、鞋子、袜子、包包、眼镜、首饰、帽子或其他配饰等全部可见细节一致，不允许换衣服，不允许改变服装颜色，不允许增加或删除配饰，不允许重新设计服装。 请去除原图背景和无关杂物，只保留人物主体。背景为干净纯白色，人物完整居中展示，边缘清晰自然，头发丝边缘细致，不能有抠图毛边、白边、黑边、锯齿、背景残留、阴影脏边或透明缺损。人物比例真实自然，不要拉伸、压扁、变形或裁切身体。 整体效果为高清写实商业摄影人物素材图，皮肤质感真实自然，不要过度磨皮，不要塑料皮肤，不要AI涂抹感，不要卡通化，不要动漫风，不要油画感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo。画面干净、真实、清晰，适合后续用于家具场景合成、电商海报、广告设计和人物素材库。&quot;,
+  &quot;aspect_ratio&quot;: &quot;1:1&quot;,
+  &quot;background&quot;: &quot;纯白背景&quot;,
+  &quot;style&quot;: &quot;高清写实商业摄影&quot;,
+  &quot;output_type&quot;: &quot;人物白底素材图&quot;,
+  &quot;image_count&quot;: 1
+}</td></tr><tr><th scope="row">4</th><td>豆包/即梦</td><td>人物8视图生成</td><td>Prompt</td><td>请以我上传的参考图作为唯一人物依据，根据画面中人物的真实外貌特征、发型、身材比例和服装穿搭，生成同一位人物的标准多视图角色素材图，画面比例固定为1:1正方形。
+
+这不是重新设计人物，也不是生成多个相似人物，而是生成同一位参考人物在不同观察角度下的真实多视图展示。所有视图必须能够明确判断为同一个人，人物身份感、脸型、五官比例、眼睛、鼻子、嘴巴、眉形、面部轮廓、发型、发色、发量、肤色、年龄感、身材比例、体态特征和整体气质必须保持一致，不允许换脸，不允许五官漂移，不允许发型变化，不允许肤色变化，不允许身材变形，不允许把人物变成另一个模特。
+
+画面中生成8个独立人物视图，分别为：正面全身视图、左前方45度全身视图、右前方45度全身视图、左侧面全身视图、右侧面全身视图、背面全身视图、半身近景视图、自然坐姿视图。8个视图可以横向或网格方式整齐排版，但必须保持每个视图清晰完整，人物比例统一，视觉高度统一，不能互相遮挡，不能拼接混乱，不能出现重复角度代替指定角度。
+
+人物服装穿搭必须完全参考原图，保持衣服颜色、款式、版型、面料质感、纹理、褶皱、领口、袖口、裤型、裙摆、鞋子、袜子、包包、眼镜、首饰、帽子或其他配饰等全部可见细节一致。不同角度下服装结构需要符合真实三维转向关系，背面视图要合理展示服装背部结构，但不得凭空增加原图没有的复杂设计，不允许换衣服，不允许改变服装颜色，不允许新增或删除配饰，不允许改变穿搭风格。
+
+人物站姿自然稳定，四肢比例真实，双手自然，手指结构正确，脚部落点合理；自然坐姿要放松真实，不能僵硬，不能夸张摆拍，不能出现肢体扭曲。半身近景需要保持同一张脸、同一发型和同一服装细节，五官清晰，表情自然。
+
+背景为干净纯白色或浅灰白背景，整体为高清写实商业摄影质感，光影统一，人物边缘清晰自然，头发边缘细致，服装纹理清晰，皮肤真实自然。不要动漫风，不要卡通风，不要插画风，不要油画感，不要AI涂抹感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo，不要背景杂乱，不要人物畸形，不要多手指，不要少手指，不要多手臂，不要少手臂，不要多腿，不要断肢，不要脸部崩坏，不要眼睛不对称，不要不同人物混入同一画面。最终效果适合用于人物素材库、家具场景合成、电商海报和广告设计。</td></tr><tr><th scope="row">5</th><td>豆包/即梦</td><td>人物8视图生成</td><td>JSON</td><td>{
+  &quot;prompt&quot;: &quot;请以我上传的参考图作为唯一人物依据，根据画面中人物的真实外貌特征、发型、身材比例和服装穿搭，生成同一位人物的标准多视图角色素材图，画面比例固定为1:1正方形。 这不是重新设计人物，也不是生成多个相似人物，而是生成同一位参考人物在不同观察角度下的真实多视图展示。所有视图必须能够明确判断为同一个人，人物身份感、脸型、五官比例、眼睛、鼻子、嘴巴、眉形、面部轮廓、发型、发色、发量、肤色、年龄感、身材比例、体态特征和整体气质必须保持一致，不允许换脸，不允许五官漂移，不允许发型变化，不允许肤色变化，不允许身材变形，不允许把人物变成另一个模特。 画面中生成8个独立人物视图，分别为：正面全身视图、左前方45度全身视图、右前方45度全身视图、左侧面全身视图、右侧面全身视图、背面全身视图、半身近景视图、自然坐姿视图。8个视图可以横向或网格方式整齐排版，但必须保持每个视图清晰完整，人物比例统一，视觉高度统一，不能互相遮挡，不能拼接混乱，不能出现重复角度代替指定角度。 人物服装穿搭必须完全参考原图，保持衣服颜色、款式、版型、面料质感、纹理、褶皱、领口、袖口、裤型、裙摆、鞋子、袜子、包包、眼镜、首饰、帽子或其他配饰等全部可见细节一致。不同角度下服装结构需要符合真实三维转向关系，背面视图要合理展示服装背部结构，但不得凭空增加原图没有的复杂设计，不允许换衣服，不允许改变服装颜色，不允许新增或删除配饰，不允许改变穿搭风格。 人物站姿自然稳定，四肢比例真实，双手自然，手指结构正确，脚部落点合理；自然坐姿要放松真实，不能僵硬，不能夸张摆拍，不能出现肢体扭曲。半身近景需要保持同一张脸、同一发型和同一服装细节，五官清晰，表情自然。 背景为干净纯白色或浅灰白背景，整体为高清写实商业摄影质感，光影统一，人物边缘清晰自然，头发边缘细致，服装纹理清晰，皮肤真实自然。不要动漫风，不要卡通风，不要插画风，不要油画感，不要AI涂抹感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo，不要背景杂乱，不要人物畸形，不要多手指，不要少手指，不要多手臂，不要少手臂，不要多腿，不要断肢，不要脸部崩坏，不要眼睛不对称，不要不同人物混入同一画面。最终效果适合用于人物素材库、家具场景合成、电商海报和广告设计。&quot;,
+  &quot;aspect_ratio&quot;: &quot;1:1&quot;,
+  &quot;background&quot;: &quot;纯白背景或浅灰白背景&quot;,
+  &quot;style&quot;: &quot;高清写实商业摄影&quot;,
+  &quot;output_type&quot;: &quot;同一人物8视图角色素材图&quot;,
+  &quot;image_count&quot;: 1,
+  &quot;views&quot;: [
+    &quot;正面全身视图&quot;,
+    &quot;左前方45度全身视图&quot;,
+    &quot;右前方45度全身视图&quot;,
+    &quot;左侧面全身视图&quot;,
+    &quot;右侧面全身视图&quot;,
+    &quot;背面全身视图&quot;,
+    &quot;半身近景视图&quot;,
+    &quot;自然坐姿视图&quot;
+  ],
+  &quot;layout&quot;: &quot;8个视图整齐排版，可横向或网格排版，所有视图保持同一人物身份和同一服装&quot;
+}</td></tr></tbody></table></div></section><section class="sheet" id="sheet-4"><div class="sheet-heading"><span>WORKSHEET / 04</span><h2>03_Nano_image2版</h2><small>5 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">模型版本</td><td class="strong">模块</td><td class="strong">格式</td><td class="strong">完整内容（可一键复制）</td></tr><tr><th scope="row">2</th><td>Nanobanana/image2</td><td>提取人物白底素材图</td><td>Prompt</td><td>Use the uploaded reference image as the only source for the target person. Accurately extract the person from the image and generate a clean, high-resolution, realistic character cutout on a pure white background. The final image must be a 1:1 square composition.
+
+Preserve the exact identity of the person from the reference image. Keep the same face shape, facial proportions, eyes, nose, mouth, eyebrows, jawline, hairstyle, hair color, hair volume, skin tone, age impression, body proportions, posture characteristics and overall temperament. Do not change the face, do not beautify the person into a different model, do not alter the age, skin tone, body shape, hairstyle or recognizability.
+
+Keep the outfit exactly the same as in the reference image. Preserve the clothing color, style, cut, silhouette, fabric texture, material details, folds, collar, sleeves, pants, skirt, shoes, socks, bag, glasses, jewelry, hat and all visible accessories. Do not change the outfit, do not change the clothing color, do not redesign the clothes, do not add or remove accessories.
+
+Remove the original background and all irrelevant objects. Keep only the person as the main subject. The background must be pure white, clean and minimal. The person should be complete, centered and naturally scaled. The edges must be clean and realistic, especially around the hair. Avoid cutout artifacts, rough edges, white outlines, black outlines, jagged borders, background residue, dirty shadow edges or missing body parts.
+
+The image should look like a high-end realistic commercial photography character asset. Skin texture should be natural, not over-smoothed, not plastic-like. Clothing texture should be clear and detailed. Avoid AI smearing, cartoon style, anime style, illustration style, oil painting style, low resolution, blur, noise, watermark, text, logo, messy background, distorted body, stretched body, flattened body or cropped limbs. The result should be suitable for furniture scene compositing, e-commerce posters, advertising design and character asset libraries.</td></tr><tr><th scope="row">3</th><td>Nanobanana/image2</td><td>提取人物白底素材图</td><td>JSON</td><td>{
+  &quot;prompt&quot;: &quot;Use the uploaded reference image as the only source for the target person. Accurately extract the person from the image and generate a clean, high-resolution, realistic character cutout on a pure white background. The final image must be a 1:1 square composition. Preserve the exact identity of the person from the reference image. Keep the same face shape, facial proportions, eyes, nose, mouth, eyebrows, jawline, hairstyle, hair color, hair volume, skin tone, age impression, body proportions, posture characteristics and overall temperament. Do not change the face, do not beautify the person into a different model, do not alter the age, skin tone, body shape, hairstyle or recognizability. Keep the outfit exactly the same as in the reference image. Preserve the clothing color, style, cut, silhouette, fabric texture, material details, folds, collar, sleeves, pants, skirt, shoes, socks, bag, glasses, jewelry, hat and all visible accessories. Do not change the outfit, do not change the clothing color, do not redesign the clothes, do not add or remove accessories. Remove the original background and all irrelevant objects. Keep only the person as the main subject. The background must be pure white, clean and minimal. The person should be complete, centered and naturally scaled. The edges must be clean and realistic, especially around the hair. Avoid cutout artifacts, rough edges, white outlines, black outlines, jagged borders, background residue, dirty shadow edges or missing body parts. The image should look like a high-end realistic commercial photography character asset. Skin texture should be natural, not over-smoothed, not plastic-like. Clothing texture should be clear and detailed. Avoid AI smearing, cartoon style, anime style, illustration style, oil painting style, low resolution, blur, noise, watermark, text, logo, messy background, distorted body, stretched body, flattened body or cropped limbs. The result should be suitable for furniture scene compositing, e-commerce posters, advertising design and character asset libraries.&quot;,
+  &quot;aspect_ratio&quot;: &quot;1:1&quot;,
+  &quot;background&quot;: &quot;pure white background&quot;,
+  &quot;style&quot;: &quot;realistic commercial photography&quot;,
+  &quot;output_type&quot;: &quot;character cutout on white background&quot;,
+  &quot;image_count&quot;: 1
+}</td></tr><tr><th scope="row">4</th><td>Nanobanana/image2</td><td>人物8视图生成</td><td>Prompt</td><td>Use the uploaded reference image as the only source for the target person. Based on the person’s real facial features, hairstyle, body proportions and outfit in the reference image, generate a standard multi-view character sheet of the same person. The final image must be a 1:1 square composition.
+
+This is not a character redesign and not a set of similar-looking models. The goal is to show the same reference person from multiple viewing angles while preserving identity consistency. Every view must clearly look like the same person. Keep the same face shape, facial proportions, eyes, nose, mouth, eyebrows, jawline, hairstyle, hair color, hair volume, skin tone, age impression, body proportions, body type, posture characteristics and overall temperament. Do not change the face, do not create a different model, do not shift facial features, do not change the hairstyle, do not change skin tone, do not change body shape.
+
+Generate 8 separate views of the same person in one clean character sheet: front full-body view, front-left 45-degree full-body view, front-right 45-degree full-body view, left side full-body view, right side full-body view, back full-body view, half-body close-up view and natural seated pose view. The 8 views may be arranged in a clean row or grid layout, but each view must be clear, complete, evenly scaled and not overlapping. Do not replace any required angle with a repeated angle. Do not merge body parts between views. Do not create multiple different people.
+
+The outfit must remain exactly the same as in the reference image. Preserve the clothing color, style, cut, silhouette, fabric texture, material details, folds, collar, sleeves, pants, skirt, shoes, socks, bag, glasses, jewelry, hat and all visible accessories. The clothing structure should rotate naturally across different angles, and the back view should show a reasonable back-side structure based on the same outfit. Do not invent complex back details that are not supported by the original outfit. Do not change the outfit, do not change clothing colors, do not add or remove accessories, do not change the styling.
+
+The standing poses should be natural and stable, with realistic body proportions, correct arms, correct hands, accurate fingers and reasonable foot placement. The seated pose should look relaxed and natural, not stiff and not exaggerated. The half-body close-up should keep the exact same face, hairstyle and outfit details, with clear facial features and a natural expression.
+
+Use a clean pure white or light gray-white background. The image should have a realistic commercial photography look, unified lighting, clean natural edges, detailed hair edges, clear clothing textures and natural skin texture. Avoid anime style, cartoon style, illustration style, oil painting style, AI smearing, low resolution, blur, noise, watermark, text, logo, messy background, distorted anatomy, extra fingers, missing fingers, extra arms, missing arms, extra legs, broken limbs, twisted joints, collapsed face, asymmetrical eyes, inconsistent faces, inconsistent outfits or different people mixed in the same sheet. The final result should be suitable for character asset libraries, furniture scene compositing, e-commerce posters and advertising design.</td></tr><tr><th scope="row">5</th><td>Nanobanana/image2</td><td>人物8视图生成</td><td>JSON</td><td>{
+  &quot;prompt&quot;: &quot;Use the uploaded reference image as the only source for the target person. Based on the person’s real facial features, hairstyle, body proportions and outfit in the reference image, generate a standard multi-view character sheet of the same person. The final image must be a 1:1 square composition. This is not a character redesign and not a set of similar-looking models. The goal is to show the same reference person from multiple viewing angles while preserving identity consistency. Every view must clearly look like the same person. Keep the same face shape, facial proportions, eyes, nose, mouth, eyebrows, jawline, hairstyle, hair color, hair volume, skin tone, age impression, body proportions, body type, posture characteristics and overall temperament. Do not change the face, do not create a different model, do not shift facial features, do not change the hairstyle, do not change skin tone, do not change body shape. Generate 8 separate views of the same person in one clean character sheet: front full-body view, front-left 45-degree full-body view, front-right 45-degree full-body view, left side full-body view, right side full-body view, back full-body view, half-body close-up view and natural seated pose view. The 8 views may be arranged in a clean row or grid layout, but each view must be clear, complete, evenly scaled and not overlapping. Do not replace any required angle with a repeated angle. Do not merge body parts between views. Do not create multiple different people. The outfit must remain exactly the same as in the reference image. Preserve the clothing color, style, cut, silhouette, fabric texture, material details, folds, collar, sleeves, pants, skirt, shoes, socks, bag, glasses, jewelry, hat and all visible accessories. The clothing structure should rotate naturally across different angles, and the back view should show a reasonable back-side structure based on the same outfit. Do not invent complex back details that are not supported by the original outfit. Do not change the outfit, do not change clothing colors, do not add or remove accessories, do not change the styling. The standing poses should be natural and stable, with realistic body proportions, correct arms, correct hands, accurate fingers and reasonable foot placement. The seated pose should look relaxed and natural, not stiff and not exaggerated. The half-body close-up should keep the exact same face, hairstyle and outfit details, with clear facial features and a natural expression. Use a clean pure white or light gray-white background. The image should have a realistic commercial photography look, unified lighting, clean natural edges, detailed hair edges, clear clothing textures and natural skin texture. Avoid anime style, cartoon style, illustration style, oil painting style, AI smearing, low resolution, blur, noise, watermark, text, logo, messy background, distorted anatomy, extra fingers, missing fingers, extra arms, missing arms, extra legs, broken limbs, twisted joints, collapsed face, asymmetrical eyes, inconsistent faces, inconsistent outfits or different people mixed in the same sheet. The final result should be suitable for character asset libraries, furniture scene compositing, e-commerce posters and advertising design.&quot;,
+  &quot;aspect_ratio&quot;: &quot;1:1&quot;,
+  &quot;background&quot;: &quot;pure white or light gray-white background&quot;,
+  &quot;style&quot;: &quot;realistic commercial photography&quot;,
+  &quot;output_type&quot;: &quot;same-person 8-view character sheet&quot;,
+  &quot;image_count&quot;: 1,
+  &quot;views&quot;: [
+    &quot;front full-body view&quot;,
+    &quot;front-left 45-degree full-body view&quot;,
+    &quot;front-right 45-degree full-body view&quot;,
+    &quot;left side full-body view&quot;,
+    &quot;right side full-body view&quot;,
+    &quot;back full-body view&quot;,
+    &quot;half-body close-up view&quot;,
+    &quot;natural seated pose view&quot;
+  ],
+  &quot;layout&quot;: &quot;clean row or grid layout, all 8 views evenly scaled, same identity and same outfit&quot;
+}</td></tr></tbody></table></div></section><section class="sheet" id="sheet-5"><div class="sheet-heading"><span>WORKSHEET / 05</span><h2>04_通用强化版</h2><small>6 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">版本</td><td class="strong">模块</td><td class="strong">格式</td><td class="strong">完整内容（可一键复制）</td><td class="strong">使用建议</td></tr><tr><th scope="row">2</th><td>通用强化版</td><td>人物8视图生成</td><td>JSON</td><td>{
+  &quot;prompt&quot;: &quot;请以我上传的参考图作为唯一人物依据，根据画面中人物的真实外貌特征、发型、身材比例和服装穿搭，生成同一位人物的标准8视图角色素材图，画面比例固定为1:1正方形。 这不是重新设计人物，也不是生成多个相似人物，而是生成同一位参考人物在不同观察角度下的真实多视图展示。所有视图必须能够明确判断为同一个人，人物身份感、脸型、五官比例、眼睛、鼻子、嘴巴、眉形、面部轮廓、发型、发色、发量、肤色、年龄感、身材比例、体态特征和整体气质必须保持一致，不允许换脸，不允许五官漂移，不允许发型变化，不允许肤色变化，不允许身材变形，不允许把人物变成另一个模特。 画面中生成8个独立人物视图，分别为：正面全身视图、左前方45度全身视图、右前方45度全身视图、左侧面全身视图、右侧面全身视图、背面全身视图、半身近景视图、自然坐姿视图。8个视图可以横向或网格方式整齐排版，但必须保持每个视图清晰完整，人物比例统一，视觉高度统一，不能互相遮挡，不能拼接混乱，不能出现重复角度代替指定角度。 人物服装穿搭必须完全参考原图，保持衣服颜色、款式、版型、面料质感、纹理、褶皱、领口、袖口、裤型、裙摆、鞋子、袜子、包包、眼镜、首饰、帽子或其他配饰等全部可见细节一致。不同角度下服装结构需要符合真实三维转向关系，背面视图要合理展示服装背部结构，但不得凭空增加原图没有的复杂设计，不允许换衣服，不允许改变服装颜色，不允许新增或删除配饰，不允许改变穿搭风格。 人物站姿自然稳定，四肢比例真实，双手自然，手指结构正确，脚部落点合理；自然坐姿要放松真实，不能僵硬，不能夸张摆拍，不能出现肢体扭曲。半身近景需要保持同一张脸、同一发型和同一服装细节，五官清晰，表情自然。 背景为干净纯白色或浅灰白背景，整体为高清写实商业摄影质感，光影统一，人物边缘清晰自然，头发边缘细致，服装纹理清晰，皮肤真实自然。不要动漫风，不要卡通风，不要插画风，不要油画感，不要AI涂抹感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo，不要背景杂乱，不要人物畸形，不要多手指，不要少手指，不要多手臂，不要少手臂，不要多腿，不要断肢，不要脸部崩坏，不要眼睛不对称，不要不同人物混入同一画面。最终效果适合用于人物素材库、家具场景合成、电商海报和广告设计。&quot;,
+  &quot;aspect_ratio&quot;: &quot;1:1&quot;,
+  &quot;background&quot;: &quot;纯白背景或浅灰白背景&quot;,
+  &quot;style&quot;: &quot;高清写实商业摄影&quot;,
+  &quot;output_type&quot;: &quot;同一人物8视图角色素材图&quot;,
+  &quot;image_count&quot;: 1,
+  &quot;views&quot;: [
+    &quot;正面全身视图&quot;,
+    &quot;左前方45度全身视图&quot;,
+    &quot;右前方45度全身视图&quot;,
+    &quot;左侧面全身视图&quot;,
+    &quot;右侧面全身视图&quot;,
+    &quot;背面全身视图&quot;,
+    &quot;半身近景视图&quot;,
+    &quot;自然坐姿视图&quot;
+  ]
+}</td><td>中文通用一键版，适合复制到大多数支持JSON输入的工具</td></tr><tr><th scope="row">3</th><td>完整详细版</td><td>提取人物+多视图</td><td>Prompt</td><td>请根据参考图中的人物，精准提取并生成同一位人物的多角度人物素材图。
+
+核心目标：
+从参考图中识别并保留人物主体，严格保持该人物的身份一致性，并根据原图人物的外貌特征、发型、肤色、身材比例、年龄感、气质和服装穿搭，生成同一人物的多个视图。输出结果需适合后续用于家具场景合成、电商展示、海报设计和人物素材整理。
+
+人物一致性要求：
+必须保持人物与参考图中的人物为同一人，不允许改变人物身份感。人物的脸型、五官比例、眼睛、鼻子、嘴巴、眉形、面部轮廓、发型、发量、发色、肤色、身材比例、年龄感、气质风格必须与参考图一致。不得换脸，不得美化成另一张脸，不得改变人物的辨识度。
+
+服装一致性要求：
+人物穿搭必须完全参考原图，保持服装的颜色、款式、版型、面料、纹理、褶皱、裁剪结构、领口、袖口、裤型、鞋子、袜子、配饰等细节一致。不得更换服装，不得改变颜色，不得新增或删除穿搭元素，不得改变服装风格。
+
+视图生成要求：
+生成同一人物的多个标准视图，包括：
+1. 正面全身视图
+2. 左前方45度全身视图
+3. 右前方45度全身视图
+4. 左侧面全身视图
+5. 右侧面全身视图
+6. 背面全身视图
+7. 半身近景视图
+8. 自然坐姿视图
+
+其中所有视图中的人物必须是同一人，外貌特征、服装穿搭、身材比例、发型发色保持统一，不可出现不同版本的人物。
+
+姿态与表现要求：
+人物姿态自然，站姿稳定，双脚结构正常，四肢比例真实，双手自然，手指结构准确。坐姿自然放松，不僵硬，不夸张。表情自然，避免过度摆拍感。人物整体状态应符合真实商业摄影中的模特素材效果。
+
+背景与画面要求：
+背景为干净纯白色背景，或透明背景素材效果。画面干净简洁，无多余杂物，无残留背景。人物边缘清晰自然，尤其头发边缘需要细致干净，无白边、黑边、锯齿或抠图痕迹。
+
+画质与风格要求：
+整体为高清写实商业摄影风格，清晰自然，光影统一，皮肤质感真实不过度磨皮，服装纹理清晰，头发丝细节完整，人体比例准确，透视合理。画面不能有AI涂抹感、塑料感、油画感或卡通感。适合后续直接用于家居场景融合、电商广告和海报设计。
+
+负面要求：
+不要换脸，不要改变人物身份，不要改变发型，不要改变发色，不要改变肤色，不要改变身材比例，不要改变年龄感，不要改变服装款式，不要改变服装颜色，不要改变服装材质，不要新增或删除配饰。
+
+不要人物畸形，不要头身比例异常，不要多手指，不要少手指，不要多手臂，不要少手臂，不要多腿，不要断肢，不要扭曲，不要关节错误，不要脸部崩坏，不要五官错位，不要眼睛不对称，不要僵硬表情，不要假笑。
+
+不要卡通风，不要动漫风，不要插画风，不要油画感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo，不要背景杂乱，不要抠图毛边，不要残留原背景。</td><td>更适合对提示词理解能力强、支持长Prompt的模型</td></tr><tr><th scope="row">4</th><td>精简增强版</td><td>标准多视图排版</td><td>Prompt</td><td>根据参考图中的人物，生成同一位人物的标准多视图人物排版图。
+
+要求严格保持人物身份一致，包括脸型、五官比例、发型、发色、肤色、身材比例、年龄感、气质完全一致。服装穿搭完全参考原图，保持衣服颜色、款式、版型、材质纹理、褶皱、裤子、鞋子、配饰全部一致，不允许更换服装，不允许改变颜色和细节。
+
+画面需要包含以下多个完整视图：
+正面全身、左前方45度、右前方45度、左侧面、右侧面、背面、半身近景、自然坐姿。
+
+所有人物必须是同一人，不能出现脸部变化、发型变化、服装变化或身材变化。人物站姿自然，比例准确，四肢完整，手指正常，表情自然。
+
+背景为纯白色，画面干净简洁，商业摄影质感，高清清晰，边缘自然，头发边缘细致，无抠图痕迹。整体适合作为人物素材库、服装参考图和家具场景合成参考图。
+
+负面要求：不要换脸，不要改变身份，不要改变发型，不要改变服装，不要肢体畸形，不要多手指，不要少手指，不要变形，不要模糊，不要卡通化，不要油画感，不要水印，不要文字。</td><td>适合需要更短Prompt但仍要覆盖8视图的场景</td></tr><tr><th scope="row">5</th><td>通用型JSON</td><td>结构化字段版</td><td>JSON</td><td>{
+  &quot;task&quot;: &quot;extract_character_and_generate_multi_views&quot;,
+  &quot;language&quot;: &quot;zh-CN&quot;,
+  &quot;prompt&quot;: &quot;请根据参考图中的人物，精准提取并生成同一位人物的多角度人物素材图。必须保持人物与参考图中的人物为同一人，不允许改变人物身份感。人物的脸型、五官比例、眼睛、鼻子、嘴巴、眉形、面部轮廓、发型、发量、发色、肤色、身材比例、年龄感、气质风格必须与参考图一致。服装穿搭必须完全参考原图，保持服装的颜色、款式、版型、面料、纹理、褶皱、裁剪结构、领口、袖口、裤型、鞋子、袜子、配饰等细节一致。生成同一人物的多个标准视图，包括：正面全身视图、左前方45度全身视图、右前方45度全身视图、左侧面全身视图、右侧面全身视图、背面全身视图、半身近景视图、自然坐姿视图。背景为纯白色或透明背景效果，画面干净简洁，人物边缘自然清晰，头发边缘细致，无抠图痕迹。整体为高清写实商业摄影风格，皮肤质感自然，服装纹理清晰，光影统一，适合后续用于家具场景合成、电商展示和海报设计。&quot;,
+  &quot;negative_prompt&quot;: &quot;不要换脸，不要改变人物身份，不要改变发型，不要改变发色，不要改变肤色，不要改变身材比例，不要改变年龄感，不要改变服装款式，不要改变服装颜色，不要改变服装材质，不要新增或删除配饰。不要人物畸形，不要头身比例异常，不要多手指，不要少手指，不要多手臂，不要少手臂，不要多腿，不要断肢，不要扭曲，不要关节错误，不要脸部崩坏，不要五官错位，不要眼睛不对称，不要僵硬表情，不要假笑。不要卡通风，不要动漫风，不要插画风，不要油画感，不要低清晰度，不要模糊，不要噪点，不要水印，不要文字，不要logo，不要背景杂乱，不要抠图毛边，不要残留原背景。&quot;,
+  &quot;views&quot;: [
+    &quot;正面全身视图&quot;,
+    &quot;左前方45度全身视图&quot;,
+    &quot;右前方45度全身视图&quot;,
+    &quot;左侧面全身视图&quot;,
+    &quot;右侧面全身视图&quot;,
+    &quot;背面全身视图&quot;,
+    &quot;半身近景视图&quot;,
+    &quot;自然坐姿视图&quot;
+  ],
+  &quot;background&quot;: &quot;纯白背景或透明背景效果&quot;,
+  &quot;style&quot;: &quot;高清写实商业摄影&quot;,
+  &quot;quality&quot;: &quot;high&quot;,
+  &quot;consistency_requirement&quot;: &quot;all_views_must_be_same_person&quot;,
+  &quot;output_usage&quot;: [
+    &quot;家具场景合成&quot;,
+    &quot;电商展示&quot;,
+    &quot;广告海报&quot;,
+    &quot;人物素材整理&quot;
+  ]
+}</td><td>适合做工作流基础版本</td></tr><tr><th scope="row">6</th><td>生产级详细JSON</td><td>自动化字段版</td><td>JSON</td><td>{
+  &quot;task_name&quot;: &quot;人物提取与多视图生成&quot;,
+  &quot;task_type&quot;: &quot;character_extraction_and_multi_view_generation&quot;,
+  &quot;language&quot;: &quot;zh-CN&quot;,
+  &quot;input_requirement&quot;: {
+    &quot;reference_image&quot;: true,
+    &quot;reference_image_description&quot;: &quot;包含目标人物的原始参考图&quot;
+  },
+  &quot;goal&quot;: &quot;从参考图中提取人物主体，并根据人物原始外貌和穿搭生成同一人物的多个视图&quot;,
+  &quot;prompt&quot;: {
+    &quot;main&quot;: &quot;请根据参考图中的人物，精准提取并生成同一位人物的多角度人物素材图。保持人物身份一致，严格保留人物的脸型、五官比例、眼睛、鼻子、嘴巴、眉形、面部轮廓、发型、发量、发色、肤色、身材比例、年龄感、气质和整体形象。服装必须与参考图一致，保持衣服颜色、款式、版型、面料、纹理、褶皱、领口、袖口、裤型、鞋子、袜子、配饰等细节完全一致。生成多个视图，包括正面全身、左前方45度、右前方45度、左侧面、右侧面、背面、半身近景、自然坐姿。所有视图中的人物必须是同一人，背景为纯白色或透明背景效果，画面干净简洁，边缘清晰自然，头发边缘细致，整体为高清写实商业摄影风格。&quot;,
+    &quot;identity_lock&quot;: &quot;同一人物的所有视图必须保持脸部特征一致、发型一致、身材比例一致、服装一致、气质一致，不得出现不同版本的人物。&quot;,
+    &quot;appearance_details&quot;: &quot;人物外貌真实自然，皮肤质感细腻但不过度磨皮，面部清晰，表情自然，避免夸张摆拍感。&quot;,
+    &quot;pose_details&quot;: &quot;站姿稳定自然，双脚结构正确，手臂自然，手指结构正常；坐姿放松自然，不僵硬。&quot;,
+    &quot;edge_quality&quot;: &quot;人物边缘需要干净自然，头发丝边缘保留细节，无白边、黑边、锯齿或抠图痕迹。&quot;,
+    &quot;render_quality&quot;: &quot;高清、清晰、真实、自然、商业摄影质感，光影统一，透视合理，服装纹理清楚。&quot;
+  },
+  &quot;negative_prompt&quot;: {
+    &quot;identity&quot;: [
+      &quot;不要换脸&quot;,
+      &quot;不要改变人物身份&quot;,
+      &quot;不要改变发型&quot;,
+      &quot;不要改变发色&quot;,
+      &quot;不要改变肤色&quot;,
+      &quot;不要改变年龄感&quot;,
+      &quot;不要改变身材比例&quot;
+    ],
+    &quot;clothing&quot;: [
+      &quot;不要更换服装&quot;,
+      &quot;不要改变服装颜色&quot;,
+      &quot;不要改变服装材质&quot;,
+      &quot;不要改变服装版型&quot;,
+      &quot;不要新增配饰&quot;,
+      &quot;不要删除服装细节&quot;
+    ],
+    &quot;anatomy&quot;: [
+      &quot;不要人物畸形&quot;,
+      &quot;不要多手指&quot;,
+      &quot;不要少手指&quot;,
+      &quot;不要多手臂&quot;,
+      &quot;不要少手臂&quot;,
+      &quot;不要多腿&quot;,
+      &quot;不要断肢&quot;,
+      &quot;不要关节错误&quot;,
+      &quot;不要头身比例异常&quot;,
+      &quot;不要脸部崩坏&quot;,
+      &quot;不要五官错位&quot;
+    ],
+    &quot;image_quality&quot;: [
+      &quot;不要模糊&quot;,
+      &quot;不要低清晰度&quot;,
+      &quot;不要噪点&quot;,
+      &quot;不要油画感&quot;,
+      &quot;不要AI涂抹感&quot;,
+      &quot;不要塑料感&quot;,
+      &quot;不要卡通风&quot;,
+      &quot;不要动漫风&quot;
+    ],
+    &quot;background_cleanup&quot;: [
+      &quot;不要残留原背景&quot;,
+      &quot;不要抠图毛边&quot;,
+      &quot;不要白边&quot;,
+      &quot;不要黑边&quot;,
+      &quot;不要背景杂乱&quot;
+    ],
+    &quot;extra&quot;: [
+      &quot;不要文字&quot;,
+      &quot;不要水印&quot;,
+      &quot;不要logo&quot;
+    ]
+  },
+  &quot;view_list&quot;: [
+    {
+      &quot;name&quot;: &quot;正面全身视图&quot;,
+      &quot;type&quot;: &quot;full_body_front&quot;
+    },
+    {
+      &quot;name&quot;: &quot;左前方45度全身视图&quot;,
+      &quot;type&quot;: &quot;full_body_front_left_45&quot;
+    },
+    {
+      &quot;name&quot;: &quot;右前方45度全身视图&quot;,
+      &quot;type&quot;: &quot;full_body_front_right_45&quot;
+    },
+    {
+      &quot;name&quot;: &quot;左侧面全身视图&quot;,
+      &quot;type&quot;: &quot;full_body_left_side&quot;
+    },
+    {
+      &quot;name&quot;: &quot;右侧面全身视图&quot;,
+      &quot;type&quot;: &quot;full_body_right_side&quot;
+    },
+    {
+      &quot;name&quot;: &quot;背面全身视图&quot;,
+      &quot;type&quot;: &quot;full_body_back&quot;
+    },
+    {
+      &quot;name&quot;: &quot;半身近景视图&quot;,
+      &quot;type&quot;: &quot;half_body_closeup&quot;
+    },
+    {
+      &quot;name&quot;: &quot;自然坐姿视图&quot;,
+      &quot;type&quot;: &quot;seated_pose&quot;
+    }
+  ],
+  &quot;background&quot;: {
+    &quot;type&quot;: &quot;solid_white_or_transparent&quot;,
+    &quot;description&quot;: &quot;纯白背景或透明背景效果&quot;
+  },
+  &quot;style&quot;: {
+    &quot;render_style&quot;: &quot;写实&quot;,
+    &quot;photo_style&quot;: &quot;商业摄影&quot;,
+    &quot;lighting&quot;: &quot;自然柔和统一&quot;,
+    &quot;detail_level&quot;: &quot;high_detail&quot;
+  },
+  &quot;output&quot;: {
+    &quot;image_count&quot;: 8,
+    &quot;layout&quot;: &quot;single_or_multi_view&quot;,
+    &quot;resolution&quot;: &quot;high&quot;,
+    &quot;usage&quot;: [
+      &quot;家具场景合成&quot;,
+      &quot;电商展示&quot;,
+      &quot;人物素材提取&quot;,
+      &quot;海报设计&quot;
+    ]
+  }
+}</td><td>适合脚本化、API字段拆分、团队标准化管理</td></tr></tbody></table></div></section><section class="sheet" id="sheet-6"><div class="sheet-heading"><span>WORKSHEET / 06</span><h2>05_基础扩展Prompt库</h2><small>13 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">编号</td><td class="strong">名称</td><td class="strong">用途</td><td class="strong">完整Prompt（可一键复制）</td></tr><tr><th scope="row">2</th><td>B-01</td><td>提取人物白底干净版</td><td>从原图提取人物主体，去背景，生成白底人物素材图</td><td>请从参考图中精准提取人物主体，保留人物原本的外貌特征、脸型、五官比例、发型、发色、肤色、身材比例、姿态气质和服装穿搭细节，不改变人物身份感。
+
+去除原图背景和杂物，生成干净纯白背景人物图。人物边缘自然清晰，无抠图毛边，无残留背景，无变形，无拉伸。
+
+重点保留服装的颜色、材质、纹理、褶皱、领口、袖口、裤型、鞋子、配饰等细节。人物皮肤质感真实自然，五官清晰，头发丝细节完整，整体为写实商业摄影质感。
+
+输出高清人物素材图，光影自然，比例真实，适合后续用于家具场景合成、海报设计、电商展示。</td></tr><tr><th scope="row">3</th><td>B-02</td><td>提取人物透明背景PNG风格</td><td>生成透明背景人物素材，便于后期合成</td><td>精准提取参考图中的人物，生成透明背景 PNG 人物素材。
+
+人物外貌、脸型、五官、发型、发色、肤色、身材比例、服装颜色、面料纹理、穿搭层次、鞋子和配饰全部保持与原图一致，不改变人物形象，不重新设计服装。
+
+边缘处理干净自然，头发边缘保留细节，无白边，无黑边，无锯齿，无残留背景。人物光影保持真实自然，皮肤质感细腻但不过度磨皮。
+
+高清写实商业摄影效果，适合放入家具、家居、广告海报场景中使用。</td></tr><tr><th scope="row">4</th><td>B-03</td><td>多角度视图通用版</td><td>根据画面人物生成正面、侧面、背面、坐姿等多个视图</td><td>参考原图中的人物形象，生成同一位人物的多角度视图。必须保持人物外貌特征完全一致，包括脸型、五官比例、发型、发色、肤色、身材比例、年龄感、气质和整体风格。
+
+服装穿搭必须与参考图一致，保持衣服颜色、款式、版型、材质、纹理、褶皱、鞋子和配饰不变，不允许更换服装，不允许改变颜色，不允许增加新的装饰。
+
+生成同一人物的多个角度：正面视图、左侧45度视图、右侧45度视图、左侧面视图、右侧面视图、背面视图、轻微俯视角度、半身特写角度、全身站姿角度、自然坐姿角度。
+
+所有角度中的人物必须身份一致，五官一致，发型一致，服装一致，身材比例一致。画面为干净白底或浅灰背景，商业摄影质感，高清清晰，光影统一，适合做人物素材库和场景合成参考。</td></tr><tr><th scope="row">5</th><td>B-04</td><td>标准三视图排版版</td><td>生成正面、侧面、背面三视图</td><td>根据参考图中的人物，生成同一位人物的标准三视图排版图。
+
+画面包含三个完整人物视图：正面、侧面、背面。三个人物为同一人，外貌特征完全一致，脸型、五官比例、发型、发色、肤色、身材比例、年龄感和气质保持统一。
+
+服装穿搭完全参考原图，衣服颜色、款式、版型、材质纹理、裤子、鞋子、配饰全部保持一致，不改变服装设计，不新增或删除任何穿搭细节。
+
+人物站姿自然，双脚平稳，手臂自然下垂或轻松摆放。背景为干净纯白色，人物比例统一，光影一致，边缘清晰，高清写实商业摄影质感。
+
+不要卡通化，不要动漫风，不要改变人物身份，不要换脸，不要换衣服，不要改变发型，不要改变肤色。</td></tr><tr><th scope="row">6</th><td>B-05</td><td>家具场景合成用人物素材</td><td>生成适合放入沙发、床、餐厅、客厅等家具场景的人物素材</td><td>根据参考图人物生成可用于家具场景合成的人物素材。人物外貌、发型、肤色、身材比例、服装颜色、材质纹理和穿搭风格必须与原图一致。
+
+人物姿态自然放松，适合放入沙发、床、餐厅、客厅等家居场景中。人物光影柔和真实，边缘干净，比例正常，无畸形，无多余肢体。背景为纯白色或透明背景，方便后期合成。
+
+人物整体风格为真实商业家居摄影，不要网红过度磨皮，不要夸张摆拍，不要动漫感，不要假人感。</td></tr><tr><th scope="row">7</th><td>B-06</td><td>通用负面约束合集</td><td>可追加到任何人物提取或多视图生成提示词后</td><td>不要改变人物外貌，不要换脸，不要改变五官比例，不要改变发型，不要改变发色，不要改变肤色，不要改变身材比例，不要改变年龄感，不要换衣服，不要改变服装颜色，不要改变服装材质，不要新增配饰，不要删除服装细节。
+
+不要人物变形，不要肢体畸形，不要多手指，不要少手指，不要多手臂，不要少手臂，不要多腿，不要断肢，不要身体扭曲，不要脸部崩坏，不要眼睛不对称，不要假笑，不要塑料皮肤，不要过度磨皮。
+
+不要卡通风，不要动漫风，不要油画感，不要AI涂抹感，不要低清晰度，不要噪点，不要模糊，不要锯齿边缘，不要抠图毛边，不要背景残留，不要水印，不要文字，不要logo。</td></tr><tr><th scope="row">8</th><td>S-01</td><td>正面全身视图</td><td>单角度独立生成Prompt，可用于逐张生成</td><td>参考原图人物，生成同一人物的正面全身视图。保持人物脸型、五官、发型、发色、肤色、身材比例和气质与原图一致。服装颜色、款式、材质、纹理、褶皱、鞋子和配饰完全不变。人物自然站立，正面面对镜头，白色干净背景，高清写实商业摄影质感。</td></tr><tr><th scope="row">9</th><td>S-02</td><td>左前方45度视图</td><td>单角度独立生成Prompt，可用于逐张生成</td><td>参考原图人物，生成同一人物的左前方45度全身视图。人物外貌、发型、身材比例、肤色和气质保持一致。服装穿搭完全不变，保留衣服颜色、版型、纹理、褶皱和鞋子细节。人物自然站立，视角为左前方45度，白底高清商业摄影效果。</td></tr><tr><th scope="row">10</th><td>S-03</td><td>右前方45度视图</td><td>单角度独立生成Prompt，可用于逐张生成</td><td>参考原图人物，生成同一人物的右前方45度全身视图。保持人物身份一致，五官比例、脸型、发型、发色、肤色、身材比例完全不变。服装穿搭保持原图一致，材质纹理清晰。自然站姿，右前方45度拍摄，白色干净背景，高清写实。</td></tr><tr><th scope="row">11</th><td>S-04</td><td>左侧面视图</td><td>单角度独立生成Prompt，可用于逐张生成</td><td>参考原图人物，生成同一人物的左侧面全身视图。人物身材比例、发型轮廓、服装版型和穿搭细节保持一致。不得改变衣服颜色、裤型、鞋子、配饰和整体气质。人物自然站立，左侧面角度，白底高清摄影质感。</td></tr><tr><th scope="row">12</th><td>S-05</td><td>右侧面视图</td><td>单角度独立生成Prompt，可用于逐张生成</td><td>参考原图人物，生成同一人物的右侧面全身视图。保持人物外貌身份、发型、肤色、身材比例和服装穿搭与原图一致。衣服材质、纹理、褶皱和鞋子细节清晰自然。人物自然站立，右侧面角度，白色背景，真实商业摄影效果。</td></tr><tr><th scope="row">13</th><td>S-06</td><td>背面视图</td><td>单角度独立生成Prompt，可用于逐张生成</td><td>参考原图人物，生成同一人物的背面全身视图。保持人物发型、发色、身材比例、服装款式、衣服颜色、裤子、鞋子和配饰与原图一致。背面姿态自然，服装背部结构合理，纹理清晰，白色干净背景，高清写实人物素材图。</td></tr></tbody></table></div></section><section class="sheet" id="sheet-7"><div class="sheet-heading"><span>WORKSHEET / 07</span><h2>06_JSON字段说明</h2><small>10 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">字段名</td><td class="strong">字段含义</td><td class="strong">建议填写值</td><td class="strong">是否建议保留</td><td class="strong">说明</td></tr><tr><th scope="row">2</th><td>prompt</td><td>核心生成提示词</td><td>完整Prompt，正负面约束融合</td><td>必须保留</td><td>这是最关键字段，直接决定人物一致性、服装一致性和视图要求</td></tr><tr><th scope="row">3</th><td>aspect_ratio</td><td>画面比例</td><td>1:1</td><td>必须保留</td><td>本项目统一要求为1:1正方形</td></tr><tr><th scope="row">4</th><td>background</td><td>背景要求</td><td>纯白背景 / 浅灰白背景 / transparent</td><td>建议保留</td><td>白底更适合人物素材库；透明背景更适合后期合成</td></tr><tr><th scope="row">5</th><td>style</td><td>画面风格</td><td>高清写实商业摄影 / realistic commercial photography</td><td>建议保留</td><td>避免动漫、插画、油画、AI涂抹感</td></tr><tr><th scope="row">6</th><td>output_type</td><td>输出类型</td><td>人物白底素材图 / 同一人物8视图角色素材图</td><td>建议保留</td><td>方便工作流识别任务类型</td></tr><tr><th scope="row">7</th><td>image_count</td><td>输出数量</td><td>1</td><td>建议保留</td><td>人物8视图版是一张角色板内含8个视图，不是生成8张分散图片</td></tr><tr><th scope="row">8</th><td>views</td><td>视图列表</td><td>正面、左前45°、右前45°、左侧、右侧、背面、半身近景、自然坐姿</td><td>多视图任务必须保留</td><td>避免模型漏掉角度或用重复角度代替指定角度</td></tr><tr><th scope="row">9</th><td>layout</td><td>排版要求</td><td>整齐横向或网格排版，比例统一，不互相遮挡</td><td>建议保留</td><td>用于控制角色板清晰度</td></tr><tr><th scope="row">10</th><td>negative_prompt</td><td>负面提示词</td><td>不换脸、不换衣、不畸形、不模糊等</td><td>可合并到prompt</td><td>本文件已按用户要求将正负面提示词融合在Prompt中；部分基础JSON仍保留负面字段用于参考</td></tr></tbody></table></div></section><section class="sheet" id="sheet-8"><div class="sheet-heading"><span>WORKSHEET / 08</span><h2>07_8视图角度规范</h2><small>9 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">序号</td><td class="strong">视图名称</td><td class="strong">英文名称</td><td class="strong">角度说明</td><td class="strong">必须保持</td><td class="strong">常见错误</td><td class="strong">质量检查</td></tr><tr><th scope="row">2</th><td>1</td><td>正面全身视图</td><td>front full-body view</td><td>人物正面对镜头，全身完整，站姿自然</td><td>脸型、五官、发型、服装、身材比例</td><td>身体被裁切、视角偏侧、脸变样</td><td>双脚完整、正面结构清晰、服装正面细节一致</td></tr><tr><th scope="row">3</th><td>2</td><td>左前方45度全身视图</td><td>front-left 45-degree full-body view</td><td>从人物左前方约45°观察，能看到正面与左侧</td><td>身份一致、左侧服装结构合理</td><td>角度太正、角度太侧、五官漂移</td><td>正面约占主要比例，侧面转向自然</td></tr><tr><th scope="row">4</th><td>3</td><td>右前方45度全身视图</td><td>front-right 45-degree full-body view</td><td>从人物右前方约45°观察，能看到正面与右侧</td><td>身份一致、右侧服装结构合理</td><td>与左前45°重复、脸型变化</td><td>左右转向要有区别但仍是同一人</td></tr><tr><th scope="row">5</th><td>4</td><td>左侧面全身视图</td><td>left side full-body view</td><td>人物左侧面展示，身体侧向，轮廓完整</td><td>发型轮廓、服装侧面厚度、鞋子轮廓</td><td>变成45°、身体扭曲、手臂丢失</td><td>侧面比例真实，四肢完整</td></tr><tr><th scope="row">6</th><td>5</td><td>右侧面全身视图</td><td>right side full-body view</td><td>人物右侧面展示，身体侧向，轮廓完整</td><td>发型、服装侧面结构、身体厚度</td><td>与左侧面复制粘贴、衣服变化</td><td>左右侧面有真实镜像差异</td></tr><tr><th scope="row">7</th><td>6</td><td>背面全身视图</td><td>back full-body view</td><td>人物背面对镜头，展示服装背部结构</td><td>发型背部、背影身形、服装背面逻辑</td><td>凭空增加复杂图案、换衣服</td><td>背面设计合理，不虚构过度</td></tr><tr><th scope="row">8</th><td>7</td><td>半身近景视图</td><td>half-body close-up view</td><td>人物上半身近景，五官清晰，服装上身细节清楚</td><td>同一张脸、同一发型、同一上装</td><td>过度美颜、脸不像、衣服变色</td><td>脸部清晰自然，辨识度稳定</td></tr><tr><th scope="row">9</th><td>8</td><td>自然坐姿视图</td><td>natural seated pose view</td><td>人物自然坐姿，姿态放松真实，可用于家具场景合成</td><td>身份、发型、服装、身材比例</td><td>肢体扭曲、多手指、坐姿僵硬</td><td>手脚结构正常，坐姿自然有接触感</td></tr></tbody></table></div></section><section class="sheet" id="sheet-9"><div class="sheet-heading"><span>WORKSHEET / 09</span><h2>08_质量检查清单</h2><small>12 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">阶段</td><td class="strong">检查项目</td><td class="strong">合格标准</td><td class="strong">问题表现</td><td class="strong">修正建议</td></tr><tr><th scope="row">2</th><td>输入前</td><td>参考图是否清晰</td><td>脸部、发型、服装主要结构清晰可见</td><td>脸部模糊、身体遮挡、服装不可见</td><td>换更清晰参考图或补充多视图参考</td></tr><tr><th scope="row">3</th><td>输入前</td><td>人物是否完整</td><td>尽量包含头部、身体、腿脚和主要服装</td><td>只看到半身，无法判断鞋子/裤型/背面</td><td>在Prompt中说明不可见部分不要过度虚构</td></tr><tr><th scope="row">4</th><td>Prompt</td><td>身份锁定</td><td>明确写出不换脸、不改变五官、不改变年龄感</td><td>生成相似人而非同一人</td><td>加强“唯一人物依据”“同一人物身份”</td></tr><tr><th scope="row">5</th><td>Prompt</td><td>服装锁定</td><td>颜色、款式、版型、材质、褶皱、配饰都需保留</td><td>换衣服、颜色变化、配饰消失</td><td>补充“服装穿搭完全参考原图”</td></tr><tr><th scope="row">6</th><td>Prompt</td><td>8视图完整性</td><td>必须包含正面、左前45°、右前45°、左侧、右侧、背面、半身、坐姿</td><td>漏角度、重复角度、角度混乱</td><td>使用本文件8视图固定列表</td></tr><tr><th scope="row">7</th><td>Prompt</td><td>画面比例</td><td>明确为1:1正方形</td><td>输出竖图或横图</td><td>在Prompt和JSON都写aspect_ratio: 1:1</td></tr><tr><th scope="row">8</th><td>出图后</td><td>人物一致性</td><td>每个视图都像同一人</td><td>脸型漂移、发型不一致、年龄变化</td><td>重跑并加强identity lock</td></tr><tr><th scope="row">9</th><td>出图后</td><td>肢体结构</td><td>手指、手臂、腿脚完整正常</td><td>多手指、少手指、断肢、关节扭曲</td><td>加入负面约束或拆分角度单独生成</td></tr><tr><th scope="row">10</th><td>出图后</td><td>服装一致性</td><td>各角度服装颜色、材质和配饰统一</td><td>换色、换款、配饰消失</td><td>加强服装锁定语句</td></tr><tr><th scope="row">11</th><td>出图后</td><td>边缘质量</td><td>白底干净、头发边缘自然、无毛边</td><td>抠图白边、黑边、背景残留</td><td>使用人物提取白底版重新生成</td></tr><tr><th scope="row">12</th><td>出图后</td><td>是否适合合成</td><td>人物比例真实、光影自然、背景干净</td><td>塑料感、卡通化、比例不真实</td><td>使用写实商业摄影约束</td></tr></tbody></table></div></section></main>
+<footer class="bottom"><div class="wrap">帖磊 · 视觉设计作品集</div></footer><script src="../sheet-viewer.js" defer></script></body></html>

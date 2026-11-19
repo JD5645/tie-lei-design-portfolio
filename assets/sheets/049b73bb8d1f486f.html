@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>图片反推prompt（进阶）-江东 · 在线预览</title>
+<style>
+:root{color-scheme:dark;font-family:Arial,"Microsoft YaHei",sans-serif;background:#111513;color:#f3f0e8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}a{color:inherit;text-decoration:none}button,a{-webkit-tap-highlight-color:transparent}
+.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px max(22px,4vw);background:#111513f2;border-bottom:1px solid #3b413d;backdrop-filter:blur(12px)}
+.top strong{font-size:17px;letter-spacing:.03em}.top nav{display:flex;gap:22px;align-items:center;font-size:12px}.top nav a:last-child{color:#f36a3e}.top nav a:hover,.sheet-nav a:hover{color:#f36a3e}
+.wrap{max-width:1600px;margin:auto;padding:0 max(22px,4vw)}.eyebrow{color:#f36a3e;font-size:11px;font-weight:700;letter-spacing:.12em}.intro{padding:62px 0 42px;border-bottom:1px solid #3b413d}.intro h1{font-size:clamp(30px,4.5vw,64px);line-height:1.15;overflow-wrap:anywhere;margin:20px 0 14px}.intro p{color:#aeb7b0;font-size:14px}
+.sheet-nav{display:flex;gap:8px;overflow:auto;padding:18px 0 34px;scrollbar-width:thin}.sheet-nav a{flex:none;display:flex;align-items:center;gap:9px;padding:11px 14px;border:1px solid #3b413d;font-size:12px;white-space:nowrap}.sheet-nav span{color:#f36a3e;font-size:10px;font-weight:700}
+.sheet{padding:45px 0 68px;border-top:1px solid #3b413d;scroll-margin-top:80px}.sheet-heading{display:flex;align-items:end;gap:24px;margin-bottom:22px}.sheet-heading>span{color:#f36a3e;font-size:11px;font-weight:700;letter-spacing:.1em}.sheet-heading h2{font-size:clamp(22px,2.3vw,34px);margin:0;overflow-wrap:anywhere}.sheet-heading small{margin-left:auto;color:#9eaaa1;white-space:nowrap}
+.table-scroll{overflow:auto;max-height:77vh;border:1px solid #3b413d;scrollbar-width:thin}table{border-collapse:separate;border-spacing:0;min-width:100%;font-size:13px;line-height:1.6}th,td{border-right:1px solid #343b36;border-bottom:1px solid #343b36;padding:10px 13px;vertical-align:top}thead th{position:sticky;top:0;z-index:2;background:#252b27;color:#b9c2ba;font-size:11px;text-align:left}tbody th{position:sticky;left:0;z-index:1;background:#1a201c;color:#91a094;font-size:11px;text-align:right;font-weight:400;min-width:42px}td{min-width:170px;max-width:440px;white-space:pre-wrap;overflow-wrap:anywhere}td:empty{min-width:70px}td.strong{font-weight:700;color:#fff}td a{color:#f36a3e;text-decoration:underline}tr:hover td{background:#1b211d}.empty{color:#9eaaa1}
+.bottom{padding:35px 0 55px;border-top:1px solid #3b413d;color:#9eaaa1;font-size:12px}@media(max-width:640px){.top{align-items:start;flex-direction:column}.sheet-heading{align-items:start;flex-wrap:wrap;gap:8px}.sheet-heading h2{width:100%}.sheet-heading small{margin:0}.intro{padding-top:36px}}
+</style></head><body>
+<header class="top"><strong>帖磊 <span style="color:#f36a3e">/</span> 作品集</strong><nav><a href="../../index.html#chapter-02">返回作品集 ↗</a><a href="../../02-AIGC/06-Prompt%E6%90%AD%E5%BB%BA/%E5%9B%BE%E7%89%87%E7%B1%BB/%E5%9B%BE%E7%89%87%E5%8F%8D%E6%8E%A8prompt%EF%BC%88%E8%BF%9B%E9%98%B6%EF%BC%89-%E6%B1%9F%E4%B8%9C.xlsx" download>下载原始 XLSX ↓</a></nav></header>
+<main class="wrap"><div class="intro"><span class="eyebrow">PROMPT ARCHIVE / 在线文档预览</span><h1>图片反推prompt（进阶）-江东</h1><p>共 9 个工作表。点击下方名称可跳转，表格可横向滚动。原文件可在右上角下载。</p></div><nav class="sheet-nav" aria-label="工作表目录"><a href="#sheet-1"><span>01</span>使用说明</a><a href="#sheet-2"><span>02</span>Prompt目录</a><a href="#sheet-3"><span>03</span>完整版Prompt</a><a href="#sheet-4"><span>04</span>精简版Prompt</a><a href="#sheet-5"><span>05</span>极简快速版</a><a href="#sheet-6"><span>06</span>反推维度清单</a><a href="#sheet-7"><span>07</span>负面限制库</a><a href="#sheet-8"><span>08</span>平台适配建议</a><a href="#sheet-9"><span>09</span>输出格式模板</a></nav><section class="sheet" id="sheet-1"><div class="sheet-heading"><span>WORKSHEET / 01</span><h2>使用说明</h2><small>11 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th><th scope="col">H</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">图片反推prompt-江东</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td>超详细专业级图片反推 Prompt 文档｜适用于 Gemini、豆包、即梦、Seedream、Nano Banana、Image 2 等平台</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">文档定位</td><td class="strong">使用场景</td><td class="strong">核心目标</td><td class="strong">推荐流程</td><td class="strong">适用图片类型</td><td class="strong">最终输出</td><td class="strong">注意事项</td><td class="strong">版本</td></tr><tr><th scope="row">5</th><td>将任意图片反推出可执行的AI生图Prompt</td><td>上传图片到Gemini/豆包等看图模型后，粘贴本表中的Prompt</td><td>先分析图片，再输出完整、自包含、可复制的生图Prompt</td><td>1 上传图片；2 粘贴反推Prompt；3 复制模型输出的最终生图Prompt；4 放入生图平台生成</td><td>人物、动物、产品、家具、建筑、室内、风景、美食、海报、插画、3D、动漫等</td><td>一段不依赖原图、可单独用于生图的完整中文Prompt</td><td>不要把模型输出的分析部分复制到生图平台，只复制代码块中的最终Prompt</td><td>专业完整版 / 精简版 / 极简快速版</td></tr><tr><th scope="row">7</th><td class="strong">快速复制指南</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">8</th><td class="strong">步骤1</td><td class="strong">选择Prompt版本</td><td class="strong">日常高质量反推优先用【完整版Prompt】；模型上下文有限时用【精简版Prompt】；快速测试用【极简快速版】。</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">9</th><td>步骤2</td><td>上传图片</td><td>在Gemini、豆包等平台先上传需要反推的图片，再粘贴Prompt。</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">10</th><td>步骤3</td><td>等待模型输出</td><td>模型会先输出画面分析，再输出【可直接复制使用的最终生图Prompt】。</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">11</th><td>步骤4</td><td>复制最终Prompt</td><td>只复制代码块中的最终生图Prompt，不要复制分析内容和标题。</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">12</th><td>步骤5</td><td>用于生图</td><td>将复制的最终Prompt粘贴到生图平台，如Nano Banana、Image 2、即梦、Seedream、豆包生图等。</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">13</th><td>步骤6</td><td>二次优化</td><td>如果生成结果偏离，可把偏差反馈给反推模型，让它补强构图、材质、光影或主体比例。</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></section><section class="sheet" id="sheet-2"><div class="sheet-heading"><span>WORKSHEET / 02</span><h2>Prompt目录</h2><small>6 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th><th scope="col">G</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">Prompt目录</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td>所有Prompt均为完整独立版本，可直接复制使用</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">编号</td><td class="strong">Prompt名称</td><td class="strong">适合场景</td><td class="strong">推荐平台</td><td class="strong">复制位置</td><td class="strong">优先级</td><td class="strong">备注</td></tr><tr><th scope="row">5</th><td>01</td><td>全类型图片详细反推Prompt｜完整版</td><td>需要高精度反推、商业设计、电商图、复杂场景、人物/产品/空间综合图片</td><td>Gemini、豆包、Claude视觉、支持长上下文的平台</td><td>完整版Prompt!B5</td><td>最高</td><td>分析维度最全，适合正式使用</td></tr><tr><th scope="row">6</th><td>02</td><td>Gemini/豆包精简反推版</td><td>日常图片反推、平台上下文有限、快速获得可用生图Prompt</td><td>Gemini、豆包、即梦对话、Seedream对话</td><td>精简版Prompt!B5</td><td>高</td><td>更容易被模型完整执行</td></tr><tr><th scope="row">7</th><td>03</td><td>极简快速反推版</td><td>快速测试、移动端、一次性小图反推、上下文非常有限</td><td>豆包、即梦、手机端模型</td><td>极简快速版!B5</td><td>中</td><td>牺牲部分细节，速度更快</td></tr></tbody></table></div></section><section class="sheet" id="sheet-3"><div class="sheet-heading"><span>WORKSHEET / 03</span><h2>完整版Prompt</h2><small>4 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">全类型图片详细反推Prompt｜完整版</td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td>适用于复杂图片、高质量商业反推、需要完整分析和最终可复制生图Prompt的场景</td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">版本</td><td class="strong">完整可复制Prompt</td><td class="strong">推荐场景</td><td class="strong">使用说明</td></tr><tr><th scope="row">5</th><td>完整版</td><td>请对我上传的图片进行专业、系统、精确的视觉反推，并根据图片内容生成一段可以直接复制到AI生图平台使用的完整Prompt。
+
+适用目标平台包括但不限于：Gemini、豆包、即梦、Seedream、Nano Banana、Image 2、GPT Image以及其他支持中文提示词的图像生成模型。
+
+你的任务不是简单描述图片，也不是只列出关键词，而是从图像生成、摄影、构图、视觉设计、材质表现、人物塑造、空间关系、光影逻辑和后期风格等角度，完整反推出这张图片的生成方法。
+
+最终生成的Prompt必须能够在不查看原图片的情况下，依靠文字尽可能复现原图片的主体、构图、视角、场景、颜色、材质、光影、氛围和视觉风格。
+
+请严格遵守以下规则：
+
+一、最高执行原则
+
+1. 以上传图片中真实可见的内容为唯一分析依据。
+
+2. 不得凭空补充图片中不存在的主体、人物、动物、产品、家具、建筑、装饰、文字、道具或背景元素。
+
+3. 对图片中无法确定、被遮挡、过于模糊或不可辨认的内容，不得主观猜测，不得将推测描述为确定事实。
+
+4. 最终Prompt必须是完整、自包含、可独立使用的生图指令，不得出现“参考图片”“如图所示”“和原图一样”“保持图中效果”等依赖原图片才能理解的表达。
+
+5. 不要只使用“高级感、氛围感、电影感、质感很好、非常漂亮”等模糊词语，必须把这些视觉效果拆解成可以执行的构图、色彩、光线、材质、镜头和后期描述。
+
+6. 不要机械套用固定模板。根据图片实际类型自动选择相关分析维度，无关内容可以省略。
+
+7. 最终Prompt应优先保证以下内容准确：主体身份与数量；主体结构与外观；人物或动物特征；主体所在位置；画面构图；镜头视角；空间关系；颜色与材质；光线与阴影；背景环境；画面风格；画幅比例。
+
+二、首先判断图片类型
+
+先判断图片属于以下哪一种或哪几种类型：
+
+人物肖像；人物生活方式摄影；时尚摄影；动物或宠物摄影；家具或家居场景；室内空间；建筑与城市景观；自然风景；产品摄影；电商主图；静物摄影；美食摄影；汽车或机械产品；珠宝首饰；服装鞋包；美妆护肤；海报或广告视觉；杂志封面；概念艺术；插画；动漫；手绘作品；3D渲染；超现实画面；抽象艺术；影视画面；纪实摄影；其他类型。
+
+说明画面是真实摄影、写实渲染、插画、动漫、绘画、合成图片还是混合视觉形式。
+
+三、反推画面核心内容
+
+准确识别画面中的核心主体，并详细分析：
+
+主体是什么；主体数量；主体位于画面什么位置；主体朝向；主体姿态；主体尺寸；主体占画比例；主体完整程度；主体与画面边缘的距离；主体与其他元素之间的前后关系；主体之间是否存在遮挡；画面的第一视觉焦点和第二视觉焦点。
+
+描述主体的外轮廓、结构、比例、体量、局部特征、细节组成和识别性特征。
+
+不得将可移动装饰物误判为主体固定结构，也不得将背景元素误判为主体的一部分。
+
+四、根据主体类型进行专项分析
+
+如果画面中包含人物，请分析：
+
+人物数量；年龄感；性别呈现；面部轮廓；五官特征；肤色；发型；发色；头发长度；妆容；表情；视线方向；头部角度；身体朝向；身体姿势；手臂位置；手部动作；腿部姿态；人物重心；人物与座椅、地面、墙面、床、家具或其他物体的接触关系；服装款式；服装颜色；服装材质；服装版型；鞋子；饰品；人物在画面中的大小；人物是否被裁切；人物与环境光线是否统一。
+
+如果画面中包含动物，请分析：
+
+动物种类；品种或外观类型；毛色；花纹；体型；年龄感；姿势；面部朝向；眼神；耳朵状态；尾巴位置；毛发长短；毛发蓬松度；动物与人物或环境的互动关系。
+
+如果画面中包含产品、家具、车辆、机械、珠宝或其他物品，请分析：
+
+产品类别；产品数量；整体形状；长宽高比例；外轮廓；结构组成；零部件；连接方式；边角形态；厚度；支撑结构；底座；接口；五金件；缝线；拼接；开口；按钮；屏幕；把手；装饰结构；功能部件；材质组合；表面工艺；品牌标识；使用状态。
+
+如果画面中包含建筑、室内或空间，请分析：
+
+空间类型；建筑风格；空间尺度；墙面；顶面；地面；门窗；梁柱；楼梯；家具；灯具；软装；植物；装饰画；陈设；空间动线；前景、中景和背景；空间纵深；透视消失点；建筑线条；垂直线；水平线。
+
+如果画面中包含自然风景，请分析：
+
+地貌类型；天空；云层；山体；水面；植被；道路；建筑；人物；动物；天气；季节；时间段；空气状态；远景层次；雾气；倒影；地平线位置。
+
+如果画面属于海报、广告、杂志、封面或平面设计，请分析：
+
+版式结构；主体排版；文字区域；标题位置；副标题位置；Logo位置；留白；网格关系；视觉层级；字体风格；字体大小；字重；字距；行距；文字颜色；图文遮挡关系；装饰图形；色块；边框；贴纸；标签；按钮；产品卖点区域。
+
+如果画面属于插画、动漫或绘画，请分析：
+
+绘画媒介；线条风格；勾线粗细；上色方式；色块组织；笔触；轮廓处理；阴影方式；人物比例；背景绘制程度；画面精细度；材质模拟；艺术流派特征；平涂、厚涂、水彩、油画、铅笔、版画或数字绘画表现。
+
+五、反推颜色关系
+
+分析画面的：
+
+主色；辅助色；点缀色；背景色；主体颜色；肤色；服装颜色；产品颜色；环境颜色；高光颜色；阴影颜色。
+
+描述颜色的准确倾向，例如：暖白色；象牙白；奶油色；米杏色；燕麦色；浅卡其色；灰米色；低饱和绿色；冷灰蓝；胡桃木色；红棕色；深咖色；炭黑色。
+
+同时判断：整体色温；冷暖关系；饱和度；明度；对比度；黑白灰层次；色彩纯度；是否偏黄；是否偏青；是否偏灰；是否偏红；是否经过复古、电影、胶片、清透、奶油、冷调或暖调处理。
+
+尽量避免使用无法执行的颜色描述。
+
+六、反推材质和纹理
+
+逐一识别主要物体的材质，包括但不限于：
+
+皮肤；头发；布料；棉麻；雪尼尔；绒布；羊羔绒；泰迪绒；丝绸；皮革；磨砂皮；木材；金属；玻璃；塑料；陶瓷；石材；岩板；水泥；墙漆；纸张；液体；食物；植物；动物毛发；透明材质；发光材质。
+
+分别描述每一种主要材质的：颜色；纹理尺度；纹理方向；颗粒感；纤维感；毛绒感；粗糙度；柔软度；光泽度；反射程度；透明度；折射效果；表面凹凸；褶皱；磨损；新旧程度；湿润感；干燥感；金属冷暖；木纹方向；皮革纹路；布料编织结构；玻璃反光；液体流动状态。
+
+材质描述必须符合图片中的真实视觉效果。
+
+不得把哑光材质错误描述为镜面高光，不得把布料描述成塑料，不得把自然皮肤描述成蜡像质感，不得过度强化细小纹理。
+
+七、反推构图和空间关系
+
+分析画面的：
+
+横构图或竖构图；原始宽高比例；主体位置；视觉中心；画面重心；对称或非对称构图；居中构图；三分法构图；对角线构图；框架式构图；留白；前景；中景；背景；空间层次；主体间距；遮挡顺序；地平线位置；水平线；垂直线；透视方向；消失点；画面边缘裁切方式。
+
+尽量估算画面比例，例如：1:1；3:4；4:3；2:3；3:2；9:16；16:9；其他接近比例。
+
+最终Prompt必须明确写入对应画幅比例和横竖方向。
+
+八、反推镜头和摄影机位
+
+根据图片视觉效果推测：
+
+正面视角；左前方视角；右前方视角；侧面视角；背面视角；平视；俯视；轻微俯视；鸟瞰；仰视；低机位；近距离特写；半身景；中景；全景；远景。
+
+分析：
+
+摄影机高度；摄影机与主体距离；镜头方向；透视强度；焦段倾向；景深；对焦位置；背景虚化程度；边缘畸变；运动模糊；镜头压缩感。
+
+如无法确定具体焦段，可使用：轻微广角；中等焦段；标准镜头；中长焦；微距镜头；约35mm；约50mm；约85mm；约100mm微距。
+
+不要机械添加摄影参数，必须根据画面实际效果合理推测。
+
+九、反推光线和阴影
+
+分析画面中的：
+
+主光源；辅助光源；环境光；轮廓光；背光；侧光；顶光；底光；窗光；阳光；灯光；霓虹光；烛光；屏幕光；反射光。
+
+描述：
+
+主光方向；光源高度；光源面积；光线软硬；光线强度；色温；高光位置；受光面；背光面；明暗交界线；投影方向；投影长度；投影虚实；接触阴影；环境遮蔽；反射；折射；轮廓高光；皮肤高光；材质高光；空气中的光束或雾化效果。
+
+光影必须符合统一的物理逻辑。
+
+不得生成相互矛盾的主光源、错误阴影方向、主体漂浮、接触阴影缺失、边缘异常发光或过度HDR效果。
+
+十、反推环境、背景和辅助元素
+
+完整识别画面中的环境元素，包括：
+
+墙面；地面；天空；窗户；窗帘；门；建筑；道路；山水；植物；家具；桌椅；灯具；地毯；装饰画；镜子；书籍；餐具；食物；包装；文字；道具；电子设备；交通工具；人物；动物；云雾；水面；远景物体。
+
+按照前景、中景、背景分别描述它们的：位置；数量；大小；颜色；造型；材质；方向；虚实程度；前后关系；视觉占比。
+
+不得遗漏对整体构图有明显影响的元素，也不得添加图片中不存在的装饰。
+
+十一、反推画面风格和后期效果
+
+判断画面属于：
+
+真实摄影；商业摄影；时尚摄影；纪实摄影；电影画面；胶片摄影；棚拍；自然光摄影；电商主图；杂志视觉；极简设计；复古视觉；赛博朋克；未来主义；超现实主义；写实3D渲染；游戏CG；动漫；插画；水彩；油画；厚涂；平涂；手绘；其他风格。
+
+分析画面的：
+
+曝光；动态范围；锐度；细节密度；景深；颗粒；噪点；清晰度；空气感；通透感；柔焦；光晕；色散；暗角；胶片颗粒；高光压制；阴影抬升；对比度；后期调色；皮肤处理；材质表现；边缘处理。
+
+最终画质描述必须与图片真实效果一致。
+
+如果原图是自然真实摄影，不要自动添加夸张电影滤镜；如果原图是插画或3D渲染，也不得强行描述为摄影实拍。
+
+十二、文字、Logo和符号处理
+
+如果画面中存在文字、品牌Logo、产品铭牌、海报标题、包装文字、水印、数字或符号，请分析：
+
+文字内容；语言；位置；大小；字体类型；字重；颜色；排版；文字方向；与主体的遮挡关系。
+
+能够准确辨认时，原样记录文字。
+
+无法准确辨认时，请明确标记“文字无法准确识别”，不得自行编造。
+
+如果最终Prompt用于普通生图，而模型不擅长文字生成，则在最终Prompt中说明：预留对应文字区域，保持版式与留白，不生成乱码、随机字母或错误Logo。
+
+十三、最终Prompt编写规则
+
+完成分析后，请生成一段完整、连续、可直接复制使用的中文生图Prompt。
+
+最终Prompt应按照以下顺序组织：
+
+1. 图片类型和整体视觉风格；
+2. 核心主体及数量；
+3. 主体外观、结构和识别特征；
+4. 人物、动物、产品或其他重点对象的细节；
+5. 材质、纹理和颜色；
+6. 环境和背景；
+7. 前景、中景和背景关系；
+8. 构图方式和主体占比；
+9. 镜头视角、机位、焦段和景深；
+10. 光线、阴影和色温；
+11. 后期风格和画质；
+12. 画面比例；
+13. 错误限制和负面约束。
+
+最终Prompt必须：使用完整自然语言；信息密度高但逻辑清晰；描述具体；避免关键词堆砌；避免重复内容；避免含糊表达；避免依赖原图片；能够独立用于生图；保留图片最重要的视觉识别点。
+
+十四、负面限制融合规则
+
+请将与图片内容相关的负面限制自然融合到最终Prompt末尾，不要机械添加所有负面词。
+
+可根据图片实际情况选择并融合以下限制：
+
+禁止改变主体数量、身份、款式、外观、结构、比例和颜色；禁止增加图片中不存在的人物、动物、产品、建筑、家具、装饰、道具或文字；禁止删除主要元素；禁止主体变形、拉伸、压缩、扭曲、错位、悬浮、重复或局部消失；禁止出现比例失真；禁止透视错误；禁止鱼眼效果；禁止夸张广角；禁止垂直线歪斜；禁止材质错误；禁止颜色偏差；禁止纹理重复；禁止表面塑料感；禁止过度光滑；禁止过度磨皮；禁止人体畸形；禁止多手、多脚、多手指、少手指、断肢、关节错误；禁止面部崩坏；禁止眼睛不对称；禁止姿势僵硬；禁止动物肢体错误；禁止产品结构重组；禁止文字乱码；禁止随机字母；禁止错误Logo；禁止光源混乱；禁止阴影方向错误；禁止缺少接触阴影；禁止主体漂浮；禁止过曝；禁止死黑；禁止强烈HDR；禁止过度锐化；禁止涂抹感；禁止油画化；禁止低清晰度；禁止噪点；禁止重影；禁止锯齿；禁止明显AI生成痕迹。
+
+十五、输出格式
+
+请严格按照以下格式输出：
+
+【图片类型与整体风格】
+
+用一段话总结图片类型、视觉风格和主要内容。
+
+【主体与关键元素分析】
+
+详细说明核心主体、数量、外观、结构、姿态和识别特征。
+
+【颜色与材质分析】
+
+说明主要颜色、辅助颜色、色温、材质、纹理和表面效果。
+
+【构图与空间分析】
+
+说明主体位置、占画比例、前中后景、遮挡关系、留白和空间层次。
+
+【镜头与光影分析】
+
+说明拍摄角度、机位、焦段、景深、光源方向、阴影和曝光。
+
+【背景与辅助元素】
+
+列出对画面有重要影响的环境、背景和辅助物体。
+
+【不确定信息】
+
+只列出无法准确确认的内容。没有不确定信息时，输出“无明显不确定信息”。
+
+【可直接复制使用的最终生图Prompt】
+
+将最终Prompt放入一个单独的代码块中。
+
+代码块中只能出现最终生图Prompt，不得加入分析、标题、解释、备注、编号、引号或使用说明。
+
+最终Prompt必须完整、自包含，不得出现“参考图”“上传图片”“原图”“图中”“如图所示”等需要查看图片才能理解的表达。
+
+【精简版生图Prompt】
+
+再输出一个适合上下文长度较短平台使用的精简版Prompt，并放入单独代码块。
+
+现在请开始分析我上传的图片。</td><td>复杂图片、商业图、电商图、人物图、产品图、空间图、海报、插画、3D等</td><td>上传图片后，将B5整格内容复制到Gemini或豆包。等待输出后，只复制模型输出代码块里的最终生图Prompt用于生图。</td></tr></tbody></table></div></section><section class="sheet" id="sheet-4"><div class="sheet-heading"><span>WORKSHEET / 04</span><h2>精简版Prompt</h2><small>4 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">Gemini、豆包精简反推版</td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td>适合上下文长度有限或需要更快得到可用结果的场景</td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">版本</td><td class="strong">完整可复制Prompt</td><td class="strong">推荐场景</td><td class="strong">使用说明</td></tr><tr><th scope="row">5</th><td>精简版</td><td>请对我上传的图片进行专业视觉反推，并生成一段可以直接复制到AI生图平台使用的完整中文Prompt。
+
+不要只描述画面，也不要只输出零散关键词。请从图像生成的角度，准确反推出图片中的主体、数量、外观、结构、人物或动物特征、动作姿势、服装、产品细节、材质纹理、颜色关系、背景环境、前中后景、构图方式、主体占比、拍摄角度、摄影机位、镜头焦段、景深、光源方向、阴影、色温、画面风格、后期效果和宽高比例。
+
+以上传图片中真实可见的内容为唯一依据，不得凭空增加图片中不存在的人物、动物、产品、家具、建筑、文字、装饰或道具。对于被遮挡、模糊或无法确认的细节，不得擅自猜测。
+
+根据图片实际类型自动调整分析重点：
+
+如果是人物图片，重点分析人物数量、年龄感、五官、发型、肤色、表情、视线、身体姿势、手脚动作、服装、饰品和人物与环境的接触关系。
+
+如果是动物图片，重点分析动物类型、毛色、花纹、体型、姿态、表情、毛发质感和互动关系。
+
+如果是产品、家具、车辆或机械图片，重点分析产品外轮廓、长宽高比例、结构组成、零部件、功能部件、材质、颜色、表面工艺和拍摄方式。
+
+如果是建筑、室内或风景图片，重点分析空间结构、建筑风格、地面、墙面、门窗、家具、植物、天空、地貌、天气、季节、空间纵深和透视关系。
+
+如果是海报、广告或杂志图片，重点分析版式、主体位置、文字区域、Logo区域、字体风格、留白、色块和图文层级。
+
+如果是插画、动漫、绘画或3D图片，重点分析线条、笔触、上色方式、人物比例、阴影方式、渲染效果和艺术风格。
+
+最终Prompt必须完整、自包含，即使不查看原图片，也能根据文字理解并生成接近的画面。禁止出现“参考图”“原图”“如图”“保持图中效果”等依赖图片的表达。
+
+最终Prompt按照以下顺序组织：
+
+画面类型和整体风格；
+核心主体；
+主体外观、结构和动作；
+人物、动物或产品细节；
+颜色和材质；
+场景与背景；
+构图和空间关系；
+镜头与景深；
+光线和阴影；
+后期效果和画质；
+画幅比例；
+负面限制。
+
+将相关负面要求融合在Prompt末尾，包括：禁止增加或删除主要元素，禁止主体变形、比例错误、结构重组、人体或动物肢体错误、材质错误、颜色偏差、透视畸变、光源混乱、阴影错误、主体悬浮、文字乱码、随机Logo、低清晰度、噪点、重影、涂抹感、油画感和明显AI痕迹。
+
+请按照以下格式输出：
+
+【画面分析】
+简要说明图片类型、主体、构图、颜色、材质、镜头、光影和背景。
+
+【可直接复制的完整生图Prompt】
+使用单独代码块输出。代码块内只能包含最终Prompt，不得包含标题、解释、编号或备注。
+
+【可直接复制的精简Prompt】
+使用单独代码块输出一个缩短版本。
+
+现在开始分析我上传的图片。</td><td>日常图片反推、平台容易忽略过长指令时、需要快速得到可用生图Prompt时</td><td>上传图片后，将B5整格内容复制到Gemini或豆包。模型输出后复制代码块中的完整Prompt。</td></tr></tbody></table></div></section><section class="sheet" id="sheet-5"><div class="sheet-heading"><span>WORKSHEET / 05</span><h2>极简快速版</h2><small>4 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">极简快速反推版</td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td>移动端、快速测试、模型上下文很短时使用</td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">版本</td><td class="strong">完整可复制Prompt</td><td class="strong">推荐场景</td><td class="strong">使用说明</td></tr><tr><th scope="row">5</th><td>极简快速版</td><td>请根据我上传的图片，进行完整视觉反推，并输出一段可直接复制到AI生图平台的中文Prompt。请识别图片类型、主体数量、主体外观、动作姿态、结构细节、材质纹理、颜色关系、背景环境、构图比例、镜头角度、景深、光源方向、阴影、后期风格和画面比例。最终Prompt必须完整、自包含，不能出现“参考图、原图、如图所示”等依赖图片的表达；不得虚构图片中不存在的人物、动物、产品、建筑、文字或装饰；无法确认的内容要保守描述。请先简要分析，再用单独代码块输出最终Prompt，代码块内只能放可直接用于生图的Prompt，并在末尾自然融合负面限制：禁止增加或删除主要元素、禁止主体变形、比例错误、材质错误、颜色偏差、透视畸变、光影错误、文字乱码、低清晰度、涂抹感和明显AI痕迹。</td><td>快速测试、单图快速反推、对画面细节要求不极致的场景</td><td>上传图片后复制B5内容使用；如果结果不够细，可改用完整版。</td></tr></tbody></table></div></section><section class="sheet" id="sheet-6"><div class="sheet-heading"><span>WORKSHEET / 06</span><h2>反推维度清单</h2><small>18 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">反推维度清单</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td>用于检查模型是否完整反推图片，也可作为二次补充指令</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">模块</td><td class="strong">必须分析的内容</td><td class="strong">适用图片类型</td><td class="strong">反推目的</td><td class="strong">常见遗漏</td><td class="strong">补强指令</td></tr><tr><th scope="row">5</th><td>图片类型</td><td>真实摄影、写实渲染、插画、动漫、海报、产品图、空间图、风景图等</td><td>所有图片</td><td>决定后续分析重点</td><td>模型只描述主体，忽略视觉形式</td><td>先判断图片类型和视觉媒介，再开始反推</td></tr><tr><th scope="row">6</th><td>主体识别</td><td>主体是什么、数量、位置、朝向、姿态、完整程度、占画比例</td><td>所有图片</td><td>锁定画面核心识别点</td><td>主体数量不准、位置漂移</td><td>明确第一视觉焦点和第二视觉焦点</td></tr><tr><th scope="row">7</th><td>人物分析</td><td>年龄感、五官、发型、肤色、表情、视线、姿势、服装、饰品、接触关系</td><td>人物、时尚、生活方式</td><td>减少换脸、肢体错误、服装偏差</td><td>手脚、视线、服装材质遗漏</td><td>逐项分析头部、躯干、四肢、服装和环境接触</td></tr><tr><th scope="row">8</th><td>动物分析</td><td>种类、品种外观、毛色、花纹、体型、姿态、眼神、毛发质感</td><td>宠物、动物、自然</td><td>保持动物真实感和品种特征</td><td>毛色、耳朵、尾巴描述不足</td><td>重点描述毛发方向、蓬松度和面部朝向</td></tr><tr><th scope="row">9</th><td>产品/物品分析</td><td>外轮廓、长宽高比例、结构组成、零部件、功能部件、材质、工艺</td><td>产品、家具、车辆、机械、珠宝</td><td>避免产品改款和结构重组</td><td>把饰品误判为结构</td><td>区分固定结构和可移动道具</td></tr><tr><th scope="row">10</th><td>空间/建筑分析</td><td>墙面、顶面、地面、门窗、家具、灯具、动线、透视消失点</td><td>室内、建筑、城市景观</td><td>还原空间层次和建筑逻辑</td><td>垂直线和透视遗漏</td><td>明确前景中景背景和空间纵深</td></tr><tr><th scope="row">11</th><td>自然风景分析</td><td>地貌、天空、云层、水面、植被、季节、天气、空气状态、地平线</td><td>风景、户外、旅行</td><td>还原自然环境与时间感</td><td>天气、季节、空气感不准</td><td>补充时间段、天气和远近层次</td></tr><tr><th scope="row">12</th><td>海报/平面分析</td><td>版式、标题、Logo、文字区域、留白、视觉层级、字体、色块</td><td>海报、广告、杂志、封面</td><td>还原图文结构和广告版式</td><td>文字区域与Logo被忽略</td><td>说明文字可识别/不可识别，避免乱码</td></tr><tr><th scope="row">13</th><td>颜色关系</td><td>主色、辅助色、点缀色、色温、饱和度、明度、冷暖关系</td><td>所有图片</td><td>控制整体色调和画面气质</td><td>只写高级感，不写具体颜色</td><td>用准确色名描述颜色倾向</td></tr><tr><th scope="row">14</th><td>材质纹理</td><td>粗糙度、光泽度、反射、透明度、颗粒、纤维、褶皱、新旧程度</td><td>产品、人物、空间、静物</td><td>提高真实质感，避免塑料感</td><td>材质与光泽描述矛盾</td><td>按物体逐一描述材质，不要统一概括</td></tr><tr><th scope="row">15</th><td>构图空间</td><td>横竖比例、主体位置、留白、前中后景、遮挡、地平线、透视</td><td>所有图片</td><td>控制生成画面的结构稳定性</td><td>主体变大变小、边缘裁切</td><td>写明占画比例和边缘距离</td></tr><tr><th scope="row">16</th><td>镜头机位</td><td>平视、俯视、仰视、焦段、距离、景深、虚化、透视强度</td><td>摄影、产品、人物、空间</td><td>还原真实拍摄感</td><td>乱写焦段、广角变形</td><td>根据视觉效果合理推测，不机械填写参数</td></tr><tr><th scope="row">17</th><td>光影逻辑</td><td>主光、辅光、色温、方向、阴影、接触阴影、反射、高光</td><td>所有图片</td><td>避免主体漂浮和光影错误</td><td>阴影方向错误、缺少接触阴影</td><td>明确主光源方向和阴影落点</td></tr><tr><th scope="row">18</th><td>后期风格</td><td>曝光、锐度、动态范围、颗粒、胶片感、暗角、通透度、柔焦</td><td>摄影、广告、插画、3D</td><td>控制最终画面风格</td><td>真实图被过度电影化</td><td>后期描述必须服从原图真实视觉效果</td></tr><tr><th scope="row">19</th><td>文字Logo</td><td>文字内容、位置、字体、大小、颜色、可识别程度、Logo区域</td><td>海报、包装、电商、品牌图</td><td>避免乱码和错误Logo</td><td>模型编造文字</td><td>无法识别文字时写清楚不可编造</td></tr></tbody></table></div></section><section class="sheet" id="sheet-7"><div class="sheet-heading"><span>WORKSHEET / 07</span><h2>负面限制库</h2><small>12 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">负面限制库</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td>用于补强最终生图Prompt末尾，按图片类型选择，不建议无脑全部堆叠</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">类别</td><td class="strong">适用场景</td><td class="strong">负面限制内容</td><td class="strong">使用建议</td><td class="strong">可复制补充句</td></tr><tr><th scope="row">5</th><td>通用结构</td><td>所有图片</td><td>禁止增加或删除主要元素；禁止主体变形、拉伸、压缩、扭曲、错位、悬浮、重复或局部消失。</td><td>适用于所有最终Prompt末尾</td><td>禁止增加或删除主要元素，禁止主体变形、拉伸、压缩、扭曲、错位、悬浮、重复或局部消失。</td></tr><tr><th scope="row">6</th><td>构图透视</td><td>建筑、室内、产品、人物全身</td><td>禁止比例失真、透视错误、鱼眼效果、夸张广角、垂直线歪斜和主体尺寸失控。</td><td>当图片结构性强时必须加入</td><td>禁止比例失真、透视错误、鱼眼效果、夸张广角、垂直线歪斜和主体尺寸失控。</td></tr><tr><th scope="row">7</th><td>人物</td><td>人像、生活方式、时尚</td><td>禁止人体畸形、多手、多脚、多手指、少手指、断肢、关节错误、面部崩坏、眼睛不对称、姿势僵硬。</td><td>有人物时必须加入</td><td>禁止人体畸形、多手多脚、多手指或少手指、断肢、关节错误、面部崩坏、眼睛不对称和姿势僵硬。</td></tr><tr><th scope="row">8</th><td>动物</td><td>宠物、动物摄影、插画动物</td><td>禁止动物肢体错误、毛色错误、品种特征偏差、眼神异常、尾巴或耳朵位置错误。</td><td>有宠物或动物时加入</td><td>禁止动物肢体错误、毛色错误、品种特征偏差、眼神异常、尾巴或耳朵位置错误。</td></tr><tr><th scope="row">9</th><td>产品结构</td><td>产品、家具、机械、车辆、珠宝</td><td>禁止产品结构重组、改款、零部件缺失、比例错误、功能部件错位、材质错误。</td><td>产品图/电商图必须加入</td><td>禁止产品结构重组、改款、零部件缺失、比例错误、功能部件错位和材质错误。</td></tr><tr><th scope="row">10</th><td>材质颜色</td><td>所有带材质要求图片</td><td>禁止材质错误、颜色偏差、纹理重复、表面塑料感、过度光滑、过度磨皮。</td><td>需要质感时加入</td><td>禁止材质错误、颜色偏差、纹理重复、表面塑料感、过度光滑和过度磨皮。</td></tr><tr><th scope="row">11</th><td>文字Logo</td><td>海报、包装、品牌图</td><td>禁止文字乱码、随机字母、错误Logo、错误品牌标识、水印和无关符号。</td><td>有文字Logo时必须加入</td><td>禁止文字乱码、随机字母、错误Logo、错误品牌标识、水印和无关符号。</td></tr><tr><th scope="row">12</th><td>光影</td><td>所有图片</td><td>禁止光源混乱、阴影方向错误、缺少接触阴影、主体漂浮、边缘异常发光、过曝、死黑、强烈HDR。</td><td>真实摄影和产品图重点加入</td><td>禁止光源混乱、阴影方向错误、缺少接触阴影、主体漂浮、边缘异常发光、过曝、死黑和强烈HDR。</td></tr><tr><th scope="row">13</th><td>画质</td><td>所有图片</td><td>禁止低清晰度、噪点、重影、锯齿、涂抹感、油画化、过度锐化和明显AI生成痕迹。</td><td>所有最终Prompt都建议加入</td><td>禁止低清晰度、噪点、重影、锯齿、涂抹感、油画化、过度锐化和明显AI生成痕迹。</td></tr></tbody></table></div></section><section class="sheet" id="sheet-8"><div class="sheet-heading"><span>WORKSHEET / 08</span><h2>平台适配建议</h2><small>9 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th><th scope="col">F</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">平台适配建议</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td>根据平台特点选择Prompt版本和使用方式</td><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">平台</td><td class="strong">推荐版本</td><td class="strong">使用方式</td><td class="strong">优点</td><td class="strong">可能问题</td><td class="strong">优化建议</td></tr><tr><th scope="row">5</th><td>Gemini</td><td>完整版Prompt</td><td>上传图片后粘贴完整版；让其输出最终生图Prompt代码块</td><td>视觉理解强，适合复杂图、广告图、空间图</td><td>输出可能很长</td><td>要求“只输出最终Prompt”可减少分析内容</td></tr><tr><th scope="row">6</th><td>豆包</td><td>精简版Prompt</td><td>上传图片后粘贴精简版；需要更细时再补充“请加长材质、光影、构图分析”</td><td>中文执行稳定，适合快速反推</td><td>长Prompt有时会压缩执行</td><td>优先用精简版，复杂图再用完整版</td></tr><tr><th scope="row">7</th><td>即梦</td><td>精简版/极简快速版</td><td>用于快速得到中文生图描述</td><td>适合中文生图链路</td><td>过长指令可能忽略部分维度</td><td>分两步：先反推，再要求优化为最终Prompt</td></tr><tr><th scope="row">8</th><td>Seedream</td><td>精简版Prompt</td><td>先用Gemini/豆包反推，再将最终Prompt用于生图</td><td>适合写实图和商业视觉</td><td>文字与复杂结构需补强</td><td>加强负面限制和主体结构锁定</td></tr><tr><th scope="row">9</th><td>Nano Banana / Image 2</td><td>最终生图Prompt</td><td>不要直接粘贴反推Prompt；应粘贴Gemini/豆包输出的最终生图Prompt</td><td>适合执行详细生图描述</td><td>若带分析内容会干扰生成</td><td>只复制最终代码块，去掉标题和解释</td></tr><tr><th scope="row">10</th><td>GPT Image</td><td>最终生图Prompt</td><td>将反推出的完整Prompt直接用于图像生成或编辑</td><td>对自然语言理解较好</td><td>过多负面词可能影响创意</td><td>保留关键限制，删除无关负面词</td></tr></tbody></table></div></section><section class="sheet" id="sheet-9"><div class="sheet-heading"><span>WORKSHEET / 09</span><h2>输出格式模板</h2><small>12 行内容</small></div><div class="table-scroll" role="region" aria-label="工作表内容，可横向滚动" tabindex="0"><table><thead><tr><th scope="col">#</th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th><th scope="col">D</th><th scope="col">E</th></tr></thead><tbody><tr><th scope="row">1</th><td class="strong">输出格式模板</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">2</th><td>用于检查反推模型输出是否符合要求</td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">4</th><td class="strong">输出模块</td><td class="strong">内容要求</td><td class="strong">是否必须</td><td class="strong">复制到生图平台吗</td><td class="strong">检查标准</td></tr><tr><th scope="row">5</th><td>图片类型与整体风格</td><td>总结图片类型、视觉风格和主要内容</td><td>是</td><td>否</td><td>能判断图片属于摄影/插画/3D/海报等</td></tr><tr><th scope="row">6</th><td>主体与关键元素分析</td><td>说明核心主体、数量、外观、结构、姿态和识别特征</td><td>是</td><td>否</td><td>主体数量、位置、姿态、结构清楚</td></tr><tr><th scope="row">7</th><td>颜色与材质分析</td><td>说明主色、辅助色、色温、材质、纹理和表面效果</td><td>是</td><td>否</td><td>色彩不含糊，材质可执行</td></tr><tr><th scope="row">8</th><td>构图与空间分析</td><td>说明主体位置、占比、前中后景、遮挡、留白和空间层次</td><td>是</td><td>否</td><td>能控制画面比例和主体大小</td></tr><tr><th scope="row">9</th><td>镜头与光影分析</td><td>说明拍摄角度、机位、焦段、景深、光源方向、阴影和曝光</td><td>是</td><td>否</td><td>光影逻辑统一，镜头描述合理</td></tr><tr><th scope="row">10</th><td>背景与辅助元素</td><td>列出环境、背景和对画面有影响的辅助物体</td><td>是</td><td>否</td><td>不遗漏明显背景元素</td></tr><tr><th scope="row">11</th><td>不确定信息</td><td>列出无法准确确认的内容，避免模型虚构</td><td>是</td><td>否</td><td>不确定内容不被写成确定事实</td></tr><tr><th scope="row">12</th><td>可直接复制使用的最终生图Prompt</td><td>完整、自包含、可独立用于生图的最终Prompt</td><td>是</td><td>是</td><td>代码块内不得含标题、解释、编号或“参考图”等表达</td></tr><tr><th scope="row">13</th><td>精简版生图Prompt</td><td>适合短上下文模型使用的缩短版本</td><td>建议</td><td>可选</td><td>保留核心主体、构图、光影和负面限制</td></tr></tbody></table></div></section></main>
+<footer class="bottom"><div class="wrap">帖磊 · 视觉设计作品集</div></footer><script src="../sheet-viewer.js" defer></script></body></html>

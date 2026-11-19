@@ -1,0 +1,8 @@
+.qa-edge-*/
+qa/
+qa-*.png
+dist/
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
