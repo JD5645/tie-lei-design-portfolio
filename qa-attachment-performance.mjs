@@ -80,6 +80,31 @@ try {
 
   await evaluate(`document.getElementById('image-dialog').close()`);
   await sleep(80);
+  await send('Network.setBlockedURLs', { urls: [] });
+  const zoomRange = await evaluate(`(async()=>{
+    const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+    const reel=document.querySelector('[data-motion-reel]');
+    reel.click();
+    for(let attempt=0;attempt<120&&document.getElementById('dialog-stage').dataset.loading;attempt++) await wait(25);
+    const scale=document.getElementById('dialog-scale');
+    const zoomOut=document.getElementById('dialog-zoom-out');
+    const zoomIn=document.getElementById('dialog-zoom-in');
+    const fit=document.getElementById('dialog-fit');
+    fit.click();
+    const defaultScale=scale.textContent;
+    for(let index=0;index<24;index++) zoomOut.click();
+    const minimum=scale.textContent;
+    for(let index=0;index<36;index++) zoomIn.click();
+    const maximum=scale.textContent;
+    fit.click();
+    return {defaultScale,minimum,maximum,restored:scale.textContent};
+  })()`);
+  assert.equal(zoomRange.minimum, '10%', 'all attachments should stop shrinking at 10%');
+  assert.equal(zoomRange.maximum, '200%', 'all attachments should stop enlarging at 200%');
+  assert.equal(zoomRange.restored, zoomRange.defaultScale, 'Fit should restore the initial suitable scale');
+
+  await evaluate(`document.getElementById('image-dialog').close()`);
+  await sleep(80);
   const videoState = await evaluate(`(async()=>{
     const anchor=[...document.querySelectorAll('a[href]')].find(item=>new URL(item.href).pathname.endsWith('.mp4'));
     anchor.click();
@@ -91,6 +116,35 @@ try {
   })()`);
   assert.match(videoState.src, /\/assets\/viewer\/.+\.preview\.mp4$/, 'video viewer should use the lightweight fast-start copy');
   assert.doesNotMatch(videoState.original, /\/assets\/viewer\//, 'Open original should still link to the source video');
+
+  await evaluate(`document.getElementById('image-dialog').close()`);
+  await sleep(80);
+  const sheetZoomRange = await evaluate(`(async()=>{
+    const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+    const anchor=document.querySelector('a[href*="assets/sheets/"]');
+    anchor.click();
+    const frame=document.getElementById('dialog-sheet');
+    for(let attempt=0;attempt<120&&!frame.contentDocument?.body;attempt++) await wait(25);
+    const scale=document.getElementById('dialog-scale');
+    const zoomOut=document.getElementById('dialog-zoom-out');
+    const zoomIn=document.getElementById('dialog-zoom-in');
+    const fit=document.getElementById('dialog-fit');
+    fit.click();
+    await wait(50);
+    const defaultScale=scale.textContent;
+    for(let index=0;index<24;index++){zoomOut.click();await wait(5)}
+    await wait(80);
+    const minimum=scale.textContent;
+    for(let index=0;index<36;index++){zoomIn.click();await wait(5)}
+    await wait(80);
+    const maximum=scale.textContent;
+    fit.click();
+    await wait(50);
+    return {defaultScale,minimum,maximum,restored:scale.textContent};
+  })()`);
+  assert.equal(sheetZoomRange.minimum, '10%', 'sheet attachments should stop shrinking at 10%');
+  assert.equal(sheetZoomRange.maximum, '200%', 'sheet attachments should stop enlarging at 200%');
+  assert.equal(sheetZoomRange.restored, sheetZoomRange.defaultScale, 'sheet Fit should restore its initial scale');
 } finally {
   try { ws?.close(); } catch {}
   browser.kill();

@@ -3,7 +3,7 @@
 if (window.parent !== window) {
   let scale = 1;
   let drag = null;
-  const clamp = value => Math.max(.5, Math.min(3, value));
+  const clamp = value => Math.max(.1, Math.min(2, value));
   const report = () => parent.postMessage({ type: 'portfolio-sheet-scale', scale }, '*');
   document.querySelector('.top nav a[href*="index.html#"]')?.addEventListener('click', event => {
     event.preventDefault();

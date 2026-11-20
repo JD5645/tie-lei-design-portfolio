@@ -72,7 +72,7 @@ class PanZoom {
     this.scale = 1;
     this.fitScale = 1;
     this.minScale = .1;
-    this.maxScale = 6;
+    this.maxScale = 2;
     this.x = 0;
     this.y = 0;
 
@@ -152,9 +152,8 @@ class PanZoom {
     const width = Math.max(1, this.stage.clientWidth - 28);
     const height = Math.max(1, this.stage.clientHeight - 28);
     const longPage = this.kind === 'pdf' || this.naturalWidth / this.naturalHeight < .5;
-    this.fitScale = Math.min(longPage ? width / this.naturalWidth : Math.min(width / this.naturalWidth, height / this.naturalHeight), 1.5);
-    this.minScale = Math.max(.03, this.fitScale * .35);
-    this.maxScale = Math.max(2, Math.min(6, this.fitScale * 6));
+    const suitableScale = longPage ? width / this.naturalWidth : Math.min(width / this.naturalWidth, height / this.naturalHeight);
+    this.fitScale = Math.max(this.minScale, Math.min(suitableScale, 1.5, this.maxScale));
     this.scale = this.fitScale;
     this.x = (this.stage.clientWidth - this.naturalWidth * this.scale) / 2;
     this.y = this.naturalHeight * this.scale > this.stage.clientHeight ? 0 : (this.stage.clientHeight - this.naturalHeight * this.scale) / 2;
