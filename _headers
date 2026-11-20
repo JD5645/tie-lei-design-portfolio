@@ -8,3 +8,18 @@
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+/01-品牌设计/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+/02-AIGC/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+/03-主图、A+设计/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+/04-建模、渲染/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+/05-其他设计/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000

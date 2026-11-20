@@ -491,8 +491,9 @@ html[data-input="keyboard"] .hero h1,html[data-input="keyboard"] .hero-art{anima
 .dialog-stage img,.dialog-stage video{position:absolute;top:0;left:0;display:block;max-width:none;max-height:none;object-fit:contain;user-select:none;-webkit-user-drag:none}
 .dialog-stage img{pointer-events:none}
 .dialog-stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#111513;touch-action:auto}
-.dialog-stage[data-loading="true"]::after,.dialog-stage[data-error]:not([data-error=""])::after{position:absolute;inset:0;display:grid;place-items:center;background:#0c0e0c;color:#b9beb3;font-size:13px;pointer-events:none}
+.dialog-stage[data-loading="true"]::after,.dialog-stage[data-error]:not([data-error=""])::after{position:absolute;inset:0;display:grid;place-items:center;background:#0c0e0ce8;color:#b9beb3;font-size:13px;pointer-events:none}
 .dialog-stage[data-loading="true"]::after{content:'正在加载附件…'}
+.dialog-stage[data-loading="preview"]::after{content:'高清预览加载中…';position:absolute;right:14px;bottom:14px;padding:8px 11px;border:1px solid #5e6257;background:#111311e8;color:#d7d9d2;font-size:11px;line-height:1;pointer-events:none}
 .dialog-stage[data-error]:not([data-error=""])::after{content:attr(data-error)}
 .dialog-bottom{height:62px;display:grid;grid-template-columns:minmax(90px,1fr) auto auto minmax(90px,1fr);align-items:center;gap:15px;padding:0 18px}
 .dialog-bottom>button:last-child{justify-self:end}
