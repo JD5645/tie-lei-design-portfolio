@@ -224,6 +224,45 @@ if (animatedPreview) {
   animatedPreview.addEventListener('error', () => frame.classList.remove('image-ready'));
 }
 
+// Archive cards play the lightweight, fast-start copies. The original files
+// remain available from each card's link, while metadata warms only near the
+// viewport or on clear user intent.
+const inlineVideos = [...document.querySelectorAll('.asset-video')].map(card => {
+  const video = card.querySelector('video');
+  const source = video?.querySelector('source');
+  if (!video || !source || !card.dataset.source) return null;
+  source.src = new URL(`assets/viewer/${card.dataset.source}.preview.mp4`, document.baseURI).href;
+  video.preload = 'none';
+  video.load();
+  return video;
+}).filter(Boolean);
+
+const warmInlineVideo = video => {
+  if (video.dataset.metadataWarmed) return;
+  video.dataset.metadataWarmed = 'true';
+  video.preload = 'metadata';
+  video.load();
+};
+
+if ('IntersectionObserver' in window) {
+  const inlineVideoObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      warmInlineVideo(entry.target);
+      inlineVideoObserver.unobserve(entry.target);
+    }
+  }, { rootMargin: '500px 0px' });
+  inlineVideos.forEach(video => inlineVideoObserver.observe(video));
+} else {
+  inlineVideos.forEach(warmInlineVideo);
+}
+
+for (const video of inlineVideos) {
+  video.addEventListener('pointerenter', () => warmInlineVideo(video), { passive: true, once: true });
+  video.addEventListener('focus', () => warmInlineVideo(video), { passive: true, once: true });
+  video.addEventListener('touchstart', () => warmInlineVideo(video), { passive: true, once: true });
+}
+
 for (const carousel of document.querySelectorAll('[data-carousel]')) {
   const track = carousel.querySelector('[data-carousel-track]');
   const slides = [...track.querySelectorAll('.portfolio-slide')];

@@ -140,6 +140,28 @@ try {
 
   await evaluate(`document.getElementById('image-dialog').close()`);
   await sleep(80);
+  const inlineVideoState = await evaluate(`(()=>[...document.querySelectorAll('.asset-video')].map(card=>{
+    const video=card.querySelector('video');
+    const source=card.querySelector('source');
+    const original=card.querySelector('a[href$=".mp4"]');
+    return {source:source?.src || '',original:original?.href || '',preload:video?.preload || ''};
+  }))()`);
+  assert.equal(inlineVideoState.length, 3, 'the archive should expose all three inline videos');
+  for (const video of inlineVideoState) {
+    assert.match(video.source, /\/assets\/viewer\/.+\.preview\.mp4$/, 'inline videos should use the lightweight preview copy');
+    assert.doesNotMatch(video.original, /\/assets\/viewer\//, 'inline video original links should still point to source files');
+    assert.equal(video.preload, 'none', 'offscreen inline videos should not preload before approaching the viewport');
+  }
+  await evaluate(`document.querySelector('.asset-video').scrollIntoView({block:'center',behavior:'instant'})`);
+  await sleep(250);
+  const nearViewportVideo = await evaluate(`(()=>{const video=document.querySelector('.asset-video video');return {preload:video.preload,readyState:video.readyState,currentSrc:video.currentSrc}})()`);
+  assert.equal(nearViewportVideo.preload, 'metadata', 'an inline video near the viewport should warm its metadata before play');
+  assert.match(nearViewportVideo.currentSrc, /\/assets\/viewer\/.+\.preview\.mp4$/, 'near-viewport metadata should come from the lightweight preview');
+  const originalInlineVideoRequests = networkRequests.filter(url => {
+    const pathname = decodeURIComponent(new URL(url).pathname);
+    return pathname.includes('/02-AIGC/04-AI视频/') && pathname.endsWith('.mp4') && !pathname.includes('/assets/viewer/');
+  });
+  assert.equal(originalInlineVideoRequests.length, 0, 'inline video cards should not request the large original files');
   const videoState = await evaluate(`(async()=>{
     const anchor=[...document.querySelectorAll('a[href]')].find(item=>new URL(item.href).pathname.endsWith('.mp4'));
     anchor.click();
