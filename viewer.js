@@ -35,7 +35,7 @@ function previewFor(element) {
 
 const warmedAttachments = new Set();
 const sheetHtmlCache = new Map();
-const sheetRuntimeVersion = '20261121-anchor-navigation-v2';
+const sheetRuntimeVersion = '20261121-native-wheel-v3';
 
 function prepareSheetHtml(html, url) {
   const source = new URL(url, document.baseURI);

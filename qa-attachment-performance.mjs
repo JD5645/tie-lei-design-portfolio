@@ -255,6 +255,13 @@ try {
   assert.equal(sheetZoomRange.minimum, '10%', 'sheet attachments should stop shrinking at 10%');
   assert.equal(sheetZoomRange.maximum, '200%', 'sheet attachments should stop enlarging at 200%');
   assert.equal(sheetZoomRange.restored, sheetZoomRange.defaultScale, 'sheet Fit should restore its initial scale');
+  const sheetWheelBefore = await evaluate(`(()=>{const frame=document.getElementById('dialog-sheet');return {scale:document.getElementById('dialog-scale').textContent,scrollTop:frame.contentWindow.scrollY}})()`);
+  const sheetWheelPoint = await evaluate(`(()=>{const bounds=document.getElementById('dialog-sheet').getBoundingClientRect();return {x:Math.round(bounds.left+bounds.width/2),y:Math.round(Math.min(bounds.bottom-40,bounds.top+220))}})()`);
+  await send('Input.dispatchMouseEvent', { type: 'mouseWheel', x: sheetWheelPoint.x, y: sheetWheelPoint.y, deltaX: 0, deltaY: 420 });
+  await sleep(250);
+  const sheetWheelAfter = await evaluate(`(()=>{const frame=document.getElementById('dialog-sheet');return {scale:document.getElementById('dialog-scale').textContent,scrollTop:frame.contentWindow.scrollY}})()`);
+  assert.equal(sheetWheelAfter.scale, sheetWheelBefore.scale, 'spreadsheet wheel movement should not change zoom');
+  assert.ok(sheetWheelAfter.scrollTop > sheetWheelBefore.scrollTop, 'spreadsheet wheel movement should scroll the document vertically');
 
   await evaluate(`document.getElementById('image-dialog').close()`);
   await sleep(80);

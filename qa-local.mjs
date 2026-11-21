@@ -177,8 +177,9 @@ try {
   await evaluate(`document.getElementById('dialog-zoom-in').click()`);
   await sleep(260);
   const sheetZoom = await evaluate(`document.getElementById('dialog-scale').textContent`);
+  const sheetScrollBefore = await evaluate(`(()=>{const frame=document.getElementById('dialog-sheet');const doc=frame.contentDocument;return frame.contentWindow.scrollY+[...doc.querySelectorAll('.table-scroll')].reduce((sum,table)=>sum+table.scrollTop,0)})()`);
   await wheelInside('#dialog-sheet', 150);
-  const sheetWheel = await evaluate(`document.getElementById('dialog-scale').textContent`);
+  const sheetWheel = await evaluate(`(()=>{const frame=document.getElementById('dialog-sheet');const doc=frame.contentDocument;return {scale:document.getElementById('dialog-scale').textContent,scrollTop:frame.contentWindow.scrollY+[...doc.querySelectorAll('.table-scroll')].reduce((sum,table)=>sum+table.scrollTop,0)}})()`);
   await dragInside('#dialog-sheet', 0, -130);
   await screenshot('viewer-sheet-scrolled');
   await evaluate(`document.getElementById('dialog-close').click()`);
@@ -258,7 +259,8 @@ try {
   assert.equal(video.kind, 'video');
   assert.notEqual(videoAfterDrag, videoBeforeDrag);
   assert.equal(sheet.kind, 'sheet');
-  assert.notEqual(sheetWheel, sheetZoom);
+  assert.equal(sheetWheel.scale, sheetZoom);
+  assert.ok(sheetWheel.scrollTop > sheetScrollBefore);
   assert.ok(mobileViewer.dialogScrollWidth <= mobileViewer.dialogWidth);
   const results = { desktop, carouselBefore, carouselAfter, carouselLast, carouselExit, renderBefore, renderAfter, renderLast, renderExit, brandBefore, brandAfter, archiveBefore, archiveAfter, archiveKeyboard, archiveEnd, archiveDialog, brandDialogOpening, brandDialog, brandFit, brandZoom, brandDrag, brandReset, brandDialogClosing, brandDialogClosingLater, brandDialogCleared, imageDialog, pdf, pdfNext, packageImage, video, videoZoom, videoBeforeDrag, videoAfterDrag, sheet, sheetZoom, sheetWheel, mobile, mobileBrand, mobileViewer, mobileArchive, menu, menuOpening, filters, filterResult, keyboard, reducedMotion, original };
   await writeFile(join(out, 'results.json'), JSON.stringify(results, null, 2));

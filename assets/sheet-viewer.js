@@ -34,12 +34,6 @@ if (window.parent !== window) {
     report();
   }
 
-  addEventListener('wheel', event => {
-    event.preventDefault();
-    const delta = Math.max(-240, Math.min(240, event.deltaY));
-    setScale(scale * Math.exp(-delta * .0016), event.clientX, event.clientY);
-  }, { passive: false, capture: true });
-
   document.documentElement.style.touchAction = 'none';
   addEventListener('pointerdown', event => {
     if (event.button !== 0 || event.altKey || event.target.closest('a,button,input,textarea,select,[contenteditable]')) return;
