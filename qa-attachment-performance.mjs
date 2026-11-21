@@ -266,6 +266,7 @@ try {
     await wait(100);
     if(!viewport) return {exists:false};
     const pages=[...viewport.querySelectorAll('.dialog-pdf-page')];
+    for(let attempt=0;attempt<160&&pages[0]?.dataset.state!=='loaded';attempt++) await wait(50);
     const initialSources=pages.filter(page=>page.querySelector('img')?.getAttribute('src')).length;
     const immediateVisible=!viewport.hidden && pages[0]?.querySelector('img')?.getAttribute('src');
     const scale=document.getElementById('dialog-scale');
