@@ -21,6 +21,7 @@ if (window.parent !== window) {
     event.preventDefault();
     target.scrollIntoView({ block: 'start' });
   });
+  document.documentElement.dataset.sheetViewerReady = 'true';
 
   function setScale(next, clientX = innerWidth / 2, clientY = innerHeight / 2) {
     next = clamp(next);
