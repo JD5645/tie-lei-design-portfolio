@@ -35,13 +35,16 @@ function previewFor(element) {
 
 const warmedAttachments = new Set();
 const sheetHtmlCache = new Map();
+const sheetRuntimeVersion = '20261121-anchor-navigation';
 
 function prepareSheetHtml(html, url) {
   const base = new URL('.', new URL(url, document.baseURI)).href.replace(/"/g, '&quot;');
   const baseTag = `<base href="${base}">`;
-  return /<head(?:\s[^>]*)?>/i.test(html)
-    ? html.replace(/<head(?:\s[^>]*)?>/i, match => `${match}${baseTag}`)
-    : `${baseTag}${html}`;
+  const runtimePath = `../sheet-viewer.js?v=${sheetRuntimeVersion}`;
+  const versionedHtml = html.replace(/\.\.\/sheet-viewer\.js(?:\?[^"'\s>]*)?/gi, runtimePath);
+  return /<head(?:\s[^>]*)?>/i.test(versionedHtml)
+    ? versionedHtml.replace(/<head(?:\s[^>]*)?>/i, match => `${match}${baseTag}`)
+    : `${baseTag}${versionedHtml}`;
 }
 
 function warmSheet(url) {

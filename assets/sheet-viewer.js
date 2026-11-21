@@ -9,6 +9,18 @@ if (window.parent !== window) {
     event.preventDefault();
     parent.postMessage({ type: 'portfolio-sheet-close' }, '*');
   });
+  document.addEventListener('click', event => {
+    const anchor = event.target.closest('a[href^="#"]');
+    if (!anchor) return;
+    const fragment = anchor.getAttribute('href');
+    if (!fragment || fragment === '#') return;
+    let target;
+    try { target = document.getElementById(decodeURIComponent(fragment.slice(1))); }
+    catch { return; }
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({ block: 'start' });
+  });
 
   function setScale(next, clientX = innerWidth / 2, clientY = innerHeight / 2) {
     next = clamp(next);

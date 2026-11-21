@@ -32,7 +32,8 @@ await new Promise((resolve, reject) => {
   server.listen(0, '127.0.0.1', resolve);
 });
 const serverAddress = server.address();
-const siteUrl = `http://127.0.0.1:${serverAddress.port}/index.html`;
+const localSiteUrl = `http://127.0.0.1:${serverAddress.port}/index.html`;
+const siteUrl = process.env.PORTFOLIO_QA_URL || localSiteUrl;
 const profile = await mkdtemp(join(tmpdir(), 'portfolio-attachment-perf-'));
 const browser = spawn(edge, [
   '--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check',
@@ -171,11 +172,20 @@ try {
     const anchor=document.querySelector('a[href*="assets/sheets/"]');
     anchor.click();
     const frame=document.getElementById('dialog-sheet');
-    for(let attempt=0;attempt<120&&!frame.contentDocument?.body;attempt++) await wait(25);
+    for(let attempt=0;attempt<120&&!frame.contentDocument?.querySelector('.sheet-nav');attempt++) await wait(25);
     const scale=document.getElementById('dialog-scale');
     const zoomOut=document.getElementById('dialog-zoom-out');
     const zoomIn=document.getElementById('dialog-zoom-in');
     const fit=document.getElementById('dialog-fit');
+    const titleBeforeNavigation=frame.contentDocument.title;
+    const locationBeforeNavigation=frame.contentWindow.location.href;
+    frame.contentDocument.documentElement.style.scrollBehavior='auto';
+    frame.contentDocument.querySelector('.sheet-nav a[href="#sheet-2"]').click();
+    await wait(150);
+    const titleAfterNavigation=frame.contentDocument?.title || '';
+    const locationAfterNavigation=frame.contentWindow.location.href;
+    const navigatedHeading=frame.contentDocument?.querySelector('#sheet-2 h2')?.textContent || '';
+    const navigatedTargetTop=frame.contentDocument?.querySelector('#sheet-2')?.getBoundingClientRect().top ?? null;
     fit.click();
     await wait(50);
     const defaultScale=scale.textContent;
@@ -191,9 +201,29 @@ try {
       defaultScale,minimum,maximum,restored:scale.textContent,
       srcdocLength:frame.srcdoc.length,
       baseHref:frame.contentDocument?.querySelector('base')?.href || '',
+      titleBeforeNavigation,titleAfterNavigation,
+      locationBeforeNavigation,locationAfterNavigation,
+      navigatedHeading,navigatedTargetTop,
     };
   })()`);
   assert.ok(sheetZoomRange.srcdocLength > 1000, 'spreadsheet preview should render from cached srcdoc');
+  const sheetRuntimeRequests = networkRequests.filter(url => url.includes('/assets/sheet-viewer.js'));
+  assert.ok(
+    sheetRuntimeRequests.some(url => new URL(url).searchParams.has('v')),
+    'embedded spreadsheet previews should request a versioned runtime instead of an immutable stale copy',
+  );
+  assert.equal(
+    sheetZoomRange.titleAfterNavigation,
+    sheetZoomRange.titleBeforeNavigation,
+    'clicking a worksheet tab should keep the styled sheet document loaded',
+  );
+  assert.equal(
+    sheetZoomRange.locationAfterNavigation,
+    sheetZoomRange.locationBeforeNavigation,
+    'worksheet fragment navigation should stay inside the cached srcdoc',
+  );
+  assert.equal(sheetZoomRange.navigatedHeading, '01_白膜结构稿', 'worksheet navigation should retain the selected sheet content');
+  assert.ok(sheetZoomRange.navigatedTargetTop !== null && sheetZoomRange.navigatedTargetTop < 120, 'worksheet navigation should scroll to the selected sheet');
   assert.match(sheetZoomRange.baseHref, /\/assets\/sheets\/$/, 'spreadsheet srcdoc should resolve relative assets from its sheet folder');
   const sheetUrlRequestsAfterClick = networkRequests.filter(url => url.includes('/assets/sheets/f13e24ee82f8f7fb.html'));
   assert.equal(sheetUrlRequestsAfterClick.length, 1, 'clicking a prefetched spreadsheet should not request its HTML twice');
