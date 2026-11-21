@@ -1,12 +1,38 @@
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { mkdtemp, readFile, readdir, rm, stat } from 'node:fs/promises';
+import { createServer } from 'node:http';
 import { tmpdir } from 'node:os';
 import { dirname, extname, join, relative, sep } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const edge = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
+const mimeTypes = new Map([
+  ['.html', 'text/html; charset=utf-8'], ['.js', 'text/javascript; charset=utf-8'],
+  ['.css', 'text/css; charset=utf-8'], ['.json', 'application/json; charset=utf-8'],
+  ['.jpg', 'image/jpeg'], ['.jpeg', 'image/jpeg'], ['.png', 'image/png'],
+  ['.webp', 'image/webp'], ['.mp4', 'video/mp4'], ['.pdf', 'application/pdf'],
+]);
+const server = createServer(async (request, response) => {
+  try {
+    const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname).replace(/^\/+/, '');
+    const file = join(root, pathname || 'index.html');
+    if (relative(root, file).startsWith('..')) throw new Error('outside root');
+    const body = await readFile(file);
+    response.writeHead(200, { 'Content-Type': mimeTypes.get(extname(file).toLowerCase()) || 'application/octet-stream' });
+    response.end(body);
+  } catch {
+    response.writeHead(404);
+    response.end('Not found');
+  }
+});
+await new Promise((resolve, reject) => {
+  server.once('error', reject);
+  server.listen(0, '127.0.0.1', resolve);
+});
+const serverAddress = server.address();
+const siteUrl = `http://127.0.0.1:${serverAddress.port}/index.html`;
 const profile = await mkdtemp(join(tmpdir(), 'portfolio-attachment-perf-'));
 const browser = spawn(edge, [
   '--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check',
@@ -37,8 +63,10 @@ try {
 
   let nextId = 1;
   const pending = new Map();
+  const networkRequests = [];
   ws.addEventListener('message', event => {
     const message = JSON.parse(event.data);
+    if (message.method === 'Network.requestWillBeSent') networkRequests.push(message.params.request.url);
     if (!message.id || !pending.has(message.id)) return;
     const handlers = pending.get(message.id);
     pending.delete(message.id);
@@ -59,7 +87,7 @@ try {
   await send('Runtime.enable');
   await send('Network.enable');
   await send('Network.setBlockedURLs', { urls: ['*SFD004-*'] });
-  await send('Page.navigate', { url: pathToFileURL(join(root, 'index.html')).href });
+  await send('Page.navigate', { url: siteUrl });
   await sleep(1000);
 
   const immediateImage = await evaluate(`(async()=>{
@@ -119,6 +147,25 @@ try {
 
   await evaluate(`document.getElementById('image-dialog').close()`);
   await sleep(80);
+  await evaluate(`(()=>{
+    const anchor=document.querySelector('a[href*="assets/sheets/"]');
+    const details=anchor.closest('details');
+    if(details) details.open=true;
+    document.documentElement.style.scrollBehavior='auto';
+    anchor.scrollIntoView({block:'center'});
+  })()`);
+  await sleep(500);
+  const sheetUrlRequestsBeforeClick = networkRequests.filter(url => url.includes('/assets/sheets/f13e24ee82f8f7fb.html'));
+  const allSheetRequestsBeforeClick = networkRequests.filter(url => /\/assets\/sheets\/[^/]+\.html(?:\?|$)/.test(url));
+  assert.equal(
+    sheetUrlRequestsBeforeClick.length,
+    1,
+    'a spreadsheet near the viewport should be prefetched before click',
+  );
+  assert.ok(
+    allSheetRequestsBeforeClick.length <= 2,
+    'near-viewport prefetch should not start a burst of spreadsheet requests',
+  );
   const sheetZoomRange = await evaluate(`(async()=>{
     const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
     const anchor=document.querySelector('a[href*="assets/sheets/"]');
@@ -140,17 +187,75 @@ try {
     const maximum=scale.textContent;
     fit.click();
     await wait(50);
-    return {defaultScale,minimum,maximum,restored:scale.textContent};
+    return {
+      defaultScale,minimum,maximum,restored:scale.textContent,
+      srcdocLength:frame.srcdoc.length,
+      baseHref:frame.contentDocument?.querySelector('base')?.href || '',
+    };
   })()`);
+  assert.ok(sheetZoomRange.srcdocLength > 1000, 'spreadsheet preview should render from cached srcdoc');
+  assert.match(sheetZoomRange.baseHref, /\/assets\/sheets\/$/, 'spreadsheet srcdoc should resolve relative assets from its sheet folder');
+  const sheetUrlRequestsAfterClick = networkRequests.filter(url => url.includes('/assets/sheets/f13e24ee82f8f7fb.html'));
+  assert.equal(sheetUrlRequestsAfterClick.length, 1, 'clicking a prefetched spreadsheet should not request its HTML twice');
   assert.equal(sheetZoomRange.minimum, '10%', 'sheet attachments should stop shrinking at 10%');
   assert.equal(sheetZoomRange.maximum, '200%', 'sheet attachments should stop enlarging at 200%');
   assert.equal(sheetZoomRange.restored, sheetZoomRange.defaultScale, 'sheet Fit should restore its initial scale');
+
+  await evaluate(`document.getElementById('image-dialog').close()`);
+  await sleep(80);
+  const pdfState = await evaluate(`(async()=>{
+    const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+    const anchor=document.querySelector('a[data-source="01-品牌设计/04-购物指南/购物指南.pdf"]');
+    anchor.click();
+    const viewport=document.getElementById('dialog-pdf');
+    await wait(100);
+    if(!viewport) return {exists:false};
+    const pages=[...viewport.querySelectorAll('.dialog-pdf-page')];
+    const initialSources=pages.filter(page=>page.querySelector('img')?.getAttribute('src')).length;
+    const immediateVisible=!viewport.hidden && pages[0]?.querySelector('img')?.getAttribute('src');
+    const scale=document.getElementById('dialog-scale');
+    const zoomOut=document.getElementById('dialog-zoom-out');
+    const zoomIn=document.getElementById('dialog-zoom-in');
+    const fit=document.getElementById('dialog-fit');
+    fit.click();
+    await wait(30);
+    const defaultScale=scale.textContent;
+    for(let index=0;index<24;index++) zoomOut.click();
+    const minimum=scale.textContent;
+    for(let index=0;index<36;index++) zoomIn.click();
+    const maximum=scale.textContent;
+    fit.click();
+    await wait(30);
+    for(const page of pages){ viewport.scrollTop=page.offsetTop; viewport.dispatchEvent(new Event('scroll')); await wait(70); }
+    viewport.scrollTop=pages[1]?.offsetTop || 0;
+    viewport.dispatchEvent(new Event('scroll'));
+    await wait(100);
+    return {
+      exists:true,
+      pageCount:pages.length,
+      initialSources,
+      immediateVisible:Boolean(immediateVisible),
+      position:document.getElementById('dialog-position').textContent,
+      defaultScale,minimum,maximum,restored:scale.textContent,
+      scrollable:viewport.scrollHeight>viewport.clientHeight,
+    };
+  })()`);
+  assert.equal(pdfState.exists, true, 'PDF should open in the continuous document viewport');
+  assert.equal(pdfState.pageCount, 4, 'the shopping guide PDF should represent all four pages');
+  assert.equal(pdfState.immediateVisible, true, 'the PDF cover should be visible immediately');
+  assert.ok(pdfState.initialSources < pdfState.pageCount, 'later PDF pages should not all load immediately');
+  assert.equal(pdfState.scrollable, true, 'the PDF viewport should scroll vertically without changing dialog size');
+  assert.equal(pdfState.position, '第 2 / 4 页', 'PDF status should track the visible page while scrolling');
+  assert.equal(pdfState.minimum, '10%', 'PDF should stop shrinking at 10%');
+  assert.equal(pdfState.maximum, '200%', 'PDF should stop enlarging at 200%');
+  assert.equal(pdfState.restored, pdfState.defaultScale, 'PDF Fit should restore its initial suitable scale');
 } finally {
   try { ws?.close(); } catch {}
   browser.kill();
   browser.unref();
   await sleep(300);
   try { await rm(profile, { recursive: true, force: true, maxRetries: 4, retryDelay: 150 }); } catch {}
+  await new Promise(resolve => server.close(resolve));
 }
 
 const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif']);

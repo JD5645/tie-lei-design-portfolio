@@ -147,11 +147,11 @@ try {
   await sleep(320);
   await evaluate(`document.querySelector('a[data-type="pdf"]').click()`);
   await sleep(360);
-  const pdf = await evaluate(`({kind:document.getElementById('image-dialog').dataset.kind,position:document.getElementById('dialog-position').textContent,source:document.getElementById('dialog-image').getAttribute('src'),naturalWidth:document.getElementById('dialog-image').naturalWidth,renderedWidth:document.getElementById('dialog-image').getBoundingClientRect().width,original:document.getElementById('dialog-original').href.endsWith('.pdf')})`);
+  const pdf = await evaluate(`(()=>{const viewport=document.getElementById('dialog-pdf');const pages=[...viewport.querySelectorAll('.dialog-pdf-page')];const image=pages[0]?.querySelector('img');return {kind:document.getElementById('image-dialog').dataset.kind,position:document.getElementById('dialog-position').textContent,source:image?.getAttribute('src'),naturalWidth:image?.naturalWidth,renderedWidth:image?.getBoundingClientRect().width,original:document.getElementById('dialog-original').href.endsWith('.pdf'),pageCount:pages.length,initialSources:pages.filter(page=>page.querySelector('img')?.getAttribute('src')).length,scrollable:viewport.scrollHeight>viewport.clientHeight}})()`);
   await screenshot('viewer-pdf');
-  await evaluate(`document.getElementById('dialog-next').click()`);
+  await evaluate(`(()=>{const viewport=document.getElementById('dialog-pdf');const page=viewport.querySelectorAll('.dialog-pdf-page')[1];if(!page)return;viewport.scrollTop=page.offsetTop;viewport.dispatchEvent(new Event('scroll'))})()`);
   await sleep(280);
-  const pdfNext = await evaluate(`({position:document.getElementById('dialog-position').textContent,naturalWidth:document.getElementById('dialog-image').naturalWidth,scale:document.getElementById('dialog-scale').textContent})`);
+  const pdfNext = await evaluate(`(()=>{const page=document.querySelectorAll('.dialog-pdf-page')[1];const image=page?.querySelector('img');return {position:document.getElementById('dialog-position').textContent,naturalWidth:image?.naturalWidth,scale:document.getElementById('dialog-scale').textContent}})()`);
   await evaluate(`document.getElementById('dialog-close').click()`);
   await sleep(320);
   await evaluate(`document.querySelector('.package-grid .feature-picture').click()`);
@@ -249,8 +249,11 @@ try {
   assert.notEqual(brandDrag.transform, brandZoom.transform);
   assert.equal(brandReset.scale, brandFit.scale);
   assert.equal(pdf.kind, 'pdf');
-  assert.equal(pdf.position, '1 / 28');
-  assert.equal(pdfNext.position, '2 / 28');
+  assert.equal(pdf.position, '第 1 / 28 页');
+  assert.equal(pdf.pageCount, 28);
+  assert.ok(pdf.initialSources < pdf.pageCount);
+  assert.equal(pdf.scrollable, true);
+  assert.equal(pdfNext.position, '第 2 / 28 页');
   assert.equal(packageImage.kind, 'image');
   assert.equal(video.kind, 'video');
   assert.notEqual(videoAfterDrag, videoBeforeDrag);

@@ -2,6 +2,8 @@ const attachmentDialog = document.getElementById('image-dialog');
 const attachmentStage = document.getElementById('dialog-stage');
 const attachmentImage = document.getElementById('dialog-image');
 const attachmentVideo = document.getElementById('dialog-video');
+const attachmentPdf = document.getElementById('dialog-pdf');
+const attachmentPdfDocument = document.getElementById('dialog-pdf-document');
 const attachmentSheet = document.getElementById('dialog-sheet');
 const attachmentLabel = document.getElementById('dialog-label');
 const attachmentOriginal = document.getElementById('dialog-original');
@@ -32,11 +34,38 @@ function previewFor(element) {
 }
 
 const warmedAttachments = new Set();
+const sheetHtmlCache = new Map();
+
+function prepareSheetHtml(html, url) {
+  const base = new URL('.', new URL(url, document.baseURI)).href.replace(/"/g, '&quot;');
+  const baseTag = `<base href="${base}">`;
+  return /<head(?:\s[^>]*)?>/i.test(html)
+    ? html.replace(/<head(?:\s[^>]*)?>/i, match => `${match}${baseTag}`)
+    : `${baseTag}${html}`;
+}
+
+function warmSheet(url) {
+  const absolute = new URL(url, document.baseURI).href;
+  if (sheetHtmlCache.has(absolute)) return sheetHtmlCache.get(absolute);
+  const request = fetch(absolute, { cache: 'force-cache', credentials: 'same-origin' })
+    .then(response => {
+      if (!response.ok) throw new Error(`Sheet preview request failed: ${response.status}`);
+      return response.text();
+    })
+    .then(html => prepareSheetHtml(html, absolute))
+    .catch(error => {
+      sheetHtmlCache.delete(absolute);
+      throw error;
+    });
+  sheetHtmlCache.set(absolute, request);
+  return request;
+}
+
 function warmAttachment(item) {
   if (!item || item.kind === 'video' || warmedAttachments.has(item.url)) return;
   warmedAttachments.add(item.url);
   if (item.kind === 'sheet') {
-    fetch(item.url, { cache: 'force-cache', credentials: 'same-origin' }).catch(() => {});
+    if (new URL(item.url, document.baseURI).protocol !== 'file:') warmSheet(item.url).catch(() => {});
     return;
   }
   const image = new Image();
@@ -54,6 +83,46 @@ function warmOnIntent(element, getItem) {
   element.addEventListener('pointerenter', warm, { passive: true });
   element.addEventListener('focus', warm, { passive: true });
   element.addEventListener('touchstart', warm, { passive: true, once: true });
+}
+
+const sheetItems = new WeakMap();
+const nearbySheetElements = new Set();
+let sheetPrefetchFrame = 0;
+
+function warmNearestSheet() {
+  sheetPrefetchFrame = 0;
+  const center = innerHeight / 2;
+  const nearest = [...nearbySheetElements]
+    .filter(element => element.isConnected)
+    .sort((left, right) => {
+      const leftBounds = left.getBoundingClientRect();
+      const rightBounds = right.getBoundingClientRect();
+      const leftDistance = Math.abs((leftBounds.top + leftBounds.bottom) / 2 - center);
+      const rightDistance = Math.abs((rightBounds.top + rightBounds.bottom) / 2 - center);
+      return leftDistance - rightDistance;
+    })[0];
+  if (!nearest) return;
+  nearbySheetElements.delete(nearest);
+  sheetPrefetchObserver?.unobserve(nearest);
+  warmAttachment(sheetItems.get(nearest));
+}
+
+const sheetPrefetchObserver = 'IntersectionObserver' in window
+  ? new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) nearbySheetElements.add(entry.target);
+      else nearbySheetElements.delete(entry.target);
+    }
+    if (nearbySheetElements.size && !sheetPrefetchFrame) {
+      sheetPrefetchFrame = requestAnimationFrame(warmNearestSheet);
+    }
+  }, { rootMargin: '600px 0px' })
+  : null;
+
+function warmSheetNearViewport(element, item) {
+  if (!sheetPrefetchObserver) return;
+  sheetItems.set(element, item);
+  sheetPrefetchObserver.observe(element);
 }
 
 const pdfPreviews = {
@@ -202,7 +271,268 @@ class PanZoom {
   }
 }
 
+class PdfViewport {
+  constructor(viewport, documentElement, onScale, onPage) {
+    this.viewport = viewport;
+    this.documentElement = documentElement;
+    this.onScale = onScale;
+    this.onPage = onPage;
+    this.minScale = .1;
+    this.maxScale = 2;
+    this.scale = 1;
+    this.fitScale = 1;
+    this.fitMode = true;
+    this.active = false;
+    this.token = 0;
+    this.drag = null;
+    this.scrollFrame = 0;
+
+    viewport.addEventListener('wheel', event => {
+      if (!this.active || (!event.ctrlKey && !event.metaKey)) return;
+      event.preventDefault();
+      const delta = Math.max(-240, Math.min(240, event.deltaY));
+      this.zoomAt(Math.exp(-delta * .0016), event.clientX, event.clientY);
+    }, { passive: false });
+
+    viewport.addEventListener('pointerdown', event => {
+      if (!this.active || event.button !== 0 || event.pointerType === 'touch') return;
+      this.drag = {
+        id: event.pointerId,
+        lastX: event.clientX,
+        lastY: event.clientY,
+        startX: event.clientX,
+        startY: event.clientY,
+        moved: false,
+      };
+    });
+    viewport.addEventListener('pointermove', event => {
+      const drag = this.drag;
+      if (!drag || drag.id !== event.pointerId) return;
+      if (!drag.moved && Math.hypot(event.clientX - drag.startX, event.clientY - drag.startY) < 4) return;
+      if (!drag.moved) {
+        drag.moved = true;
+        viewport.setPointerCapture(event.pointerId);
+        viewport.classList.add('is-dragging');
+      }
+      viewport.scrollLeft -= event.clientX - drag.lastX;
+      viewport.scrollTop -= event.clientY - drag.lastY;
+      drag.lastX = event.clientX;
+      drag.lastY = event.clientY;
+      event.preventDefault();
+    });
+    const endDrag = event => {
+      if (this.drag?.id !== event.pointerId) return;
+      this.drag = null;
+      viewport.classList.remove('is-dragging');
+      if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+    };
+    viewport.addEventListener('pointerup', endDrag);
+    viewport.addEventListener('pointercancel', endDrag);
+    viewport.addEventListener('scroll', () => {
+      if (!this.active || this.scrollFrame) return;
+      this.scrollFrame = requestAnimationFrame(() => {
+        this.scrollFrame = 0;
+        this.updatePage();
+      });
+    }, { passive: true });
+
+    new ResizeObserver(() => {
+      if (!this.active) return;
+      if (this.fitMode) this.fit(false);
+      else this.updatePage();
+    }).observe(viewport);
+  }
+
+  clear() {
+    this.active = false;
+    ++this.token;
+    this.observer?.disconnect();
+    this.observer = null;
+    if (this.scrollFrame) cancelAnimationFrame(this.scrollFrame);
+    this.scrollFrame = 0;
+    this.drag = null;
+    this.pages = [];
+    this.pageElements = [];
+    this.naturalWidth = 0;
+    this.naturalHeight = 0;
+    this.scale = 1;
+    this.fitScale = 1;
+    this.fitMode = true;
+    this.viewport.classList.remove('is-dragging');
+    this.viewport.hidden = true;
+    this.viewport.scrollLeft = 0;
+    this.viewport.scrollTop = 0;
+    this.documentElement.style.width = '';
+    this.documentElement.replaceChildren();
+  }
+
+  open(item) {
+    this.clear();
+    const token = ++this.token;
+    this.active = true;
+    this.pages = item.pages || [];
+    this.viewport.hidden = false;
+    const fragment = document.createDocumentFragment();
+
+    this.pageElements = this.pages.map((page, index) => {
+      const figure = document.createElement('figure');
+      figure.className = 'dialog-pdf-page';
+      figure.dataset.page = String(index + 1);
+      const image = document.createElement('img');
+      image.alt = `${item.label} · 第 ${index + 1} 页`;
+      image.draggable = false;
+      if (page.preview) {
+        const previewReady = () => {
+          if (token !== this.token || !image.naturalWidth) return;
+          figure.classList.add('is-loaded');
+          figure.style.setProperty('--pdf-page-ratio', `${image.naturalWidth}/${image.naturalHeight}`);
+        };
+        image.addEventListener('load', previewReady, { once: true });
+        image.src = page.preview;
+        if (image.complete) queueMicrotask(previewReady);
+      }
+      figure.append(image);
+      fragment.append(figure);
+      return figure;
+    });
+    this.documentElement.replaceChildren(fragment);
+    this.viewport.scrollLeft = 0;
+    this.viewport.scrollTop = 0;
+    this.onPage(1, this.pages.length);
+    this.onScale(this.scale);
+
+    this.observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const index = this.pageElements.indexOf(entry.target);
+        if (index >= 0) this.loadPage(index, token);
+      }
+    }, { root: this.viewport, rootMargin: '45% 0px', threshold: .01 });
+    this.pageElements.forEach(page => this.observer.observe(page));
+    this.loadPage(0, token);
+    requestAnimationFrame(() => {
+      if (token === this.token) this.fit(true);
+    });
+  }
+
+  loadPage(index, token = this.token) {
+    const page = this.pages[index];
+    const element = this.pageElements[index];
+    if (!page || !element || element.dataset.state === 'loading' || element.dataset.state === 'loaded') return;
+    element.dataset.state = 'loading';
+    element.classList.add('is-loading');
+    const loader = new Image();
+    loader.decoding = 'async';
+    loader.onload = async () => {
+      try { await loader.decode(); } catch {}
+      if (token !== this.token || !this.active) return;
+      const visible = element.querySelector('img');
+      visible.src = loader.src;
+      element.dataset.state = 'loaded';
+      element.classList.remove('is-loading', 'is-error');
+      element.classList.add('is-loaded');
+      element.style.setProperty('--pdf-page-ratio', `${loader.naturalWidth}/${loader.naturalHeight}`);
+      if (!this.naturalWidth) {
+        this.naturalWidth = loader.naturalWidth;
+        this.naturalHeight = loader.naturalHeight;
+        const pageRatio = `${loader.naturalWidth}/${loader.naturalHeight}`;
+        this.pageElements.forEach(pageElement => pageElement.style.setProperty('--pdf-page-ratio', pageRatio));
+        this.fit(this.viewport.scrollTop < 4);
+      }
+      if (index === 0) attachmentStage.dataset.loading = '';
+      this.updatePage();
+    };
+    loader.onerror = () => {
+      if (token !== this.token || !this.active) return;
+      element.dataset.state = 'error';
+      element.classList.remove('is-loading');
+      if (!element.querySelector('img')?.getAttribute('src')) element.classList.add('is-error');
+      if (index === 0) {
+        attachmentStage.dataset.loading = '';
+        if (!element.querySelector('img')?.getAttribute('src')) attachmentStage.dataset.error = 'PDF 首页无法加载';
+      }
+    };
+    loader.src = page.url;
+  }
+
+  fit(resetScroll = false) {
+    if (!this.active) return;
+    const width = Math.max(1, this.viewport.clientWidth - 28);
+    if (!this.naturalWidth) {
+      this.documentElement.style.width = `${width}px`;
+      this.fitScale = 1;
+      this.scale = 1;
+      this.fitMode = true;
+      this.onScale(this.scale);
+      return;
+    }
+    const next = Math.max(this.minScale, Math.min(width / this.naturalWidth, 1.5, this.maxScale));
+    this.setScale(next, undefined, undefined, true);
+    this.fitScale = next;
+    this.fitMode = true;
+    if (resetScroll) {
+      this.viewport.scrollLeft = 0;
+      this.viewport.scrollTop = 0;
+    }
+    this.updatePage();
+  }
+
+  zoomAt(factor, clientX, clientY) {
+    if (!this.active || !this.naturalWidth) return;
+    const next = Math.max(this.minScale, Math.min(this.maxScale, this.scale * factor));
+    this.setScale(next, clientX, clientY, false);
+  }
+
+  setScale(next, clientX, clientY, fitMode) {
+    if (!this.active || !this.naturalWidth || Math.abs(next - this.scale) < .0001) {
+      if (fitMode) this.fitMode = true;
+      this.onScale(this.scale);
+      return;
+    }
+    const bounds = this.viewport.getBoundingClientRect();
+    const pointerX = (clientX ?? bounds.left + bounds.width / 2) - bounds.left;
+    const pointerY = (clientY ?? bounds.top + bounds.height / 2) - bounds.top;
+    const contentX = this.viewport.scrollLeft + pointerX;
+    const contentY = this.viewport.scrollTop + pointerY;
+    const ratio = next / this.scale;
+    this.scale = next;
+    this.fitMode = fitMode;
+    this.documentElement.style.width = `${this.naturalWidth * next}px`;
+    this.viewport.scrollLeft = contentX * ratio - pointerX;
+    this.viewport.scrollTop = contentY * ratio - pointerY;
+    this.onScale(this.scale);
+    this.updatePage();
+  }
+
+  updatePage() {
+    if (!this.active || !this.pageElements.length) return;
+    const viewportBounds = this.viewport.getBoundingClientRect();
+    const focusY = viewportBounds.top + viewportBounds.height / 2;
+    let visibleIndex = 0;
+    let closest = Number.POSITIVE_INFINITY;
+    this.pageElements.forEach((page, index) => {
+      const bounds = page.getBoundingClientRect();
+      const distance = focusY < bounds.top
+        ? bounds.top - focusY
+        : focusY > bounds.bottom
+          ? focusY - bounds.bottom
+          : 0;
+      if (distance < closest) {
+        closest = distance;
+        visibleIndex = index;
+      }
+    });
+    this.onPage(visibleIndex + 1, this.pageElements.length);
+  }
+}
+
 const panZoom = new PanZoom(attachmentStage, scale => { attachmentScale.textContent = `${Math.round(scale * 100)}%`; });
+const pdfViewport = new PdfViewport(
+  attachmentPdf,
+  attachmentPdfDocument,
+  scale => { attachmentScale.textContent = `${Math.round(scale * 100)}%`; },
+  (page, total) => { attachmentPosition.textContent = `第 ${page} / ${total} 页`; },
+);
 let attachmentItems = [];
 let attachmentIndex = 0;
 let renderVersion = 0;
@@ -220,8 +550,6 @@ function renderAttachment() {
   const item = attachmentItems[attachmentIndex];
   if (!item) return;
   const version = ++renderVersion;
-  const previousKind = attachmentDialog.dataset.kind;
-  const retainedPdfPage = previousKind === 'pdf' && !attachmentImage.hidden ? attachmentImage.src : '';
   attachmentDialog.dataset.kind = item.kind;
   attachmentLabel.textContent = item.label;
   attachmentOriginal.href = item.original || item.url;
@@ -229,6 +557,7 @@ function renderAttachment() {
   previousAttachment.disabled = attachmentItems.length < 2;
   nextAttachment.disabled = attachmentItems.length < 2;
   panZoom.clear();
+  pdfViewport.clear();
   attachmentStage.dataset.loading = 'true';
   attachmentStage.dataset.error = '';
   attachmentImage.hidden = true;
@@ -239,13 +568,29 @@ function renderAttachment() {
   attachmentVideo.removeAttribute('poster');
   attachmentVideo.load();
   if (attachmentSheet.getAttribute('src')) attachmentSheet.removeAttribute('src');
+  if (attachmentSheet.getAttribute('srcdoc')) attachmentSheet.removeAttribute('srcdoc');
 
+  if (item.kind === 'pdf') {
+    attachmentStage.dataset.loading = item.preview ? 'preview' : 'true';
+    pdfViewport.open(item);
+    return;
+  }
   if (item.kind === 'sheet') {
     attachmentScale.textContent = '100%';
     attachmentSheet.hidden = false;
     attachmentSheet.onload = () => { if (version === renderVersion) attachmentStage.dataset.loading = ''; };
     attachmentSheet.onerror = () => { if (version === renderVersion) attachmentStage.dataset.error = '表格预览无法加载'; };
-    attachmentSheet.src = item.url;
+    if (new URL(item.url, document.baseURI).protocol === 'file:') {
+      attachmentSheet.src = item.url;
+      return;
+    }
+    warmSheet(item.url).then(html => {
+      if (version !== renderVersion) return;
+      attachmentSheet.srcdoc = html;
+    }).catch(() => {
+      if (version !== renderVersion) return;
+      attachmentSheet.src = item.url;
+    });
     return;
   }
   if (item.kind === 'video') {
@@ -287,7 +632,7 @@ function renderAttachment() {
 
   attachmentImage.hidden = false;
   attachmentImage.alt = item.label;
-  const placeholder = item.preview || (item.kind === 'pdf' ? retainedPdfPage : '');
+  const placeholder = item.preview || '';
   let visibleLoad = 0;
   const showVisibleSource = (url, final) => {
     const load = ++visibleLoad;
@@ -364,12 +709,14 @@ attachmentDialog.addEventListener('close', () => {
   attachmentDialog.classList.remove('is-closing');
   ++renderVersion;
   panZoom.clear();
+  pdfViewport.clear();
   attachmentVideo.pause();
   attachmentVideo.removeAttribute('src');
   attachmentVideo.removeAttribute('poster');
   attachmentVideo.load();
   attachmentImage.removeAttribute('src');
   attachmentSheet.removeAttribute('src');
+  attachmentSheet.removeAttribute('srcdoc');
 });
 attachmentDialog.addEventListener('click', event => { if (event.target === attachmentDialog) closeAttachment(); });
 document.getElementById('dialog-close').addEventListener('click', closeAttachment);
@@ -377,11 +724,16 @@ previousAttachment.addEventListener('click', () => stepAttachment(-1));
 nextAttachment.addEventListener('click', () => stepAttachment(1));
 document.getElementById('dialog-fit').addEventListener('click', () => {
   if (attachmentDialog.dataset.kind === 'sheet') attachmentSheet.contentWindow?.postMessage({ type: 'portfolio-sheet-control', action: 'fit' }, '*');
+  else if (attachmentDialog.dataset.kind === 'pdf') pdfViewport.fit(false);
   else panZoom.fit();
 });
 for (const [id, factor] of [['dialog-zoom-out', 1 / 1.2], ['dialog-zoom-in', 1.2]]) {
   document.getElementById(id).addEventListener('click', () => {
     if (attachmentDialog.dataset.kind === 'sheet') attachmentSheet.contentWindow?.postMessage({ type: 'portfolio-sheet-control', action: 'zoom', factor }, '*');
+    else if (attachmentDialog.dataset.kind === 'pdf') {
+      const bounds = attachmentPdf.getBoundingClientRect();
+      pdfViewport.zoomAt(factor, bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
+    }
     else {
       const bounds = attachmentStage.getBoundingClientRect();
       panZoom.zoomAt(factor, bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
@@ -394,7 +746,7 @@ addEventListener('message', event => {
   if (event.data?.type === 'portfolio-sheet-close') closeAttachment();
 });
 document.addEventListener('keydown', event => {
-  if (!attachmentDialog.open || attachmentDialog.dataset.kind === 'video' || attachmentDialog.dataset.kind === 'sheet') return;
+  if (!attachmentDialog.open || attachmentDialog.dataset.kind === 'video' || attachmentDialog.dataset.kind === 'sheet' || attachmentDialog.dataset.kind === 'pdf') return;
   if (event.key === 'ArrowLeft') { event.preventDefault(); stepAttachment(-1); }
   if (event.key === 'ArrowRight') { event.preventDefault(); stepAttachment(1); }
 });
@@ -463,15 +815,21 @@ for (const anchor of document.querySelectorAll('a[href]')) {
     const preview = pdfPreviews[anchor.dataset.source];
     if (!preview) continue;
     const cover = previewFor(anchor);
-    const items = Array.from({ length: preview.pages }, (_, index) => ({
-      kind: 'pdf',
+    const pages = Array.from({ length: preview.pages }, (_, index) => ({
       url: `assets/pdf-pages/${preview.folder}/page-${String(index + 1).padStart(preview.digits, '0')}.jpg`,
-      label: `${labelFor(anchor)} · 第 ${index + 1} 页`,
-      original: anchor.href,
+      page: index + 1,
       preview: index === 0 ? cover : '',
     }));
-    warmOnIntent(anchor, () => items[0]);
-    anchor.addEventListener('click', event => { event.preventDefault(); openAttachments(items); });
+    item = {
+      kind: 'pdf',
+      url: pages[0].url,
+      pages,
+      label: labelFor(anchor),
+      original: anchor.href,
+      preview: cover,
+    };
+    warmOnIntent(anchor, () => item);
+    anchor.addEventListener('click', event => { event.preventDefault(); openAttachments([item]); });
     continue;
   } else if (/\.(mp4|webm)$/.test(pathname)) {
     const container = anchor.closest('figure,article');
@@ -491,6 +849,7 @@ for (const anchor of document.querySelectorAll('a[href]')) {
   }
   if (item) {
     warmOnIntent(anchor, () => item);
+    if (item.kind === 'sheet') warmSheetNearViewport(anchor, item);
     anchor.addEventListener('click', event => { event.preventDefault(); openAttachments([item]); });
   }
 }

@@ -504,7 +504,18 @@ html[data-input="keyboard"] .hero h1,html[data-input="keyboard"] .hero-art{anima
 .dialog-zoom-controls #dialog-fit{padding-inline:12px;font-size:12px;font-weight:800}
 .dialog-zoom-controls output{display:inline-block;min-width:53px;text-align:center;color:var(--orange);font-size:12px;font-weight:800}
 .dialog-bottom button:disabled{opacity:.35;cursor:default}
-.image-dialog[data-kind="video"] #dialog-prev,.image-dialog[data-kind="video"] #dialog-next,.image-dialog[data-kind="sheet"] #dialog-prev,.image-dialog[data-kind="sheet"] #dialog-next{visibility:hidden}
+.image-dialog[data-kind="video"] #dialog-prev,.image-dialog[data-kind="video"] #dialog-next,.image-dialog[data-kind="sheet"] #dialog-prev,.image-dialog[data-kind="sheet"] #dialog-next,.image-dialog[data-kind="pdf"] #dialog-prev,.image-dialog[data-kind="pdf"] #dialog-next{visibility:hidden}
+.dialog-pdf{position:absolute;inset:0;overflow:auto;overscroll-behavior:contain;scrollbar-color:#73796e #171a17;touch-action:pan-x pan-y;cursor:grab;-webkit-overflow-scrolling:touch}
+.dialog-pdf[hidden]{display:none}
+.dialog-pdf.is-dragging{cursor:grabbing;user-select:none}
+.dialog-pdf-document{width:calc(100% - 28px);margin:14px auto;display:grid;gap:16px;transform-origin:top center}
+.dialog-pdf-page{position:relative;width:100%;margin:0;overflow:hidden;aspect-ratio:var(--pdf-page-ratio,4/3);background:#e8e8e5;box-shadow:0 8px 30px #0008}
+.dialog-stage .dialog-pdf-page img{position:static;display:block;width:100%;height:auto;max-width:none;max-height:none;object-fit:contain;transform:none;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.dialog-pdf-page:not(.is-loaded)::before{content:'第 ' attr(data-page) ' 页';position:absolute;inset:0;display:grid;place-items:center;color:#5f645d;font-size:12px;letter-spacing:.08em}
+.dialog-pdf-page.is-loading::after{content:'加载中…';position:absolute;right:10px;bottom:10px;padding:7px 9px;background:#111311e8;border:1px solid #5e6257;color:#d7d9d2;font-size:10px;line-height:1}
+.dialog-pdf-page.is-error::after{content:'本页加载失败';position:absolute;inset:0;display:grid;place-items:center;background:#e8e8e5;color:#7a2d1b;font-size:12px}
+.dialog-pdf-page.is-loaded{aspect-ratio:auto}
+.image-dialog[data-kind="pdf"] .dialog-stage{cursor:default;touch-action:auto}
 @media(max-width:760px){
   .image-dialog[open]{grid-template-rows:54px minmax(0,1fr) 94px}
   .dialog-top{height:54px}
@@ -513,4 +524,5 @@ html[data-input="keyboard"] .hero h1,html[data-input="keyboard"] .hero-art{anima
   #dialog-position{grid-column:2;grid-row:1;justify-self:center;font-size:11px}
   #dialog-next{grid-column:3;grid-row:1}
   .dialog-zoom-controls{grid-column:1/-1;grid-row:2;justify-self:center}
+  .dialog-pdf-document{width:calc(100% - 10px);margin:5px auto;gap:8px}
 }
